@@ -1,0 +1,9 @@
+Images#index
+<br>
+<br>
+
+<% @images.map do |image| %>
+<h4>Image ID: <%= image.id %></h4>
+<h4>User ID: <%= image.user_id %></h4>
+<h4>Caption: <%= image.caption %></h4>
+<% end %>
