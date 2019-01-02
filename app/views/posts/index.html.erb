@@ -1,0 +1,8 @@
+Posts#index
+<br>
+<br>
+
+<% @posts.map do |post| %>
+<h4>Post ID: <%= post.id %></h4>
+<%= image_tag post.image.url(:medium) %>
+<% end %>
