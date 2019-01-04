@@ -1,8 +1,11 @@
 <h1>Encode Image</h1>
-<%= image_tag @post.image.url(:medium) %><br>
+<%= image_tag @post.image.url(:original) %><br>
+<!-- TODO:  Change to original size accross all files-->
+
 <br>
-<form action='/post' method=''>
-  <label for='encode_image'>Enter message: <label/>
-    <input id="encode_image" type='text' >
-    <input type='submit' >
-</form>
+
+<%= form_tag(encrypt_image_url(@post), method: :patch) do -%>
+  <label for='encrypt_image'>Enter message: <label/>
+  <input id="encrypt_image" type='text' name='message' >
+  <div><%= submit_tag 'Save' %></div>
+<% end -%>
