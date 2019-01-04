@@ -14,4 +14,11 @@ class PagesController < ApplicationController
     redirect_to @post
   end
 
+  def decrypt
+    @post = Post.find(params[:id])
+    image = ImageManipulator.new(@post.image.path)
+    image.decode(@post.image.path)
+    # redirect_to
+  end
+
 end
