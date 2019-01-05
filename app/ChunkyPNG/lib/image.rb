@@ -92,7 +92,7 @@ class ImageManipulator
       message_in_binary = [results[0..-1].join("")]
       decoded_text = binary_to_text(message_in_binary)
       end_idx = decoded_text.rindex("\'")
-      puts decoded_text[1...end_idx]
+      decoded_text[1...end_idx]
   end
 
 end

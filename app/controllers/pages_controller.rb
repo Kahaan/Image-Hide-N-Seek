@@ -17,8 +17,8 @@ class PagesController < ApplicationController
   def decrypt
     @post = Post.find(params[:id])
     image = ImageManipulator.new(@post.image.path)
-    image.decode(@post.image.path)
-    # redirect_to
+    @message = image.decode_message(@post.image.path)
+    render :decode
   end
 
 end
