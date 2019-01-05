@@ -6,4 +6,5 @@ Posts#index
 <h4>Post ID: <%= post.id %></h4>
 <%= image_tag post.image.url(:medium) %>
 <%= link_to "View image", post %>
+<%= link_to "Delete", post_url(post), method: :delete %>
 <% end %>
