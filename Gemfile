@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'paperclip', '~> 5.2.0'
 gem 'chunky_png'
 gem 'rspec'
+gem 'bcrypt'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
