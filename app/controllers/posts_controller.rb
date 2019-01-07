@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  
+
   def new
     @post = Post.new
   end
@@ -7,6 +7,8 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
+      image = ImageManipulator.new(@post.image.path)
+      image.encode("no message yet", @post.image.path)
       redirect_to @post
     else
       render @post.errors.full_messages
