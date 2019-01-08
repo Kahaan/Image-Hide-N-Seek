@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
-  get 'sessions/new'
   root 'posts#index'
   resources :posts
   resource :users
+  resource :session
 
 
   get 'posts/:id/encode', to: 'pages#encode_view', as: 'encode_image'
