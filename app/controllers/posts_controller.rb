@@ -1,3 +1,5 @@
+require_relative '../ChunkyPNG/lib/image.rb'
+
 class PostsController < ApplicationController
 
   def new
