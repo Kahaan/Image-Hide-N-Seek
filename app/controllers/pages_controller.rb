@@ -2,6 +2,8 @@ require_relative '../ChunkyPNG/lib/image.rb'
 
 class PagesController < ApplicationController
 
+  before_action :require_current_user!
+
   def encode_view
     @post = Post.find(params[:id])
     render :encode

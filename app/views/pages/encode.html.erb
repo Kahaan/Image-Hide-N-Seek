@@ -6,6 +6,6 @@
 
 <%= form_tag(encrypt_image_url(@post), method: :patch) do -%>
   <label for='encrypt_image'>Enter message: <label/>
-  <input id="encrypt_image" type='text' name='message' >
+  <input id="encrypt_image" type='textarea' name='message' >
   <div><%= submit_tag 'Save' %></div>
 <% end -%>
