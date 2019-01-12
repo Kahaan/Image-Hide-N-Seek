@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    
+
     if @post.save
       image = ImageManipulator.new(@post.image.path)
       image.encode("no message yet", @post.image.path)
@@ -42,7 +42,7 @@ class PostsController < ApplicationController
 
 
   def post_params
-    params.require(:post).permit(:image)
+    params.require(:post).permit(:image, :body)
   end
 
 end

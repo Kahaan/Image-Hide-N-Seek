@@ -2,6 +2,11 @@
 
 <%= form_for @post, html: { multipart: true } do |form| %>
   <%= form.label :image %>
-  <%= form.file_field :image %>
+  <%= form.file_field :image %><br>
+
+  <%= form.label :body %>
+  <%= form.text_field :body %><br>
+
+
   <%= form.submit %>
 <% end %>
