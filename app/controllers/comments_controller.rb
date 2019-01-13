@@ -14,13 +14,13 @@ class CommentsController < ApplicationController
     end
   end
 
-  def destroy
-    @comment = Comment.find(params[:id])
-    if @comment
-      @comment.destroy
-      render json: @comment
-    end
-  end
+  # def destroy
+  #   @comment = Comment.find(params[:id])
+  #   if @comment
+  #     @comment.destroy
+  #     render json: @comment
+  #   end
+  # end
 
 
   private
