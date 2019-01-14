@@ -4,15 +4,15 @@ class CommentsController < ApplicationController
     @comments = Comments.all
   end
 
-  # def create
-  #   @comment = Comment.new(comment_params)
-  #   @comment.user_id = current_user.id
-  #   if @comment.save
-  #     render json: @comment
-  #   else
-  #     render json: @comment.errors.full_messages
-  #   end
-  # end
+  def create
+    @comment = Comment.new(comment_params)
+    @comment.user_id = current_user.id
+    if @comment.save
+      render json: @comment
+    else
+      render json: @comment.errors.full_messages
+    end
+  end
 
   def destroy
     @comment = Comment.find(params[:id])
