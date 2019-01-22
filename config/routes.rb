@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
 
   resources :posts, defaults: {format: :json}
-  resource :users, defaults: {format: :json}
+  resources :users, defaults: {format: :json}
   resource :session
 
   get 'posts/:id/encode', to: 'pages#encode_view', as: 'encode_image'
