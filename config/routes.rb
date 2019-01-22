@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   # root 'posts#index'
 
+
   resources :posts, defaults: {format: :json}
   resource :users, defaults: {format: :json}
   resource :session, defaults: {format: :json}
