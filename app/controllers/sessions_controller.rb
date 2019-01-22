@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       render json: 'Credentials were wrong'
     else
       login!(user)
-      redirect_to root_url
+      redirect_to '/posts'
     end
   end
 
