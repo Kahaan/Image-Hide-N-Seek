@@ -25,5 +25,10 @@
     json.id post.id
     json.image_url post.image.url(:medium)
     json.user_id post.user_id
+    json.title post.title
+    json.body post.body
+    json.image_file_name post.image_file_name
+    json.image_content_type post.image_content_type
+    json.image_file_size post.image_file_size
   end
 end
