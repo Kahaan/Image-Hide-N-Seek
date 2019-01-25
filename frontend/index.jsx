@@ -4,6 +4,13 @@ import Root from "./components/root";
 import configureStore from "./store/store";
 
 document.addEventListener("DOMContentLoaded", () => {
+  let store;
+  if (window.currentUser) {
+    console.log("the is a curr user");
+  } else {
+    store = configureStore();
+  }
+
   const root = document.getElementById("root");
   ReactDOM.render(<Root store={store} />, root);
 });
