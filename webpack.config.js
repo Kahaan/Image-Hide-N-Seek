@@ -1,5 +1,6 @@
 var path = require("path");
 var webpack = require("webpack");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 var plugins = []; // if using any plugins for both dev and production
 var devPlugins = []; // if using any plugins for development
@@ -9,12 +10,12 @@ var prodPlugins = [
     "process.env": {
       NODE_ENV: JSON.stringify("production")
     }
-  }),
-  new onfig.optimization.minimize({
-    compress: {
-      warnings: true
-    }
   })
+  // new webpack.optimize.UglifyJsPlugin({
+  //   compress: {
+  //     warnings: true
+  //   }
+  // })
 ];
 
 plugins = plugins.concat(
@@ -29,8 +30,15 @@ module.exports = {
     filename: "bundle.js"
   },
   plugins: plugins,
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        test: /\.js(\?.*)?$/i
+      })
+    ]
+  },
   module: {
-    loaders: [
+    rules: [
       {
         test: [/\.jsx?$/, /\.js?$/],
         exclude: /node_modules/,
