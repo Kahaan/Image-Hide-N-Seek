@@ -52,7 +52,6 @@
 
 var path = require("path");
 var webpack = require("webpack");
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 var plugins = []; // if using any plugins for both dev and production
 var devPlugins = []; // if using any plugins for development
@@ -62,11 +61,17 @@ var prodPlugins = [
     "process.env": {
       NODE_ENV: JSON.stringify("production")
     }
+  }),
+  new webpack.optimize.UglifyJsPlugin({
+    compress: {
+      warnings: true
+    }
   })
 ];
 
-let mode = process.env.NODE_ENV;
-plugins = plugins.concat(mode === "production" ? prodPlugins : devPlugins);
+plugins = plugins.concat(
+  process.env.NODE_ENV === "production" ? prodPlugins : devPlugins
+);
 
 module.exports = {
   context: __dirname,
@@ -75,22 +80,20 @@ module.exports = {
     path: path.resolve(__dirname, "app", "assets", "javascripts"),
     filename: "bundle.js"
   },
-  // mode: "production",
+  plugins: plugins,
   module: {
-    rules: [
+    loaders: [
       {
-        test: /\.jsx?$/,
-        exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: "babel-loader",
-          query: {
-            presets: ["@babel/preset-env", "@babel/react"]
-          }
+        test: [/\.jsx?$/, /\.js?$/],
+        exclude: /node_modules/,
+        loader: "babel-loader",
+        query: {
+          presets: ["env", "react"]
         }
       }
     ]
   },
-  devtool: "source-map",
+  devtool: "source-maps",
   resolve: {
     extensions: [".js", ".jsx", "*"]
   }
