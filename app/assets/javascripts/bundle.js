@@ -28363,12 +28363,12 @@ var App = function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var img = Object.keys(this.props.posts).length === 0 ? "" : this.props.posts[1].image_url;
+      var img_url = Object.keys(this.props.posts).length === 0 ? "" : this.props.posts[1].image_url;
       return _react2.default.createElement(
         "div",
         null,
         "App component WORKING!!",
-        _react2.default.createElement("img", { src: img })
+        _react2.default.createElement("img", { src: img_url })
       );
     }
   }]);
@@ -28378,14 +28378,12 @@ var App = function (_React$Component) {
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    // debugger
     posts: state.posts
   };
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
-    // debugger
     fetchPosts: function fetchPosts() {
       return dispatch((0, _post_actions.fetchPosts)());
     },
@@ -28396,8 +28394,6 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(App);
-
-// export default App;
 
 /***/ }),
 /* 274 */

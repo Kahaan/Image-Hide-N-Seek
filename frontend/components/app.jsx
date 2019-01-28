@@ -15,26 +15,24 @@ class App extends React.Component {
   }
 
   render() {
-    const img =
+    const img_url =
       Object.keys(this.props.posts).length === 0
         ? ""
         : this.props.posts[1].image_url;
     return (
       <div>
         App component WORKING!!
-        <img src={img} />
+        <img src={img_url} />
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  // debugger
   posts: state.posts
 });
 
 const mapDispatchToProps = dispatch => ({
-  // debugger
   fetchPosts: () => dispatch(fetchPosts()),
   fetchPost: id => dispatch(fetchPost(id))
 });
@@ -43,5 +41,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(App);
-
-// export default App;
