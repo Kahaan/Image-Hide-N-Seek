@@ -28359,15 +28359,13 @@ var App = function (_React$Component) {
     return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
   }
 
+  // componentDidMount() {
+  //   this.props.fetchPosts();
+  // }
+
   _createClass(App, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.props.fetchPosts();
-    }
-  }, {
     key: "render",
     value: function render() {
-      var img_url = Object.keys(this.props.posts).length === 0 ? "" : this.props.posts[1].image_url;
       return _react2.default.createElement(
         "div",
         null,
@@ -28380,24 +28378,21 @@ var App = function (_React$Component) {
   return App;
 }(_react2.default.Component);
 
-var mapStateToProps = function mapStateToProps(state) {
-  return {
-    posts: state.posts
-  };
-};
+// const mapStateToProps = state => ({
+//   posts: state.posts
+// });
+//
+// const mapDispatchToProps = dispatch => ({
+//   fetchPosts: () => dispatch(fetchPosts()),
+//   fetchPost: id => dispatch(fetchPost(id))
+// });
+//
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(App);
 
-var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-  return {
-    fetchPosts: function fetchPosts() {
-      return dispatch((0, _post_actions.fetchPosts)());
-    },
-    fetchPost: function fetchPost(id) {
-      return dispatch((0, _post_actions.fetchPost)(id));
-    }
-  };
-};
-
-exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(App);
+exports.default = App;
 
 /***/ }),
 /* 274 */
@@ -45772,7 +45767,6 @@ var _post_actions = __webpack_require__(277);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// import { Provider } from "react-redux";
 var mapStateToProps = function mapStateToProps(state) {
   return {
     posts: state.posts

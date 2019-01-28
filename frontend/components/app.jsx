@@ -11,15 +11,11 @@ class App extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
-    this.props.fetchPosts();
-  }
+  // componentDidMount() {
+  //   this.props.fetchPosts();
+  // }
 
   render() {
-    const img_url =
-      Object.keys(this.props.posts).length === 0
-        ? ""
-        : this.props.posts[1].image_url;
     return (
       <div>
         App component WORKING!!
@@ -29,16 +25,18 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  posts: state.posts
-});
+// const mapStateToProps = state => ({
+//   posts: state.posts
+// });
+//
+// const mapDispatchToProps = dispatch => ({
+//   fetchPosts: () => dispatch(fetchPosts()),
+//   fetchPost: id => dispatch(fetchPost(id))
+// });
+//
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(App);
 
-const mapDispatchToProps = dispatch => ({
-  fetchPosts: () => dispatch(fetchPosts()),
-  fetchPost: id => dispatch(fetchPost(id))
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+export default App;
