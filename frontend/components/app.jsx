@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Provider } from "react-redux";
 import { Route, HashRouter, Link, Switch, Redirect } from "react-router-dom";
+import PostIndexContainer from "./posts/post_index_container";
 
 import { fetchPosts, fetchPost } from "../actions/post_actions";
 
@@ -22,7 +23,7 @@ class App extends React.Component {
     return (
       <div>
         App component WORKING!!
-        <img src={img_url} />
+        <PostIndexContainer />
       </div>
     );
   }
