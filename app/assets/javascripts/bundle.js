@@ -45940,7 +45940,7 @@ var PostDetail = function (_React$Component) {
             onRequestClose: this.closeModal,
             style: _modal_style2.default
           },
-          "IT'S A MODAL!"
+          _react2.default.createElement("img", { src: this.props.post.image_url })
         )
       );
     }
@@ -46996,6 +46996,33 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 "use strict";
 
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var style = {
+  overlay: {
+    position: "fixed",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: "rgba(0, 0, 0, 0.75)",
+    zIndex: 10
+  },
+  content: {
+    position: "fixed",
+    margin: "auto",
+    width: "72vw",
+    height: "90vh",
+    border: "1px solid #000",
+    zIndex: 11,
+
+    backgroundColor: "#ffffff"
+  }
+};
+
+exports.default = style;
 
 /***/ })
 /******/ ]);

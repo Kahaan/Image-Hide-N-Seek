@@ -38,7 +38,7 @@ class PostDetail extends React.Component {
           onRequestClose={this.closeModal}
           style={style}
         >
-          IT'S A MODAL!
+          <img src={this.props.post.image_url} />
         </Modal>
       </div>
     );
