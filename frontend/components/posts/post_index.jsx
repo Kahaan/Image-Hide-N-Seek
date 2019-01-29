@@ -1,4 +1,5 @@
 import React from "react";
+import PostDetail from "./post_detail";
 
 class PostIndex extends React.Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class PostIndex extends React.Component {
     return (
       <ul className="post-list">
         {Object.keys(posts).map(key => (
-          <img key={key} src={posts[key].image_url} />
+          <PostDetail key={key} post={posts[key]} />
         ))}
       </ul>
     );

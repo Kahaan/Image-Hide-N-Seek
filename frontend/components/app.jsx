@@ -19,7 +19,9 @@ class App extends React.Component {
     return (
       <div>
         App component WORKING!!
-        <PostIndexContainer />
+        <main className="main">
+          <Route exact path="/home" component={PostIndexContainer} />
+        </main>
       </div>
     );
   }
