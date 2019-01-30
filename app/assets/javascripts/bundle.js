@@ -28340,8 +28340,6 @@ var _post_index_container = __webpack_require__(283);
 
 var _post_index_container2 = _interopRequireDefault(_post_index_container);
 
-var _post_actions = __webpack_require__(277);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -28349,6 +28347,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+// import { fetchPosts, fetchPost } from "../actions/post_actions";
 
 var App = function (_React$Component) {
   _inherits(App, _React$Component);
@@ -28385,7 +28385,7 @@ var App = function (_React$Component) {
 // const mapStateToProps = state => ({
 //   posts: state.posts
 // });
-//
+
 // const mapDispatchToProps = dispatch => ({
 //   fetchPosts: () => dispatch(fetchPosts()),
 //   fetchPost: id => dispatch(fetchPost(id))
@@ -28453,8 +28453,11 @@ var _redux = __webpack_require__(61);
 
 var _posts_reducer = __webpack_require__(276);
 
+var _comments_reducer = __webpack_require__(298);
+
 var rootReducer = (0, _redux.combineReducers)({
-  posts: _posts_reducer.postsReducer
+  posts: _posts_reducer.postsReducer,
+  comments: _comments_reducer.commentsReducer
 });
 
 exports.default = rootReducer;
@@ -47023,6 +47026,137 @@ var style = {
 };
 
 exports.default = style;
+
+/***/ }),
+/* 298 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _comment_actions = __webpack_require__(299);
+
+var _lodash = __webpack_require__(279);
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var commentsReducer = function commentsReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments[1];
+
+  Object.freeze(state);
+
+  switch (ction.type) {
+    case _comment_actions.RECEIVE_COMMENTS:
+      return action.comments;
+    case _comment_actions.RECEIVE_COMMENT:
+      var newComment = _defineProperty({}, action.comment.id, action.comment);
+      return (0, _lodash.merge)({}, state, newComment);
+    case _comment_actions.REMOVE_COMMENT:
+      var newState = (0, _lodash.merge)({}, state);
+      delete newState[action.comment.id];
+      return newState;
+    default:
+      return state;
+  }
+};
+
+exports.default = commentsReducer;
+
+/***/ }),
+/* 299 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.fetchComments = exports.deleteComment = exports.createComment = exports.removeComment = exports.receiveComment = exports.receiveComments = exports.REMOVE_COMMENT = exports.RECEIVE_COMMENT = exports.RECEIVE_COMMENTS = undefined;
+
+var _comments_util = __webpack_require__(300);
+
+var APIUtil = _interopRequireWildcard(_comments_util);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+var RECEIVE_COMMENTS = exports.RECEIVE_COMMENTS = "RECEIVE_COMMENTS";
+var RECEIVE_COMMENT = exports.RECEIVE_COMMENT = "RECEIVE_COMMENT";
+var REMOVE_COMMENT = exports.REMOVE_COMMENT = "REMOVE_COMMENT";
+
+var receiveComments = exports.receiveComments = function receiveComments(comments) {
+  type: RECEIVE_COMMENTS, comments;
+};
+
+var receiveComment = exports.receiveComment = function receiveComment(comment) {
+  type: RECEIVE_COMMENT, comment;
+};
+
+var removeComment = exports.removeComment = function removeComment(comment) {
+  type: REMOVE_COMMENT, comment;
+};
+
+var createComment = exports.createComment = function createComment(comment) {
+  return function (dispatch) {
+    return APIUtil.createComment(comment).then(function (comment) {
+      return dispatch(receiveComment(comment));
+    });
+  };
+};
+
+var deleteComment = exports.deleteComment = function deleteComment(commentId) {
+  return function (dispatch) {
+    return APIUtil.deleteComment(commentId).then(function (comment) {
+      return dispatch(removeComment(comment));
+    });
+  };
+};
+
+var fetchComments = exports.fetchComments = function fetchComments(comment) {
+  return function (dispatch) {
+    return APIUtil.fetchComments(postId).then(function (comments) {
+      return dispatch(receiveComments(comments));
+    });
+  };
+};
+
+/***/ }),
+/* 300 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var createComment = exports.createComment = function createComment(comment) {
+  $.ajax({
+    method: "POST",
+    url: "/comments",
+    data: comment
+  });
+};
+
+var deleteComment = exports.deleteComment = function deleteComment(commentId) {
+  $.ajax({
+    method: "DELETE",
+    url: "comments/" + commentId
+  });
+};
+
+var fetchComments = exports.fetchComments = function fetchComments(data) {
+  $.ajax({
+    method: "GET",
+    url: "/comments",
+    data: data
+  });
+};
 
 /***/ })
 /******/ ]);

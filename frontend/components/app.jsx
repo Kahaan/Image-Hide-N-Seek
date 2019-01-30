@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import { Route, HashRouter, Link, Switch, Redirect } from "react-router-dom";
 import PostIndexContainer from "./posts/post_index_container";
 
-import { fetchPosts, fetchPost } from "../actions/post_actions";
+// import { fetchPosts, fetchPost } from "../actions/post_actions";
 
 class App extends React.Component {
   constructor(props) {
@@ -30,7 +30,7 @@ class App extends React.Component {
 // const mapStateToProps = state => ({
 //   posts: state.posts
 // });
-//
+
 // const mapDispatchToProps = dispatch => ({
 //   fetchPosts: () => dispatch(fetchPosts()),
 //   fetchPost: id => dispatch(fetchPost(id))
