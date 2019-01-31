@@ -2,16 +2,16 @@ class SessionsController < ApplicationController
 
 
   def create
-    user = User.find_by_credentials(
+    @user = User.find_by_credentials(
       params[:user][:username],
       params[:user][:password]
     )
 
-    if user.nil?
-      render json: 'Credentials were wrong'
-    else
-      login!(user)
+    if @user
+      login!(@user)
       redirect_to '/posts'
+    else
+      render (json: ['Credentials were wrong'], status: :401)
     end
   end
 
