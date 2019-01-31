@@ -5,10 +5,9 @@ import {
 } from "../actions/comment_actions";
 import { merge } from "lodash";
 
-const commentsReducer = (state = {}, action) => {
+export const commentsReducer = (state = {}, action) => {
   Object.freeze(state);
-
-  switch (ction.type) {
+  switch (action.type) {
     case RECEIVE_COMMENTS:
       return action.comments;
     case RECEIVE_COMMENT:
@@ -22,5 +21,3 @@ const commentsReducer = (state = {}, action) => {
       return state;
   }
 };
-
-export default commentsReducer;

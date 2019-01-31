@@ -45877,6 +45877,10 @@ var _modal_style = __webpack_require__(297);
 
 var _modal_style2 = _interopRequireDefault(_modal_style);
 
+var _comment_list_container = __webpack_require__(302);
+
+var _comment_list_container2 = _interopRequireDefault(_comment_list_container);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -45943,7 +45947,8 @@ var PostDetail = function (_React$Component) {
             onRequestClose: this.closeModal,
             style: _modal_style2.default
           },
-          _react2.default.createElement("img", { src: this.props.post.image_url })
+          _react2.default.createElement("img", { src: this.props.post.image_url }),
+          _react2.default.createElement(_comment_list_container2.default, { post: this.props.post })
         )
       );
     }
@@ -47037,6 +47042,7 @@ exports.default = style;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.commentsReducer = undefined;
 
 var _comment_actions = __webpack_require__(299);
 
@@ -47044,13 +47050,12 @@ var _lodash = __webpack_require__(279);
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var commentsReducer = function commentsReducer() {
+var commentsReducer = exports.commentsReducer = function commentsReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments[1];
 
   Object.freeze(state);
-
-  switch (ction.type) {
+  switch (action.type) {
     case _comment_actions.RECEIVE_COMMENTS:
       return action.comments;
     case _comment_actions.RECEIVE_COMMENT:
@@ -47064,8 +47069,6 @@ var commentsReducer = function commentsReducer() {
       return state;
   }
 };
-
-exports.default = commentsReducer;
 
 /***/ }),
 /* 299 */
@@ -47090,15 +47093,24 @@ var RECEIVE_COMMENT = exports.RECEIVE_COMMENT = "RECEIVE_COMMENT";
 var REMOVE_COMMENT = exports.REMOVE_COMMENT = "REMOVE_COMMENT";
 
 var receiveComments = exports.receiveComments = function receiveComments(comments) {
-  type: RECEIVE_COMMENTS, comments;
+  return {
+    type: RECEIVE_COMMENTS,
+    comments: comments
+  };
 };
 
 var receiveComment = exports.receiveComment = function receiveComment(comment) {
-  type: RECEIVE_COMMENT, comment;
+  return {
+    type: RECEIVE_COMMENT,
+    comment: comment
+  };
 };
 
 var removeComment = exports.removeComment = function removeComment(comment) {
-  type: REMOVE_COMMENT, comment;
+  return {
+    type: REMOVE_COMMENT,
+    comment: comment
+  };
 };
 
 var createComment = exports.createComment = function createComment(comment) {
@@ -47117,9 +47129,9 @@ var deleteComment = exports.deleteComment = function deleteComment(commentId) {
   };
 };
 
-var fetchComments = exports.fetchComments = function fetchComments(comment) {
+var fetchComments = exports.fetchComments = function fetchComments(postId) {
   return function (dispatch) {
-    return APIUtil.fetchComments(postId).then(function (comments) {
+    APIUtil.fetchComments(postId).then(function (comments) {
       return dispatch(receiveComments(comments));
     });
   };
@@ -47136,7 +47148,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var createComment = exports.createComment = function createComment(comment) {
-  $.ajax({
+  return $.ajax({
     method: "POST",
     url: "/comments",
     data: comment
@@ -47144,19 +47156,125 @@ var createComment = exports.createComment = function createComment(comment) {
 };
 
 var deleteComment = exports.deleteComment = function deleteComment(commentId) {
-  $.ajax({
+  return $.ajax({
     method: "DELETE",
     url: "comments/" + commentId
   });
 };
 
-var fetchComments = exports.fetchComments = function fetchComments(data) {
-  $.ajax({
+var fetchComments = exports.fetchComments = function fetchComments(post_id) {
+  return $.ajax({
     method: "GET",
-    url: "/comments",
-    data: data
+    url: "/posts/" + post_id + "/comments"
   });
 };
+
+/***/ }),
+/* 301 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var CommentList = function (_React$Component) {
+  _inherits(CommentList, _React$Component);
+
+  function CommentList(props) {
+    _classCallCheck(this, CommentList);
+
+    return _possibleConstructorReturn(this, (CommentList.__proto__ || Object.getPrototypeOf(CommentList)).call(this, props));
+  }
+
+  _createClass(CommentList, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var post_id = this.props.post.id;
+      console.log("" + this.props.post);
+      this.props.fetchComments(post_id);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var comments = this.props.comments;
+      return _react2.default.createElement(
+        "ul",
+        null,
+        _react2.default.createElement(
+          "h4",
+          null,
+          "Comments"
+        ),
+        "comments"
+      );
+    }
+  }]);
+
+  return CommentList;
+}(_react2.default.Component);
+
+exports.default = CommentList;
+
+/***/ }),
+/* 302 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(99);
+
+var _comment_list = __webpack_require__(301);
+
+var _comment_list2 = _interopRequireDefault(_comment_list);
+
+var _comment_actions = __webpack_require__(299);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    comments: state.comments
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    fetchComments: function fetchComments(id) {
+      return dispatch((0, _comment_actions.fetchComments)(id));
+    },
+    deleteComment: function deleteComment(id) {
+      return dispatch((0, _comment_actions.deleteComment)(id));
+    }
+  };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_comment_list2.default);
 
 /***/ })
 /******/ ]);

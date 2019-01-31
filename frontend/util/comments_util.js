@@ -1,5 +1,5 @@
 export const createComment = comment => {
-  $.ajax({
+  return $.ajax({
     method: "POST",
     url: "/comments",
     data: comment
@@ -7,16 +7,15 @@ export const createComment = comment => {
 };
 
 export const deleteComment = commentId => {
-  $.ajax({
+  return $.ajax({
     method: "DELETE",
     url: `comments/${commentId}`
   });
 };
 
-export const fetchComments = data => {
-  $.ajax({
+export const fetchComments = post_id => {
+  return $.ajax({
     method: "GET",
-    url: "/comments",
-    data
+    url: `/posts/${post_id}/comments`
   });
 };

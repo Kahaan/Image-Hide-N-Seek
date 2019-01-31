@@ -7,7 +7,8 @@ class User < ApplicationRecord
   validates :session_token, presence: true
 
   has_many :posts, dependent: :destroy
-
+  has_many :comments
+  
   after_initialize :ensure_session_token
 
   def self.generate_session_token

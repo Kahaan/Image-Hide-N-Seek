@@ -1,6 +1,7 @@
 import React from "react";
 import Modal from "react-modal";
 import style from "./modal_style";
+import CommentListContainer from "../comments/comment_list_container";
 
 class PostDetail extends React.Component {
   constructor(props) {
@@ -39,6 +40,8 @@ class PostDetail extends React.Component {
           style={style}
         >
           <img src={this.props.post.image_url} />
+
+          <CommentListContainer post={this.props.post} />
         </Modal>
       </div>
     );

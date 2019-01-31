@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   root "static_pages#root"
 
 
-  resources :posts, defaults: {format: :json}
-  resources :comments, defaults: {format: :json}
+  resources :posts, defaults: {format: :json} do
+    resources :comments, defaults: {format: :json}
+  end
   resources :users, defaults: {format: :json}
   resource :session
 
