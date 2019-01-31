@@ -47207,13 +47207,13 @@ var CommentList = function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       var post_id = this.props.post.id;
-      console.log("" + this.props.post);
       this.props.fetchComments(post_id);
     }
   }, {
     key: "render",
     value: function render() {
       var comments = this.props.comments;
+      console.log(comments);
       return _react2.default.createElement(
         "ul",
         null,
@@ -47222,7 +47222,13 @@ var CommentList = function (_React$Component) {
           null,
           "Comments"
         ),
-        "comments"
+        Object.keys(comments).map(function (key) {
+          return _react2.default.createElement(
+            "li",
+            { key: key },
+            comments[key].body
+          );
+        })
       );
     }
   }]);
