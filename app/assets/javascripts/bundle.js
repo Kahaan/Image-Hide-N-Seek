@@ -28455,9 +28455,12 @@ var _posts_reducer = __webpack_require__(276);
 
 var _comments_reducer = __webpack_require__(298);
 
+var _sessions_reducer = __webpack_require__(303);
+
 var rootReducer = (0, _redux.combineReducers)({
   posts: _posts_reducer.postsReducer,
-  comments: _comments_reducer.commentsReducer
+  comments: _comments_reducer.commentsReducer,
+  session: _sessions_reducer.sessionReducer
 });
 
 exports.default = rootReducer;
@@ -47281,6 +47284,154 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_comment_list2.default);
+
+/***/ }),
+/* 303 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.sessionReducer = undefined;
+
+var _lodash = __webpack_require__(279);
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
+var _session_actions = __webpack_require__(304);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var nullUser = Object.freeze({
+  currentUser: null,
+  errors: []
+});
+
+var sessionReducer = exports.sessionReducer = function sessionReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : nullUser;
+  var action = arguments[1];
+
+  Object.freeze(state);
+  switch (action.type) {
+    case _session_actions.RECEIVE_CURRENT_USER:
+      var currentUser = action.currentUser;
+      return (0, _lodash2.default)({}, state, { currentUser: currentUser });
+    case _session_actions.RECEIVE_ERRORS:
+      var errors = action.errors;
+      return (0, _lodash2.default)({}, state, { errors: errors });
+    case _session_actions.CLEAR_ERRORS:
+      var newState = Object.assign({}, state, { errors: [] });
+      return newState;
+    default:
+      return state;
+  }
+};
+
+/***/ }),
+/* 304 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.logout = exports.login = exports.signup = exports.receiveErrors = exports.receiveCurrentUser = exports.clearErrors = exports.CLEAR_ERRORS = exports.RECEIVE_ERRORS = exports.RECEIVE_CURRENT_USER = undefined;
+
+var _session_util = __webpack_require__(305);
+
+var APIUtil = _interopRequireWildcard(_session_util);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+var RECEIVE_CURRENT_USER = exports.RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
+var RECEIVE_ERRORS = exports.RECEIVE_ERRORS = "RECEIVE_ERRORS";
+var CLEAR_ERRORS = exports.CLEAR_ERRORS = "CLEAR_ERRORS";
+
+var clearErrors = exports.clearErrors = function clearErrors() {
+  return {
+    type: CLEAR_ERRORS
+  };
+};
+
+var receiveCurrentUser = exports.receiveCurrentUser = function receiveCurrentUser(currentUser) {
+  return {
+    type: RECEIVE_CURRENT_USER,
+    currentUser: currentUser
+  };
+};
+
+var receiveErrors = exports.receiveErrors = function receiveErrors(errors) {
+  return {
+    type: RECEIVE_ERRORS,
+    errors: errors
+  };
+};
+
+var signup = exports.signup = function signup(user) {
+  return function (dispatch) {
+    return APIUtil.signup(user).then(function (user) {
+      return dispatch(receiveCurrentUser(user));
+    }, function (err) {
+      return dispatch(receiveErrors(err.responseJSON));
+    });
+  };
+};
+
+var login = exports.login = function login(user) {
+  return function (dispatch) {
+    return APIUtil.login(user).then(function (user) {
+      return dispatch(receiveCurrentUser(user));
+    }, function (err) {
+      return dispatch(receiveErrors(err.responseJSON));
+    });
+  };
+};
+
+var logout = exports.logout = function logout() {
+  return function (dispatch) {
+    return APIUtil.logout().then(function (user) {
+      return dispatch(receiveCurrentUser(null));
+    });
+  };
+};
+
+/***/ }),
+/* 305 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var login = exports.login = function login(user) {
+  return $.ajax({
+    method: "POST",
+    url: "/session",
+    data: { user: user }
+  });
+};
+
+var signup = exports.signup = function signup(user) {
+  return $.ajax({
+    method: "POST",
+    url: "/users",
+    data: { user: user }
+  });
+};
+
+var logout = exports.logout = function logout() {
+  return $.ajax({
+    method: "DELETE",
+    url: "/session"
+  });
+};
 
 /***/ })
 /******/ ]);

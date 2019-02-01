@@ -6,6 +6,11 @@ import {
   CLEAR_ERRORS
 } from "../actions/session_actions";
 
+const nullUser = Object.freeze({
+  currentUser: null,
+  errors: []
+});
+
 export const sessionReducer = (state = nullUser, action) => {
   Object.freeze(state);
   switch (action.type) {
