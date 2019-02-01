@@ -28457,10 +28457,13 @@ var _comments_reducer = __webpack_require__(298);
 
 var _sessions_reducer = __webpack_require__(303);
 
+var _user_reducer = __webpack_require__(306);
+
 var rootReducer = (0, _redux.combineReducers)({
   posts: _posts_reducer.postsReducer,
   comments: _comments_reducer.commentsReducer,
-  session: _sessions_reducer.sessionReducer
+  session: _sessions_reducer.sessionReducer,
+  user: _user_reducer.userReducer
 });
 
 exports.default = rootReducer;
@@ -47432,6 +47435,90 @@ var logout = exports.logout = function logout() {
     url: "/session"
   });
 };
+
+/***/ }),
+/* 306 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.userReducer = undefined;
+
+var _user_actions = __webpack_require__(307);
+
+var _lodash = __webpack_require__(279);
+
+var userReducer = exports.userReducer = function userReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments[1];
+
+  Object.freeze(state);
+  var newState = (0, _lodash.merge)({}, state);
+  switch (action.type) {
+    case _user_actions.RECEIVE_USER:
+      return action.user;
+    default:
+      return newState;
+  }
+};
+
+/***/ }),
+/* 307 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.fetchUser = exports.receiveUser = exports.RECEIVE_USER = undefined;
+
+var _users_util = __webpack_require__(308);
+
+var APIUtil = _interopRequireWildcard(_users_util);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+var RECEIVE_USER = exports.RECEIVE_USER = "RECEIVE_USER";
+
+var receiveUser = exports.receiveUser = function receiveUser(user) {
+  return {
+    type: RECEIVE_USER,
+    user: user
+  };
+};
+
+var fetchUser = exports.fetchUser = function fetchUser(id) {
+  return function (dispatch) {
+    return APIUtil.fetchUser(id).then(function (user) {
+      return dispatch(receiveUser(user));
+    });
+  };
+};
+
+/***/ }),
+/* 308 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var fetchUser = exports.fetchUser = function fetchUser(id) {
+  return $.ajax({
+    method: "GET",
+    url: "users/" + id
+  });
+};
+
+// Setup show route for users/:id
 
 /***/ })
 /******/ ]);
