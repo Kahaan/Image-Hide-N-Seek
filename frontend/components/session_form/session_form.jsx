@@ -3,8 +3,6 @@ import Modal from "react-modal";
 import { Link, withRouter } from "react-router-dom";
 import style from "./modal_style";
 
-import React from "react";
-
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
@@ -146,6 +144,14 @@ class SessionForm extends React.Component {
     this.setState({
       logIn: !this.state.logIn
     });
+  }
+
+  switchButton() {
+    return this.state.logIn ? (
+      <p>Don't have an account? Sign up</p>
+    ) : (
+      <p>Already have an account? Log in</p>
+    );
   }
 
   emailInput() {
