@@ -1,4 +1,9 @@
 
-
+<script id="bootstrap-current-user" type="text/javascript">
+  <% if logged_in? %>
+    window.currentUser = <%= render("users/user.json.jbuilder",
+    user: current_user).html_safe %>
+  <% end %>
+</script>
 
 <main id="root">Static Page View</main>

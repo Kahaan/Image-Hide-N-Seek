@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
     @user = current_user
     if @user
       logout
-      render "api/users/show"
+      redirect_to new_session_url
     else
       render(json: ["Nobody signed in"], status: 404)
     end
