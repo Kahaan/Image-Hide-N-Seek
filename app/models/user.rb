@@ -2,13 +2,14 @@ class User < ApplicationRecord
   attr_reader :password
 
   validates :username, presence: true
+  validates :username, uniqueness: true
   validates :password_digest, presence: { message: 'Password can\'t be blank' }
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :session_token, presence: true
 
   has_many :posts, dependent: :destroy
   has_many :comments
-  
+
   after_initialize :ensure_session_token
 
   def self.generate_session_token

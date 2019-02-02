@@ -10,8 +10,7 @@ class SessionForm extends React.Component {
       username: "",
       email: "",
       password: "",
-      modalOpen: false,
-      login: false
+      modalOpen: false
     };
 
     this.closeModal = this.closeModal.bind(this);
@@ -31,7 +30,7 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = this.state;
-    if (this.state.login) {
+    if (this.state.logIn) {
       this.props.login(user);
     } else {
       this.props.signup(user);
@@ -108,6 +107,7 @@ class SessionForm extends React.Component {
   }
 
   renderErrors() {
+    if (this.props.errors === undefined) return;
     return (
       <div className="session-errors">
         <ul>

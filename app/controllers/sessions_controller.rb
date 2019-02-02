@@ -1,7 +1,11 @@
 class SessionsController < ApplicationController
 
+  def show
+
+  end
 
   def create
+    debugger
     @user = User.find_by_credentials(
       params[:user][:username],
       params[:user][:password]
@@ -17,9 +21,10 @@ class SessionsController < ApplicationController
 
   def destroy
     @user = current_user
+    debugger
     if @user
       logout
-      redirect_to new_session_url
+      # redirect_to '/home'
     else
       render(json: ["Nobody signed in"], status: 404)
     end
