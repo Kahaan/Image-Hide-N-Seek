@@ -1,9 +1,5 @@
 class SessionsController < ApplicationController
 
-  def show
-
-  end
-
   def create
     debugger
     @user = User.find_by_credentials(
