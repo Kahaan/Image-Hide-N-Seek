@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :comments, defaults: {format: :json}
   end
   resources :users, defaults: {format: :json}
-  resource :session, only: [:create, :destroy, :show], defaults: {format: :json}
+  resource :session, only: [:create, :destroy, :show]
 
   get 'posts/:id/encode', to: 'pages#encode_view', as: 'encode_image'
   patch 'posts/:id/encrypt', to: 'pages#encrypt', as: 'encrypt_image'
