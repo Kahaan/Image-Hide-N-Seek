@@ -10,7 +10,8 @@ class SessionForm extends React.Component {
       username: "",
       email: "",
       password: "",
-      modalOpen: false
+      modalOpen: false,
+      logIn: false
     };
 
     this.closeModal = this.closeModal.bind(this);

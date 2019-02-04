@@ -47294,7 +47294,8 @@ var SessionForm = function (_React$Component) {
       username: "",
       email: "",
       password: "",
-      modalOpen: false
+      modalOpen: false,
+      logIn: false
     };
 
     _this.closeModal = _this.closeModal.bind(_this);
