@@ -1,26 +1,24 @@
-class SessionsController < ApplicationController
 
+class SessionsController < ApplicationController
   def create
-    debugger
     @user = User.find_by_credentials(
       params[:user][:username],
       params[:user][:password]
     )
 
     if @user
-      login!(@user)
+      login(@user)
       redirect_to '/posts'
     else
-      render (json: ['Credentials were wrong'], status: :401)
+      render(json: ["Invalid username/password combination"], status: 401)
     end
   end
 
   def destroy
     @user = current_user
-    debugger
     if @user
       logout
-      # redirect_to '/home'
+      render "/home"
     else
       render(json: ["Nobody signed in"], status: 404)
     end
