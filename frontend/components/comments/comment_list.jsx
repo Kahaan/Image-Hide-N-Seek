@@ -5,6 +5,8 @@ import CommentContainer from "../comments/comment_list_container";
 class CommentList extends React.Component {
   constructor(props) {
     super(props);
+    this.deleteComment = this.deleteComment.bind(this);
+    this.deleteCommentButton = this.deleteCommentButton.bind(this);
   }
 
   componentDidMount() {
@@ -13,18 +15,18 @@ class CommentList extends React.Component {
   }
 
   deleteComment(commentId) {
-    e.preventDefault();
+    event.preventDefault();
     this.props.deleteComment(commentId);
   }
 
   deleteCommentButton(comment) {
-    if (this.props.currentUserId === comment.user_id) {
-      return (
-        <button onClick={() => this.deleteComment(comment.id)}>
-          <i className="far fa-trash-alt" />
-        </button>
-      );
-    }
+    // if (this.props.currentUserId === comment.user_id) {
+    return (
+      <button onClick={() => this.deleteComment(comment.id)}>
+        <i className="far fa-trash-alt" />
+      </button>
+    );
+    // }
   }
 
   render() {
@@ -39,7 +41,8 @@ class CommentList extends React.Component {
               <Link to={`users/${comments[key].user_id}`}>
                 {comments[key].username}
               </Link>
-              <div>{comments[key].body}</div>
+              <br />
+              <span>{comments[key].body}</span>
               {this.deleteCommentButton(comments[key])}
             </div>
           </li>

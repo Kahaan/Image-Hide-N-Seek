@@ -47104,7 +47104,11 @@ var CommentList = function (_React$Component) {
   function CommentList(props) {
     _classCallCheck(this, CommentList);
 
-    return _possibleConstructorReturn(this, (CommentList.__proto__ || Object.getPrototypeOf(CommentList)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (CommentList.__proto__ || Object.getPrototypeOf(CommentList)).call(this, props));
+
+    _this.deleteComment = _this.deleteComment.bind(_this);
+    _this.deleteCommentButton = _this.deleteCommentButton.bind(_this);
+    return _this;
   }
 
   _createClass(CommentList, [{
@@ -47116,7 +47120,7 @@ var CommentList = function (_React$Component) {
   }, {
     key: "deleteComment",
     value: function deleteComment(commentId) {
-      e.preventDefault();
+      event.preventDefault();
       this.props.deleteComment(commentId);
     }
   }, {
@@ -47124,15 +47128,15 @@ var CommentList = function (_React$Component) {
     value: function deleteCommentButton(comment) {
       var _this2 = this;
 
-      if (this.props.currentUserId === comment.user_id) {
-        return _react2.default.createElement(
-          "button",
-          { onClick: function onClick() {
-              return _this2.deleteComment(comment.id);
-            } },
-          _react2.default.createElement("i", { className: "far fa-trash-alt" })
-        );
-      }
+      // if (this.props.currentUserId === comment.user_id) {
+      return _react2.default.createElement(
+        "button",
+        { onClick: function onClick() {
+            return _this2.deleteComment(comment.id);
+          } },
+        _react2.default.createElement("i", { className: "far fa-trash-alt" })
+      );
+      // }
     }
   }, {
     key: "render",
@@ -47161,8 +47165,9 @@ var CommentList = function (_React$Component) {
                 { to: "users/" + comments[key].user_id },
                 comments[key].username
               ),
+              _react2.default.createElement("br", null),
               _react2.default.createElement(
-                "div",
+                "span",
                 null,
                 comments[key].body
               ),
