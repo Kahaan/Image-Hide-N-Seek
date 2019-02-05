@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import CommentContainer from "../comments/comment_list_container";
 
 class CommentList extends React.Component {
   constructor(props) {
@@ -16,9 +18,9 @@ class CommentList extends React.Component {
   }
 
   deleteCommentButton(comment) {
-    if (this.props.currentUserId === comment.user.id) {
+    if (this.props.currentUserId === comments[key].user.id) {
       return (
-        <button onClick={() => this.deleteComment(comment.id)}>
+        <button onClick={() => this.deleteComment(comments[key].id)}>
           <i className="far fa-trash-alt" />
         </button>
       );
@@ -37,8 +39,9 @@ class CommentList extends React.Component {
               <Link to={`users/${comments[key].user_id}`}>
                 {comments[key].username}
               </Link>
-              <span>{comments[key].body}</span>
+              <div>{comments[key].body}</div>
             </div>
+            {this.deleteCommentButton(comments[key])}
           </li>
         ))}
       </ul>

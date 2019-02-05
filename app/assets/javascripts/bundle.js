@@ -47084,6 +47084,12 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactRouterDom = __webpack_require__(40);
+
+var _comment_list_container = __webpack_require__(294);
+
+var _comment_list_container2 = _interopRequireDefault(_comment_list_container);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -47118,11 +47124,11 @@ var CommentList = function (_React$Component) {
     value: function deleteCommentButton(comment) {
       var _this2 = this;
 
-      if (this.props.currentUserId === comment.user.id) {
+      if (this.props.currentUserId === comments[key].user.id) {
         return _react2.default.createElement(
           "button",
           { onClick: function onClick() {
-              return _this2.deleteComment(comment.id);
+              return _this2.deleteComment(comments[key].id);
             } },
           _react2.default.createElement("i", { className: "far fa-trash-alt" })
         );
@@ -47131,6 +47137,8 @@ var CommentList = function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
+
       var comments = this.props.comments;
       console.log(comments);
       return _react2.default.createElement(
@@ -47149,16 +47157,17 @@ var CommentList = function (_React$Component) {
               "div",
               null,
               _react2.default.createElement(
-                Link,
+                _reactRouterDom.Link,
                 { to: "users/" + comments[key].user_id },
                 comments[key].username
               ),
               _react2.default.createElement(
-                "span",
+                "div",
                 null,
                 comments[key].body
               )
-            )
+            ),
+            _this3.deleteCommentButton(comments[key])
           );
         })
       );
