@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import CommentContainer from "../comments/comment_list_container";
+import CommentContainer from "../comments/comment_container";
 
 class CommentList extends React.Component {
   constructor(props) {
@@ -47,6 +47,7 @@ class CommentList extends React.Component {
             </div>
           </li>
         ))}
+        <CommentContainer postId={this.props.post.id} />
       </ul>
     );
   }
