@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :posts, defaults: {format: :json} do
     resources :comments, defaults: {format: :json}
   end
+  resources :comments, defaults: {format: :json}
   resources :users, defaults: {format: :json}
   resource :session, only: [:create, :destroy, :show]
 
