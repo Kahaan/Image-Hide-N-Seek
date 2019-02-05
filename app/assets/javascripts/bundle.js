@@ -47120,11 +47120,20 @@ var CommentList = function (_React$Component) {
           null,
           "Comments"
         ),
+        _react2.default.createElement(
+          "button",
+          null,
+          _react2.default.createElement("i", { "class": "far fa-trash-alt" })
+        ),
         Object.keys(comments).map(function (key) {
           return _react2.default.createElement(
-            "li",
-            { key: key },
-            comments[key].body
+            "div",
+            null,
+            _react2.default.createElement(
+              "li",
+              { key: key },
+              comments[key].body
+            )
           );
         })
       );

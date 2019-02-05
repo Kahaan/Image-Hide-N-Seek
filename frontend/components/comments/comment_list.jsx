@@ -16,8 +16,13 @@ class CommentList extends React.Component {
     return (
       <ul>
         <h4>Comments</h4>
+        <button>
+          <i class="far fa-trash-alt" />
+        </button>
         {Object.keys(comments).map(key => (
-          <li key={key}>{comments[key].body}</li>
+          <div>
+            <li key={key}>{comments[key].body}</li>
+          </div>
         ))}
       </ul>
     );
