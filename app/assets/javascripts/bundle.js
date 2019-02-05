@@ -47143,12 +47143,21 @@ var CommentList = function (_React$Component) {
         ),
         Object.keys(comments).map(function (key) {
           return _react2.default.createElement(
-            "div",
-            null,
+            "li",
+            { key: key },
             _react2.default.createElement(
-              "li",
-              { key: key },
-              comments[key].body
+              "div",
+              null,
+              _react2.default.createElement(
+                Link,
+                { to: "users/" + comments[key].user_id },
+                comments[key].username
+              ),
+              _react2.default.createElement(
+                "span",
+                null,
+                comments[key].body
+              )
             )
           );
         })

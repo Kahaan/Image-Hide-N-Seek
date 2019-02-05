@@ -32,9 +32,14 @@ class CommentList extends React.Component {
       <ul>
         <h4>Comments</h4>
         {Object.keys(comments).map(key => (
-          <div>
-            <li key={key}>{comments[key].body}</li>
-          </div>
+          <li key={key}>
+            <div>
+              <Link to={`users/${comments[key].user_id}`}>
+                {comments[key].username}
+              </Link>
+              <span>{comments[key].body}</span>
+            </div>
+          </li>
         ))}
       </ul>
     );
