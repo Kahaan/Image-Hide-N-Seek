@@ -14,12 +14,12 @@ class Comment extends React.Component {
   }
 
   update(field) {
-    e.preventDefault();
-    return e => this.setState({ [field]: e.currentTarget.value });
+    event.preventDefault();
+    return event => this.setState({ [field]: event.currentTarget.value });
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
+  handleSubmit(event) {
+    event.preventDefault();
     const comment = this.state;
     comment.user_id = this.props.userId;
     comment.post_id = this.props.postId;

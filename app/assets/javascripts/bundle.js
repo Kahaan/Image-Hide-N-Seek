@@ -48146,15 +48146,15 @@ var Comment = function (_React$Component) {
     value: function update(field) {
       var _this2 = this;
 
-      e.preventDefault();
-      return function (e) {
-        return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
+      event.preventDefault();
+      return function (event) {
+        return _this2.setState(_defineProperty({}, field, event.currentTarget.value));
       };
     }
   }, {
     key: "handleSubmit",
-    value: function handleSubmit(e) {
-      e.preventDefault();
+    value: function handleSubmit(event) {
+      event.preventDefault();
       var comment = this.state;
       comment.user_id = this.props.userId;
       comment.post_id = this.props.postId;
