@@ -47108,6 +47108,27 @@ var CommentList = function (_React$Component) {
       this.props.fetchComments(post_id);
     }
   }, {
+    key: "deleteComment",
+    value: function deleteComment(commentId) {
+      e.preventDefault();
+      this.props.deleteComment(commentId);
+    }
+  }, {
+    key: "deleteCommentButton",
+    value: function deleteCommentButton(comment) {
+      var _this2 = this;
+
+      if (this.props.currentUserId === comment.user.id) {
+        return _react2.default.createElement(
+          "button",
+          { onClick: function onClick() {
+              return _this2.deleteComment(comment.id);
+            } },
+          _react2.default.createElement("i", { className: "far fa-trash-alt" })
+        );
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       var comments = this.props.comments;
@@ -47119,11 +47140,6 @@ var CommentList = function (_React$Component) {
           "h4",
           null,
           "Comments"
-        ),
-        _react2.default.createElement(
-          "button",
-          null,
-          _react2.default.createElement("i", { "class": "far fa-trash-alt" })
         ),
         Object.keys(comments).map(function (key) {
           return _react2.default.createElement(
