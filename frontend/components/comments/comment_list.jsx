@@ -18,9 +18,9 @@ class CommentList extends React.Component {
   }
 
   deleteCommentButton(comment) {
-    if (this.props.currentUserId === comments[key].user.id) {
+    if (this.props.currentUserId === comment.user_id) {
       return (
-        <button onClick={() => this.deleteComment(comments[key].id)}>
+        <button onClick={() => this.deleteComment(comment.id)}>
           <i className="far fa-trash-alt" />
         </button>
       );
@@ -40,8 +40,8 @@ class CommentList extends React.Component {
                 {comments[key].username}
               </Link>
               <div>{comments[key].body}</div>
+              {this.deleteCommentButton(comments[key])}
             </div>
-            {this.deleteCommentButton(comments[key])}
           </li>
         ))}
       </ul>

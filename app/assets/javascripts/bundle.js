@@ -47124,11 +47124,11 @@ var CommentList = function (_React$Component) {
     value: function deleteCommentButton(comment) {
       var _this2 = this;
 
-      if (this.props.currentUserId === comments[key].user.id) {
+      if (this.props.currentUserId === comment.user_id) {
         return _react2.default.createElement(
           "button",
           { onClick: function onClick() {
-              return _this2.deleteComment(comments[key].id);
+              return _this2.deleteComment(comment.id);
             } },
           _react2.default.createElement("i", { className: "far fa-trash-alt" })
         );
@@ -47165,9 +47165,9 @@ var CommentList = function (_React$Component) {
                 "div",
                 null,
                 comments[key].body
-              )
-            ),
-            _this3.deleteCommentButton(comments[key])
+              ),
+              _this3.deleteCommentButton(comments[key])
+            )
           );
         })
       );
