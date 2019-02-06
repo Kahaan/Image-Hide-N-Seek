@@ -19,8 +19,8 @@ class PagesController < ApplicationController
   def decrypt
     @post = Post.find(params[:id])
     image = ImageManipulator.new(@post.image.path)
-    @message = image.decode_message(@post.image.path)
-    render :decode
+    @message = image.decode_message(@post.image.path) || "empty"
+    render 'decode'
   end
 
 end

@@ -34,3 +34,6 @@ export const fetchPosts = () => dispatch =>
 
 export const encodePost = (message, id) => dispatch =>
   APIUtil.encryptPost(message, id).then(post => dispatch(receivePosts(posts)));
+
+export const decodePost = id => dispatch =>
+  APIUtil.decryptPost(id).then(message => dispatch(decryptPost(message)));

@@ -30182,7 +30182,7 @@ var fetchComments = exports.fetchComments = function fetchComments(postId) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.encodePost = exports.fetchPosts = exports.fetchPost = exports.decryptPost = exports.encryptPost = exports.receivePosts = exports.receivePost = exports.DECRYPT_POST = exports.ENCRYPT_POST = exports.RECEIVE_POST = exports.RECEIVE_POSTS = undefined;
+exports.decodePost = exports.encodePost = exports.fetchPosts = exports.fetchPost = exports.decryptPost = exports.encryptPost = exports.receivePosts = exports.receivePost = exports.DECRYPT_POST = exports.ENCRYPT_POST = exports.RECEIVE_POST = exports.RECEIVE_POSTS = undefined;
 
 var _posts_util = __webpack_require__(297);
 
@@ -30244,6 +30244,14 @@ var encodePost = exports.encodePost = function encodePost(message, id) {
   return function (dispatch) {
     return APIUtil.encryptPost(message, id).then(function (post) {
       return dispatch(receivePosts(posts));
+    });
+  };
+};
+
+var decodePost = exports.decodePost = function decodePost(id) {
+  return function (dispatch) {
+    return APIUtil.decryptPost(id).then(function (message) {
+      return dispatch(decryptPost(message));
     });
   };
 };
