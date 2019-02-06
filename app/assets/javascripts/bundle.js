@@ -46013,7 +46013,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    posts: state.posts
+    posts: state.posts,
+    message: state.posts.message
   };
 };
 
@@ -46021,6 +46022,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     fetchPosts: function fetchPosts() {
       return dispatch((0, _post_actions.fetchPosts)());
+    },
+    decodePost: function decodePost(id) {
+      return dispatch((0, _post_actions.decodePost)(id));
     }
   };
 };
@@ -46073,12 +46077,19 @@ var PostIndex = function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var posts = this.props.posts;
       return _react2.default.createElement(
         "ul",
         { className: "post-list" },
         Object.keys(posts).map(function (key) {
-          return _react2.default.createElement(_post_detail2.default, { key: key, post: posts[key] });
+          return _react2.default.createElement(_post_detail2.default, {
+            key: key,
+            post: posts[key],
+            decodePost: _this2.props.decodePost,
+            message: _this2.props.message
+          });
         })
       );
     }
@@ -46135,17 +46146,25 @@ var PostDetail = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (PostDetail.__proto__ || Object.getPrototypeOf(PostDetail)).call(this, props));
 
     _this.state = {
-      modalOpen: false
+      modalOpen: false,
+      message: ""
     };
     _this.closeModal = _this.closeModal.bind(_this);
     _this.openModal = _this.openModal.bind(_this);
+    _this.handleDecode = _this.handleDecode.bind(_this);
     return _this;
   }
 
   _createClass(PostDetail, [{
+    key: "handleDecode",
+    value: function handleDecode() {
+      this.props.decodePost(this.props.post.id);
+      this.setState({ message: this.props.message });
+    }
+  }, {
     key: "closeModal",
     value: function closeModal() {
-      this.setState({ modalOpen: false });
+      this.setState({ modalOpen: false, message: "" });
     }
   }, {
     key: "openModal",
@@ -46185,6 +46204,21 @@ var PostDetail = function (_React$Component) {
             style: _modal_style2.default
           },
           _react2.default.createElement("img", { src: this.props.post.image_url }),
+          _react2.default.createElement(
+            "h4",
+            null,
+            "Message:"
+          ),
+          _react2.default.createElement(
+            "button",
+            { onClick: this.handleDecode },
+            "Decode Image"
+          ),
+          _react2.default.createElement(
+            "p",
+            null,
+            this.state.message
+          ),
           _react2.default.createElement(_comment_list_container2.default, { post: this.props.post })
         )
       );
@@ -47868,9 +47902,12 @@ var postsReducer = exports.postsReducer = function postsReducer() {
   switch (action.type) {
     case _post_actions.RECEIVE_POSTS:
       return action.posts;
-    case _post_actions.RECEIVE_POSTS:
+    case _post_actions.RECEIVE_POST:
       var _newState = _defineProperty({}, action.post.id, action.post);
       return (0, _lodash.merge)({}, state, _newState);
+    case _post_actions.DECRYPT_POST:
+      var message = action.message;
+      return (0, _lodash.merge)({}, state, message);
     default:
       return state;
   }

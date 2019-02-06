@@ -15,7 +15,12 @@ class PostIndex extends React.Component {
     return (
       <ul className="post-list">
         {Object.keys(posts).map(key => (
-          <PostDetail key={key} post={posts[key]} />
+          <PostDetail
+            key={key}
+            post={posts[key]}
+            decodePost={this.props.decodePost}
+            message={this.props.message}
+          />
         ))}
       </ul>
     );

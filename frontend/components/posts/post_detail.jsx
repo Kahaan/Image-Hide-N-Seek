@@ -7,14 +7,21 @@ class PostDetail extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modalOpen: false
+      modalOpen: false,
+      message: ""
     };
     this.closeModal = this.closeModal.bind(this);
     this.openModal = this.openModal.bind(this);
+    this.handleDecode = this.handleDecode.bind(this);
+  }
+
+  handleDecode() {
+    this.props.decodePost(this.props.post.id);
+    this.setState({ message: this.props.message });
   }
 
   closeModal() {
-    this.setState({ modalOpen: false });
+    this.setState({ modalOpen: false, message: "" });
   }
 
   openModal() {
@@ -40,7 +47,9 @@ class PostDetail extends React.Component {
           style={style}
         >
           <img src={this.props.post.image_url} />
-
+          <h4>Message:</h4>
+          <button onClick={this.handleDecode}>Decode Image</button>
+          <p>{this.state.message}</p>
           <CommentListContainer post={this.props.post} />
         </Modal>
       </div>
