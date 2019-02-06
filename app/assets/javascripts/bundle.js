@@ -46080,10 +46080,13 @@ var PostIndex = function (_React$Component) {
       var _this2 = this;
 
       var posts = this.props.posts;
+      var imageKeys = Object.keys(posts).filter(function (key) {
+        return key != "message";
+      });
       return _react2.default.createElement(
         "ul",
         { className: "post-list" },
-        Object.keys(posts).map(function (key) {
+        imageKeys.map(function (key) {
           return _react2.default.createElement(_post_detail2.default, {
             key: key,
             post: posts[key],

@@ -12,9 +12,10 @@ class PostIndex extends React.Component {
 
   render() {
     const posts = this.props.posts;
+    const imageKeys = Object.keys(posts).filter(key => key != "message");
     return (
       <ul className="post-list">
-        {Object.keys(posts).map(key => (
+        {imageKeys.map(key => (
           <PostDetail
             key={key}
             post={posts[key]}
