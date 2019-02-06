@@ -30182,7 +30182,7 @@ var fetchComments = exports.fetchComments = function fetchComments(postId) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.fetchPosts = exports.fetchPost = exports.receivePosts = exports.receivePost = exports.RECEIVE_POST = exports.RECEIVE_POSTS = undefined;
+exports.encodePost = exports.fetchPosts = exports.fetchPost = exports.encryptPost = exports.receivePosts = exports.receivePost = exports.ENCRYPT_POST = exports.RECEIVE_POST = exports.RECEIVE_POSTS = undefined;
 
 var _posts_util = __webpack_require__(297);
 
@@ -30192,6 +30192,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 var RECEIVE_POSTS = exports.RECEIVE_POSTS = "RECEIVE_POSTS";
 var RECEIVE_POST = exports.RECEIVE_POST = "RECEIVE_POST";
+var ENCRYPT_POST = exports.ENCRYPT_POST = "ENCRYPT_POST";
 
 var receivePost = exports.receivePost = function receivePost(post) {
   return {
@@ -30207,6 +30208,13 @@ var receivePosts = exports.receivePosts = function receivePosts(posts) {
   };
 };
 
+var encryptPost = exports.encryptPost = function encryptPost(post, message) {
+  return {
+    type: ENCRYPT_POST,
+    post: post
+  };
+};
+
 var fetchPost = exports.fetchPost = function fetchPost(id) {
   return function (dispatch) {
     return APIUtil.fetchPost(id).then(function (post) {
@@ -30218,6 +30226,14 @@ var fetchPost = exports.fetchPost = function fetchPost(id) {
 var fetchPosts = exports.fetchPosts = function fetchPosts() {
   return function (dispatch) {
     return APIUtil.fetchPosts().then(function (posts) {
+      return dispatch(receivePosts(posts));
+    });
+  };
+};
+
+var encodePost = exports.encodePost = function encodePost(message, id) {
+  return function (dispatch) {
+    return APIUtil.encryptPost(message, id).then(function (posts) {
       return dispatch(receivePosts(posts));
     });
   };
