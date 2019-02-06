@@ -14,9 +14,10 @@ export const receivePosts = posts => ({
   posts
 });
 
-export const encryptPost = (post, message) => ({
+export const encryptPost = (message, post) => ({
   type: ENCRYPT_POST,
-  post
+  post,
+  message
 });
 
 export const fetchPost = id => dispatch =>

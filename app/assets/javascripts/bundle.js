@@ -30208,10 +30208,11 @@ var receivePosts = exports.receivePosts = function receivePosts(posts) {
   };
 };
 
-var encryptPost = exports.encryptPost = function encryptPost(post, message) {
+var encryptPost = exports.encryptPost = function encryptPost(message, post) {
   return {
     type: ENCRYPT_POST,
-    post: post
+    post: post,
+    message: message
   };
 };
 
@@ -47260,7 +47261,7 @@ var fetchPost = exports.fetchPost = function fetchPost(id) {
 var encryptPost = exports.encryptPost = function encryptPost(message, id) {
   return $.ajax({
     method: "PATCH",
-    url: "/posts/" + id,
+    url: "/posts/" + id + "/encrypt",
     message: message
   });
 };
