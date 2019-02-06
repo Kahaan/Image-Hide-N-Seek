@@ -9,3 +9,10 @@ export const fetchPost = id =>
     method: "GET",
     url: `/posts/${id}`
   });
+
+export const encryptPost = (message, id) =>
+  $.ajax({
+    method: "PATCH",
+    url: `/posts/${id}`,
+    message
+  });

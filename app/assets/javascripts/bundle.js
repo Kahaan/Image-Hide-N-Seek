@@ -47241,6 +47241,14 @@ var fetchPost = exports.fetchPost = function fetchPost(id) {
   });
 };
 
+var encryptPost = exports.encryptPost = function encryptPost(message, id) {
+  return $.ajax({
+    method: "PATCH",
+    url: "/posts/" + id,
+    message: message
+  });
+};
+
 /***/ }),
 /* 298 */
 /***/ (function(module, exports, __webpack_require__) {
