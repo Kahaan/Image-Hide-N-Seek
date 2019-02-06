@@ -30182,7 +30182,7 @@ var fetchComments = exports.fetchComments = function fetchComments(postId) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.encodePost = exports.fetchPosts = exports.fetchPost = exports.encryptPost = exports.receivePosts = exports.receivePost = exports.ENCRYPT_POST = exports.RECEIVE_POST = exports.RECEIVE_POSTS = undefined;
+exports.encodePost = exports.fetchPosts = exports.fetchPost = exports.decryptPost = exports.encryptPost = exports.receivePosts = exports.receivePost = exports.DECRYPT_POST = exports.ENCRYPT_POST = exports.RECEIVE_POST = exports.RECEIVE_POSTS = undefined;
 
 var _posts_util = __webpack_require__(297);
 
@@ -30193,6 +30193,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 var RECEIVE_POSTS = exports.RECEIVE_POSTS = "RECEIVE_POSTS";
 var RECEIVE_POST = exports.RECEIVE_POST = "RECEIVE_POST";
 var ENCRYPT_POST = exports.ENCRYPT_POST = "ENCRYPT_POST";
+var DECRYPT_POST = exports.DECRYPT_POST = "DECRYPT_POST";
 
 var receivePost = exports.receivePost = function receivePost(post) {
   return {
@@ -30216,6 +30217,13 @@ var encryptPost = exports.encryptPost = function encryptPost(message, post) {
   };
 };
 
+var decryptPost = exports.decryptPost = function decryptPost(message) {
+  return {
+    type: DECRYPT_POST,
+    message: message
+  };
+};
+
 var fetchPost = exports.fetchPost = function fetchPost(id) {
   return function (dispatch) {
     return APIUtil.fetchPost(id).then(function (post) {
@@ -30234,7 +30242,7 @@ var fetchPosts = exports.fetchPosts = function fetchPosts() {
 
 var encodePost = exports.encodePost = function encodePost(message, id) {
   return function (dispatch) {
-    return APIUtil.encryptPost(message, id).then(function (posts) {
+    return APIUtil.encryptPost(message, id).then(function (post) {
       return dispatch(receivePosts(posts));
     });
   };
@@ -47263,6 +47271,13 @@ var encryptPost = exports.encryptPost = function encryptPost(message, id) {
     method: "PATCH",
     url: "/posts/" + id + "/encrypt",
     message: message
+  });
+};
+
+var decryptPost = exports.decryptPost = function decryptPost(id) {
+  return $.ajax({
+    method: "GET",
+    url: "/posts/" + id + "/decrypt"
   });
 };
 

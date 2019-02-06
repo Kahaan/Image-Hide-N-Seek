@@ -16,3 +16,9 @@ export const encryptPost = (message, id) =>
     url: `/posts/${id}/encrypt`,
     message
   });
+
+export const decryptPost = id =>
+  $.ajax({
+    method: "GET",
+    url: `/posts/${id}/decrypt`
+  });

@@ -3,6 +3,7 @@ import * as APIUtil from "../util/posts_util";
 export const RECEIVE_POSTS = "RECEIVE_POSTS";
 export const RECEIVE_POST = "RECEIVE_POST";
 export const ENCRYPT_POST = "ENCRYPT_POST";
+export const DECRYPT_POST = "DECRYPT_POST";
 
 export const receivePost = post => ({
   type: RECEIVE_POST,
@@ -20,6 +21,11 @@ export const encryptPost = (message, post) => ({
   message
 });
 
+export const decryptPost = message => ({
+  type: DECRYPT_POST,
+  message
+});
+
 export const fetchPost = id => dispatch =>
   APIUtil.fetchPost(id).then(post => dispatch(receivePost(post)));
 
@@ -27,4 +33,4 @@ export const fetchPosts = () => dispatch =>
   APIUtil.fetchPosts().then(posts => dispatch(receivePosts(posts)));
 
 export const encodePost = (message, id) => dispatch =>
-  APIUtil.encryptPost(message, id).then(posts => dispatch(receivePosts(posts)));
+  APIUtil.encryptPost(message, id).then(post => dispatch(receivePosts(posts)));
