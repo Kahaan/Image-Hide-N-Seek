@@ -46231,7 +46231,8 @@ var PostDetail = function (_React$Component) {
             null,
             this.state.message
           ),
-          _react2.default.createElement(_comment_list_container2.default, { post: this.props.post })
+          _react2.default.createElement(_comment_list_container2.default, { post: this.props.post }),
+          "// TODO: When creating a comment for the first time the username // // // doesn't render!"
         )
       );
     }

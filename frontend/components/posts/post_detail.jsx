@@ -53,6 +53,8 @@ class PostDetail extends React.Component {
           <button onClick={this.handleDecode}>Decode Image</button>
           <p>{this.state.message}</p>
           <CommentListContainer post={this.props.post} />
+          // TODO: When creating a comment for the first time the username // //
+          // doesn't render!
         </Modal>
       </div>
     );
