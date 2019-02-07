@@ -47181,6 +47181,9 @@ var CommentList = function (_React$Component) {
     return _this;
   }
 
+  // TODO: Add clear comments action and check that comments#index method controller doesn't show
+  // Check comments from different images don't remain in state and render on wrong post
+
   _createClass(CommentList, [{
     key: "componentDidMount",
     value: function componentDidMount() {
