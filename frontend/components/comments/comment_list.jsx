@@ -17,6 +17,10 @@ class CommentList extends React.Component {
     this.props.fetchComments(post_id);
   }
 
+  componentWillUnmount() {
+    this.props.clearComments();
+  }
+
   deleteComment(commentId) {
     event.preventDefault();
     this.props.deleteComment(commentId);

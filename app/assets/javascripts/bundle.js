@@ -30115,7 +30115,7 @@ module.exports = exports['default'];
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.fetchComments = exports.deleteComment = exports.createComment = exports.removeComment = exports.receiveComment = exports.receiveComments = exports.REMOVE_COMMENT = exports.RECEIVE_COMMENT = exports.RECEIVE_COMMENTS = undefined;
+exports.fetchComments = exports.deleteComment = exports.createComment = exports.clearComments = exports.removeComment = exports.receiveComment = exports.receiveComments = exports.CLEAR_COMMENTS = exports.REMOVE_COMMENT = exports.RECEIVE_COMMENT = exports.RECEIVE_COMMENTS = undefined;
 
 var _comments_util = __webpack_require__(296);
 
@@ -30126,6 +30126,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 var RECEIVE_COMMENTS = exports.RECEIVE_COMMENTS = "RECEIVE_COMMENTS";
 var RECEIVE_COMMENT = exports.RECEIVE_COMMENT = "RECEIVE_COMMENT";
 var REMOVE_COMMENT = exports.REMOVE_COMMENT = "REMOVE_COMMENT";
+var CLEAR_COMMENTS = exports.CLEAR_COMMENTS = "CLEAR_COMMENTS";
 
 var receiveComments = exports.receiveComments = function receiveComments(comments) {
   return {
@@ -30145,6 +30146,12 @@ var removeComment = exports.removeComment = function removeComment(comment) {
   return {
     type: REMOVE_COMMENT,
     comment: comment
+  };
+};
+
+var clearComments = exports.clearComments = function clearComments() {
+  return {
+    type: CLEAR_COMMENTS
   };
 };
 
@@ -46162,7 +46169,9 @@ var PostDetail = function (_React$Component) {
     key: "handleDecode",
     value: function handleDecode() {
       this.props.decodePost(this.props.post.id);
-      this.setState({ message: this.props.message });
+      var message = this.props.message;
+      this.setState({ message: message });
+      message = "";
     }
   }, {
     key: "closeModal",
@@ -47131,6 +47140,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     deleteComment: function deleteComment(id) {
       return dispatch((0, _comment_actions.deleteComment)(id));
+    },
+    clearComments: function clearComments() {
+      return dispatch((0, _comment_actions.clearComments)());
     }
   };
 };
@@ -47189,6 +47201,11 @@ var CommentList = function (_React$Component) {
     value: function componentDidMount() {
       var post_id = this.props.post.id;
       this.props.fetchComments(post_id);
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      this.props.clearComments();
     }
   }, {
     key: "deleteComment",
@@ -47980,6 +47997,8 @@ var commentsReducer = exports.commentsReducer = function commentsReducer() {
       var newState = (0, _lodash.merge)({}, state);
       delete newState[action.comment.id];
       return newState;
+    case _comment_actions.CLEAR_COMMENTS:
+      return {};
     default:
       return state;
   }

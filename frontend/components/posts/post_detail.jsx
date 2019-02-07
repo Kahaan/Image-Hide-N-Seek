@@ -17,7 +17,9 @@ class PostDetail extends React.Component {
 
   handleDecode() {
     this.props.decodePost(this.props.post.id);
-    this.setState({ message: this.props.message });
+    let message = this.props.message;
+    this.setState({ message });
+    message = "";
   }
 
   closeModal() {

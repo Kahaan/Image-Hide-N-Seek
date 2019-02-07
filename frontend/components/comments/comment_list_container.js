@@ -4,7 +4,8 @@ import CommentList from "./comment_list";
 import {
   fetchComments,
   createComment,
-  deleteComment
+  deleteComment,
+  clearComments
 } from "../../actions/comment_actions";
 
 const mapStateToProps = state => ({
@@ -13,7 +14,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchComments: id => dispatch(fetchComments(id)),
-  deleteComment: id => dispatch(deleteComment(id))
+  deleteComment: id => dispatch(deleteComment(id)),
+  clearComments: () => dispatch(clearComments())
 });
 
 export default connect(
