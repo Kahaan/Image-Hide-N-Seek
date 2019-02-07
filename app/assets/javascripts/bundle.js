@@ -46081,6 +46081,8 @@ var PostIndex = function (_React$Component) {
     value: function componentDidMount() {
       this.props.fetchPosts();
     }
+    // TODO: When signing in for the first time posts don't render
+
   }, {
     key: "render",
     value: function render() {
@@ -46215,7 +46217,11 @@ var PostDetail = function (_React$Component) {
             onRequestClose: this.closeModal,
             style: _modal_style2.default
           },
-          _react2.default.createElement("img", { src: this.props.post.image_url }),
+          _react2.default.createElement(
+            "div",
+            { className: "modal-image" },
+            _react2.default.createElement("img", { src: this.props.post.image_url })
+          ),
           _react2.default.createElement(
             "h4",
             null,
@@ -47632,19 +47638,6 @@ var SessionForm = function (_React$Component) {
       });
     }
   }, {
-    key: "switchButton",
-    value: function switchButton() {
-      return this.state.logIn ? _react2.default.createElement(
-        "p",
-        null,
-        "Don't have an account? Sign up"
-      ) : _react2.default.createElement(
-        "p",
-        null,
-        "Already have an account? Log in"
-      );
-    }
-  }, {
     key: "emailInput",
     value: function emailInput() {
       if (!this.state.logIn) {
@@ -47695,15 +47688,6 @@ var SessionForm = function (_React$Component) {
             "div",
             { className: "login-form-container" },
             _react2.default.createElement(
-              "div",
-              { className: "x-button" },
-              _react2.default.createElement(
-                "button",
-                { onClick: this.closeModal },
-                _react2.default.createElement("i", { "aria-hidden": "true" })
-              )
-            ),
-            _react2.default.createElement(
               "form",
               { className: "login-form-box" },
               this.formHeader(),
@@ -47743,11 +47727,6 @@ var SessionForm = function (_React$Component) {
                   },
                   "Guest"
                 )
-              ),
-              _react2.default.createElement(
-                "a",
-                { href: "/#", className: "switch-forms", onClick: this.switchForms },
-                this.switchButton()
               )
             )
           )

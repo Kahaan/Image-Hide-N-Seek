@@ -147,14 +147,6 @@ class SessionForm extends React.Component {
     });
   }
 
-  switchButton() {
-    return this.state.logIn ? (
-      <p>Don't have an account? Sign up</p>
-    ) : (
-      <p>Already have an account? Log in</p>
-    );
-  }
-
   emailInput() {
     if (!this.state.logIn) {
       return (
@@ -194,12 +186,6 @@ class SessionForm extends React.Component {
           style={style}
         >
           <div className="login-form-container">
-            <div className="x-button">
-              <button onClick={this.closeModal}>
-                <i aria-hidden="true" />
-              </button>
-            </div>
-
             <form className="login-form-box">
               {this.formHeader()}
               {this.renderErrors()}
@@ -237,10 +223,6 @@ class SessionForm extends React.Component {
                   Guest
                 </button>
               </div>
-
-              <a href="/#" className="switch-forms" onClick={this.switchForms}>
-                {this.switchButton()}
-              </a>
             </form>
           </div>
         </Modal>

@@ -3,15 +3,16 @@ header {
   justify-content: space-between;
   align-content: center;
   width: 100%;
+  height: auto;
   background-color: black;
   color: white;
   padding: 10px;
 }
 
 .header-link {
-  font-size: 32px;
+  font-size: 15px;
   text-decoration: none;
-  padding: 10px;
+  padding: 0px;
   color: white;
 }
 
@@ -36,7 +37,7 @@ header {
 
 .header-button:hover {
   text-decoration: underline;
-  color: white;
+  color: orange;
 }
 
 .login-form-container {
@@ -64,7 +65,7 @@ header {
   height: 30px;
   font-weight: bold;
   font-size: 14px;
-  background-color: gray;
+  background-color: #ebebeb;
   outline: none;
   border-radius: 3px;
 }

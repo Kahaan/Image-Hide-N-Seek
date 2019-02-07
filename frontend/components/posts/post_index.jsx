@@ -9,6 +9,7 @@ class PostIndex extends React.Component {
   componentDidMount() {
     this.props.fetchPosts();
   }
+  // TODO: When signing in for the first time posts don't render
 
   render() {
     const posts = this.props.posts;

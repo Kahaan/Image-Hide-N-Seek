@@ -48,7 +48,9 @@ class PostDetail extends React.Component {
           onRequestClose={this.closeModal}
           style={style}
         >
-          <img src={this.props.post.image_url} />
+          <div className="modal-image">
+            <img src={this.props.post.image_url} />
+          </div>
           <h4>Message:</h4>
           <button onClick={this.handleDecode}>Decode Image</button>
           <p>{this.state.message}</p>
