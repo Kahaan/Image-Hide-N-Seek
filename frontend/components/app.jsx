@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import { Route, HashRouter, Link, Switch, Redirect } from "react-router-dom";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
 
+import SplashContainer from "./splash/splash_container";
 import PostIndexContainer from "./posts/post_index_container";
 import SessionFormContainer from "./session_form/session_form_container";
 
@@ -19,6 +20,8 @@ const App = () => (
     </header>
 
     <main className="main">
+      <Route exact path="/" component={SplashContainer} />
+      <Route exact path="/home" component={SplashContainer} />
       <ProtectedRoute path="/home" component={PostIndexContainer} />
     </main>
   </div>
