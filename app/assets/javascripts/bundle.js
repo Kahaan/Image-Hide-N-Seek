@@ -46170,6 +46170,7 @@ var PostDetail = function (_React$Component) {
     _this.closeModal = _this.closeModal.bind(_this);
     _this.openModal = _this.openModal.bind(_this);
     _this.handleDecode = _this.handleDecode.bind(_this);
+    _this.handleEncode = _this.handleEncode.bind(_this);
     return _this;
   }
 
@@ -46177,9 +46178,24 @@ var PostDetail = function (_React$Component) {
     key: "handleDecode",
     value: function handleDecode() {
       this.props.decodePost(this.props.post.id);
-      var message = this.props.message;
-      this.setState({ message: message });
-      message = "";
+      // .then(() => {
+      //   let message = this.props.message;
+      //   this.setState({ message });
+      // });
+    }
+  }, {
+    key: "handleEncode",
+    value: function handleEncode() {
+      // const id = this.props.post.id;
+      // $.ajax({
+      //   method: "PATCH",
+      //   url: `/posts/${id}/encrypt`
+      // });
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps, prevState) {
+      if (prevProps.message !== this.props.message) this.setState({ message: this.props.message });
     }
   }, {
     key: "closeModal",
@@ -46236,7 +46252,13 @@ var PostDetail = function (_React$Component) {
           _react2.default.createElement(
             "button",
             { onClick: this.handleDecode },
-            "Decode Image"
+            " Decode "
+          ),
+          _react2.default.createElement("br", null),
+          _react2.default.createElement(
+            "button",
+            { onClick: this.handleEncode },
+            " Encode "
           ),
           _react2.default.createElement(
             "p",

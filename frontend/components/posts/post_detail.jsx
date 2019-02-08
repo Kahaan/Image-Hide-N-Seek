@@ -13,13 +13,28 @@ class PostDetail extends React.Component {
     this.closeModal = this.closeModal.bind(this);
     this.openModal = this.openModal.bind(this);
     this.handleDecode = this.handleDecode.bind(this);
+    this.handleEncode = this.handleEncode.bind(this);
   }
 
   handleDecode() {
     this.props.decodePost(this.props.post.id);
-    let message = this.props.message;
-    this.setState({ message });
-    message = "";
+    // .then(() => {
+    //   let message = this.props.message;
+    //   this.setState({ message });
+    // });
+  }
+
+  handleEncode() {
+    // const id = this.props.post.id;
+    // $.ajax({
+    //   method: "PATCH",
+    //   url: `/posts/${id}/encrypt`
+    // });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.message !== this.props.message)
+      this.setState({ message: this.props.message });
   }
 
   closeModal() {
@@ -52,7 +67,9 @@ class PostDetail extends React.Component {
             <img src={this.props.post.image_url} />
           </div>
           <h4>Message:</h4>
-          <button onClick={this.handleDecode}>Decode Image</button>
+          <button onClick={this.handleDecode}> Decode </button>
+          <br />
+          <button onClick={this.handleEncode}> Encode </button>
           <p>{this.state.message}</p>
           <CommentListContainer post={this.props.post} />
           // TODO: When creating a comment for the first time the username // //
