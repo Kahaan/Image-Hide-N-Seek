@@ -4,6 +4,16 @@ import PostDetail from "./post_detail";
 class PostIndex extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      user_id: "",
+      title: "",
+      body: ""
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit() {
+    // Do something
   }
 
   componentDidMount() {
@@ -15,16 +25,25 @@ class PostIndex extends React.Component {
     const posts = this.props.posts;
     const imageKeys = Object.keys(posts).filter(key => key != "message");
     return (
-      <ul className="post-list">
-        {imageKeys.map(key => (
-          <PostDetail
-            key={key}
-            post={posts[key]}
-            decodePost={this.props.decodePost}
-            message={this.props.message}
-          />
-        ))}
-      </ul>
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          <input type="file" />
+          <input type="text" value="" />
+          <input type="text" value="" />
+          <input type="text" value="" />
+          <input type="submit" value="Upload" />
+        </form>
+        <ul className="post-list">
+          {imageKeys.map(key => (
+            <PostDetail
+              key={key}
+              post={posts[key]}
+              decodePost={this.props.decodePost}
+              message={this.props.message}
+            />
+          ))}
+        </ul>
+      </div>
     );
   }
 }

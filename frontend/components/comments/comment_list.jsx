@@ -12,6 +12,8 @@ class CommentList extends React.Component {
   // TODO: Add clear comments action and check that comments#index method controller doesn't show
   // Check comments from different images don't remain in state and render on wrong post
 
+  // TODO: Comments don't persist anymore :S
+
   componentDidMount() {
     const post_id = this.props.post.id;
     this.props.fetchComments(post_id);

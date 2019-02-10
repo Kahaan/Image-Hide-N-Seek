@@ -8,12 +8,20 @@ class PostDetail extends React.Component {
     super(props);
     this.state = {
       modalOpen: false,
-      message: ""
+      message: "",
+      secret: ""
     };
     this.closeModal = this.closeModal.bind(this);
     this.openModal = this.openModal.bind(this);
     this.handleDecode = this.handleDecode.bind(this);
     this.handleEncode = this.handleEncode.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.update = this.update.bind(this);
+  }
+
+  update(field) {
+    event.preventDefault();
+    return event => this.setState({ [field]: event.currentTarget.value });
   }
 
   handleDecode() {
@@ -24,12 +32,21 @@ class PostDetail extends React.Component {
     // });
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+    const secret = this.state.secret;
+    const id = this.props.post.id;
+    // Do something
+  }
+
   handleEncode() {
     // const id = this.props.post.id;
     // $.ajax({
     //   method: "PATCH",
     //   url: `/posts/${id}/encrypt`
     // });
+    let form = document.getElementById("encode-input");
+    form.classList.toggle("encode-form");
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -70,6 +87,17 @@ class PostDetail extends React.Component {
           <button onClick={this.handleDecode}> Decode </button>
           <br />
           <button onClick={this.handleEncode}> Encode </button>
+          <form onSubmit={this.handleSubmit}>
+            <span id="encode-input">
+              <input
+                type="textarea"
+                placeholder="Add a secret message to encode"
+                value={this.state.secret}
+                onChange={this.update("secret")}
+              />
+            </span>
+            <input type="submit" value="Submit" />
+          </form>
           <p>{this.state.message}</p>
           <CommentListContainer post={this.props.post} />
           // TODO: When creating a comment for the first time the username // //

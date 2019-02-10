@@ -46079,10 +46079,23 @@ var PostIndex = function (_React$Component) {
   function PostIndex(props) {
     _classCallCheck(this, PostIndex);
 
-    return _possibleConstructorReturn(this, (PostIndex.__proto__ || Object.getPrototypeOf(PostIndex)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (PostIndex.__proto__ || Object.getPrototypeOf(PostIndex)).call(this, props));
+
+    _this.state = {
+      user_id: "",
+      title: "",
+      body: ""
+    };
+    _this.handleSubmit = _this.handleSubmit.bind(_this);
+    return _this;
   }
 
   _createClass(PostIndex, [{
+    key: "handleSubmit",
+    value: function handleSubmit() {
+      // Do something
+    }
+  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchPosts();
@@ -46099,16 +46112,29 @@ var PostIndex = function (_React$Component) {
         return key != "message";
       });
       return _react2.default.createElement(
-        "ul",
-        { className: "post-list" },
-        imageKeys.map(function (key) {
-          return _react2.default.createElement(_post_detail2.default, {
-            key: key,
-            post: posts[key],
-            decodePost: _this2.props.decodePost,
-            message: _this2.props.message
-          });
-        })
+        "div",
+        null,
+        _react2.default.createElement(
+          "form",
+          { onSubmit: this.handleSubmit },
+          _react2.default.createElement("input", { type: "file" }),
+          _react2.default.createElement("input", { type: "text", value: "" }),
+          _react2.default.createElement("input", { type: "text", value: "" }),
+          _react2.default.createElement("input", { type: "text", value: "" }),
+          _react2.default.createElement("input", { type: "submit", value: "Upload" })
+        ),
+        _react2.default.createElement(
+          "ul",
+          { className: "post-list" },
+          imageKeys.map(function (key) {
+            return _react2.default.createElement(_post_detail2.default, {
+              key: key,
+              post: posts[key],
+              decodePost: _this2.props.decodePost,
+              message: _this2.props.message
+            });
+          })
+        )
       );
     }
   }]);
@@ -46149,6 +46175,8 @@ var _comment_list_container2 = _interopRequireDefault(_comment_list_container);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -46165,16 +46193,29 @@ var PostDetail = function (_React$Component) {
 
     _this.state = {
       modalOpen: false,
-      message: ""
+      message: "",
+      secret: ""
     };
     _this.closeModal = _this.closeModal.bind(_this);
     _this.openModal = _this.openModal.bind(_this);
     _this.handleDecode = _this.handleDecode.bind(_this);
     _this.handleEncode = _this.handleEncode.bind(_this);
+    _this.handleSubmit = _this.handleSubmit.bind(_this);
+    _this.update = _this.update.bind(_this);
     return _this;
   }
 
   _createClass(PostDetail, [{
+    key: "update",
+    value: function update(field) {
+      var _this2 = this;
+
+      event.preventDefault();
+      return function (event) {
+        return _this2.setState(_defineProperty({}, field, event.currentTarget.value));
+      };
+    }
+  }, {
     key: "handleDecode",
     value: function handleDecode() {
       this.props.decodePost(this.props.post.id);
@@ -46184,6 +46225,14 @@ var PostDetail = function (_React$Component) {
       // });
     }
   }, {
+    key: "handleSubmit",
+    value: function handleSubmit(event) {
+      event.preventDefault();
+      var secret = this.state.secret;
+      var id = this.props.post.id;
+      // Do something
+    }
+  }, {
     key: "handleEncode",
     value: function handleEncode() {
       // const id = this.props.post.id;
@@ -46191,6 +46240,8 @@ var PostDetail = function (_React$Component) {
       //   method: "PATCH",
       //   url: `/posts/${id}/encrypt`
       // });
+      var form = document.getElementById("encode-input");
+      form.classList.toggle("encode-form");
     }
   }, {
     key: "componentDidUpdate",
@@ -46259,6 +46310,21 @@ var PostDetail = function (_React$Component) {
             "button",
             { onClick: this.handleEncode },
             " Encode "
+          ),
+          _react2.default.createElement(
+            "form",
+            { onSubmit: this.handleSubmit },
+            _react2.default.createElement(
+              "span",
+              { id: "encode-input" },
+              _react2.default.createElement("input", {
+                type: "textarea",
+                placeholder: "Add a secret message to encode",
+                value: this.state.secret,
+                onChange: this.update("secret")
+              })
+            ),
+            _react2.default.createElement("input", { type: "submit", value: "Submit" })
           ),
           _react2.default.createElement(
             "p",
@@ -47230,6 +47296,8 @@ var CommentList = function (_React$Component) {
 
   // TODO: Add clear comments action and check that comments#index method controller doesn't show
   // Check comments from different images don't remain in state and render on wrong post
+
+  // TODO: Comments don't persist anymore :S
 
   _createClass(CommentList, [{
     key: "componentDidMount",
