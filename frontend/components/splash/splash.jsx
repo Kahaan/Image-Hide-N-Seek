@@ -1,4 +1,5 @@
 import React from "react";
+import Typed from "typed.js";
 
 class Splash extends React.Component {
   constructor(props) {
@@ -25,11 +26,23 @@ class Splash extends React.Component {
     }
   }
 
+  componentDidMount() {
+    var options = {
+      strings: [
+        "<h1>Would you believe me if I told you that the background image you're looking at has 15,000 words encryted into it?</h1>"
+      ],
+      typeSpeed: 30
+    };
+
+    var typed = new Typed(".element", options);
+  }
+
   render() {
     return (
       <div>
         <section className="parallax">
           <section className="splash-text">
+            <div className="element" />
             <h1>Steganography</h1>
             <h4>
               Would you believe me if I told you that the background image
