@@ -21,9 +21,22 @@
   background-color: yellow;
 }
 
+.Post:hover {
+  transform: scale(1.1);
+}
+
 .modal-image {
 }
 
 .encode-form {
   display: none;
+}
+
+.fa-plus-circle {
+  color: purple;
+}
+
+.fa-plus-circle:hover {
+  transform: scale(1.2);
+  // transition: 2;
 }

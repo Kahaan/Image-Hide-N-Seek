@@ -46061,9 +46061,17 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactModal = __webpack_require__(120);
+
+var _reactModal2 = _interopRequireDefault(_reactModal);
+
 var _post_detail = __webpack_require__(286);
 
 var _post_detail2 = _interopRequireDefault(_post_detail);
+
+var _modal_style = __webpack_require__(293);
+
+var _modal_style2 = _interopRequireDefault(_modal_style);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -46082,18 +46090,38 @@ var PostIndex = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (PostIndex.__proto__ || Object.getPrototypeOf(PostIndex)).call(this, props));
 
     _this.state = {
+      modalOpen: false,
       user_id: "",
       title: "",
       body: ""
     };
+    _this.closeModal = _this.closeModal.bind(_this);
+    _this.openModal = _this.openModal.bind(_this);
     _this.handleSubmit = _this.handleSubmit.bind(_this);
+    _this.handleUpload = _this.handleUpload.bind(_this);
     return _this;
   }
 
   _createClass(PostIndex, [{
+    key: "closeModal",
+    value: function closeModal() {
+      this.setState({ modalOpen: false });
+    }
+  }, {
+    key: "openModal",
+    value: function openModal() {
+      this.setState({ modalOpen: true });
+    }
+  }, {
     key: "handleSubmit",
     value: function handleSubmit() {
       // Do something
+    }
+  }, {
+    key: "handleUpload",
+    value: function handleUpload(event) {
+      // Do something
+      console.log(event.target.files[0]);
     }
   }, {
     key: "componentDidMount",
@@ -46114,15 +46142,7 @@ var PostIndex = function (_React$Component) {
       return _react2.default.createElement(
         "div",
         null,
-        _react2.default.createElement(
-          "form",
-          { onSubmit: this.handleSubmit },
-          _react2.default.createElement("input", { type: "file" }),
-          _react2.default.createElement("input", { type: "text", value: "" }),
-          _react2.default.createElement("input", { type: "text", value: "" }),
-          _react2.default.createElement("input", { type: "text", value: "" }),
-          _react2.default.createElement("input", { type: "submit", value: "Upload" })
-        ),
+        _react2.default.createElement("i", { onClick: this.openModal, className: "fas fa-plus-circle fa-4x" }),
         _react2.default.createElement(
           "ul",
           { className: "post-list" },
@@ -46134,6 +46154,16 @@ var PostIndex = function (_React$Component) {
               message: _this2.props.message
             });
           })
+        ),
+        _react2.default.createElement(
+          _reactModal2.default,
+          {
+            contentLabel: "Modal",
+            isOpen: this.state.modalOpen,
+            onRequestClose: this.closeModal,
+            style: _modal_style2.default
+          },
+          _react2.default.createElement("input", { type: "file", onChange: this.handleUpload })
         )
       );
     }

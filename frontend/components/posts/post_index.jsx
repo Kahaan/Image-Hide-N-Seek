@@ -1,19 +1,38 @@
 import React from "react";
+import Modal from "react-modal";
 import PostDetail from "./post_detail";
+import style from "./modal_style";
 
 class PostIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      modalOpen: false,
       user_id: "",
       title: "",
       body: ""
     };
+    this.closeModal = this.closeModal.bind(this);
+    this.openModal = this.openModal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleUpload = this.handleUpload.bind(this);
+  }
+
+  closeModal() {
+    this.setState({ modalOpen: false });
+  }
+
+  openModal() {
+    this.setState({ modalOpen: true });
   }
 
   handleSubmit() {
     // Do something
+  }
+
+  handleUpload(event) {
+    // Do something
+    console.log(event.target.files[0]);
   }
 
   componentDidMount() {
@@ -26,13 +45,8 @@ class PostIndex extends React.Component {
     const imageKeys = Object.keys(posts).filter(key => key != "message");
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <input type="file" />
-          <input type="text" value="" />
-          <input type="text" value="" />
-          <input type="text" value="" />
-          <input type="submit" value="Upload" />
-        </form>
+        <i onClick={this.openModal} className="fas fa-plus-circle fa-4x" />
+
         <ul className="post-list">
           {imageKeys.map(key => (
             <PostDetail
@@ -43,6 +57,15 @@ class PostIndex extends React.Component {
             />
           ))}
         </ul>
+
+        <Modal
+          contentLabel="Modal"
+          isOpen={this.state.modalOpen}
+          onRequestClose={this.closeModal}
+          style={style}
+        >
+          <input type="file" onChange={this.handleUpload} />
+        </Modal>
       </div>
     );
   }
