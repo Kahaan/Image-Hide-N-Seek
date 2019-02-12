@@ -30189,7 +30189,7 @@ var fetchComments = exports.fetchComments = function fetchComments(postId) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.decodePost = exports.encodePost = exports.createPost = exports.fetchPosts = exports.fetchPost = exports.decryptPost = exports.encryptPost = exports.receivePosts = exports.receivePost = exports.DECRYPT_POST = exports.ENCRYPT_POST = exports.CREATE_POST = exports.RECEIVE_POST = exports.RECEIVE_POSTS = undefined;
+exports.decodePost = exports.encodePost = exports.createPost = exports.fetchPosts = exports.fetchPost = exports.decryptPost = exports.receivePosts = exports.receivePost = exports.DECRYPT_POST = exports.ENCRYPT_POST = exports.CREATE_POST = exports.RECEIVE_POST = exports.RECEIVE_POSTS = undefined;
 
 var _posts_util = __webpack_require__(297);
 
@@ -30214,14 +30214,6 @@ var receivePosts = exports.receivePosts = function receivePosts(posts) {
   return {
     type: RECEIVE_POSTS,
     posts: posts
-  };
-};
-
-var encryptPost = exports.encryptPost = function encryptPost(message, post) {
-  return {
-    type: ENCRYPT_POST,
-    post: post,
-    message: message
   };
 };
 
@@ -30256,10 +30248,10 @@ var createPost = exports.createPost = function createPost(post) {
   };
 };
 
-var encodePost = exports.encodePost = function encodePost(message, id) {
+var encodePost = exports.encodePost = function encodePost(secret, id) {
   return function (dispatch) {
-    return APIUtil.encryptPost(message, id).then(function (post) {
-      return dispatch(receivePosts(posts));
+    return APIUtil.encryptPost(secret, id).then(function (post) {
+      return dispatch(receivePost(post));
     });
   };
 };
@@ -46237,8 +46229,6 @@ var _comment_list_container2 = _interopRequireDefault(_comment_list_container);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -46269,13 +46259,9 @@ var PostDetail = function (_React$Component) {
 
   _createClass(PostDetail, [{
     key: "update",
-    value: function update(field) {
-      var _this2 = this;
-
+    value: function update(event) {
       event.preventDefault();
-      return function (event) {
-        return _this2.setState(_defineProperty({}, field, event.currentTarget.value));
-      };
+      this.setState({ secret: event.currentTarget.value });
     }
   }, {
     key: "handleDecode",
@@ -46293,17 +46279,6 @@ var PostDetail = function (_React$Component) {
       var secret = this.state.secret;
       var id = this.props.post.id;
       // Do something
-    }
-  }, {
-    key: "handleEncode",
-    value: function handleEncode() {
-      // const id = this.props.post.id;
-      // $.ajax({
-      //   method: "PATCH",
-      //   url: `/posts/${id}/encrypt`
-      // });
-      var form = document.getElementById("encode-input");
-      form.classList.toggle("encode-form");
     }
   }, {
     key: "componentDidUpdate",
@@ -46383,7 +46358,7 @@ var PostDetail = function (_React$Component) {
                 type: "textarea",
                 placeholder: "Add a secret message to encode",
                 value: this.state.secret,
-                onChange: this.update("secret")
+                onChange: this.update
               })
             ),
             _react2.default.createElement("input", { type: "submit", value: "Submit" })
@@ -47504,11 +47479,11 @@ var createPost = exports.createPost = function createPost(post) {
   });
 };
 
-var encryptPost = exports.encryptPost = function encryptPost(message, id) {
+var encryptPost = exports.encryptPost = function encryptPost(secret, id) {
   return $.ajax({
     method: "PATCH",
     url: "/posts/" + id + "/encrypt",
-    message: message
+    data: { secret: secret, id: id }
   });
 };
 

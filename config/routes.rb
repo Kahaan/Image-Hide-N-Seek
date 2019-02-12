@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root "static_pages#root"
 
 
-  resources :posts, defaults: {format: :json} do
+  resources :posts do
     resources :comments, defaults: {format: :json}
   end
   resources :comments, defaults: {format: :json}

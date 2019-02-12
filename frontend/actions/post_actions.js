@@ -16,12 +16,6 @@ export const receivePosts = posts => ({
   posts
 });
 
-export const encryptPost = (message, post) => ({
-  type: ENCRYPT_POST,
-  post,
-  message
-});
-
 export const decryptPost = message => ({
   type: DECRYPT_POST,
   message
@@ -36,8 +30,8 @@ export const fetchPosts = () => dispatch =>
 export const createPost = post => dispatch =>
   APIUtil.createPost(post).then(post => dispatch(receivePost(post)));
 
-export const encodePost = (message, id) => dispatch =>
-  APIUtil.encryptPost(message, id).then(post => dispatch(receivePosts(posts)));
+export const encodePost = (secret, id) => dispatch =>
+  APIUtil.encryptPost(secret, id).then(post => dispatch(receivePost(post)));
 
 export const decodePost = id => dispatch =>
   APIUtil.decryptPost(id).then(message => dispatch(decryptPost(message)));

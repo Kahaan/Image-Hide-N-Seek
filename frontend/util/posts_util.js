@@ -17,11 +17,11 @@ export const createPost = post =>
     data: post
   });
 
-export const encryptPost = (message, id) =>
+export const encryptPost = (secret, id) =>
   $.ajax({
     method: "PATCH",
     url: `/posts/${id}/encrypt`,
-    message
+    data: { secret, id }
   });
 
 export const decryptPost = id =>

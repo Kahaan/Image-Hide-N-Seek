@@ -19,9 +19,9 @@ class PostDetail extends React.Component {
     this.update = this.update.bind(this);
   }
 
-  update(field) {
+  update(event) {
     event.preventDefault();
-    return event => this.setState({ [field]: event.currentTarget.value });
+    this.setState({ secret: event.currentTarget.value });
   }
 
   handleDecode() {
@@ -37,16 +37,6 @@ class PostDetail extends React.Component {
     const secret = this.state.secret;
     const id = this.props.post.id;
     // Do something
-  }
-
-  handleEncode() {
-    // const id = this.props.post.id;
-    // $.ajax({
-    //   method: "PATCH",
-    //   url: `/posts/${id}/encrypt`
-    // });
-    let form = document.getElementById("encode-input");
-    form.classList.toggle("encode-form");
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -93,7 +83,7 @@ class PostDetail extends React.Component {
                 type="textarea"
                 placeholder="Add a secret message to encode"
                 value={this.state.secret}
-                onChange={this.update("secret")}
+                onChange={this.update}
               />
             </span>
             <input type="submit" value="Submit" />
