@@ -56,12 +56,14 @@ class PostDetail extends React.Component {
     return (
       <div>
         <div className="Post">
-          <section onClick={this.openModal}>
-            <img src={this.props.post.image_url} />
-          </section>
-          <section>
-            <h5>Random caption</h5>
-          </section>
+          <div className="overlay">
+            <section onClick={this.openModal}>
+              <img src={this.props.post.image_url} />
+            </section>
+            <section>
+              <h5>Random caption</h5>
+            </section>
+          </div>
         </div>
 
         <Modal

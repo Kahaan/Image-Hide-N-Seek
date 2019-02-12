@@ -46309,17 +46309,21 @@ var PostDetail = function (_React$Component) {
           "div",
           { className: "Post" },
           _react2.default.createElement(
-            "section",
-            { onClick: this.openModal },
-            _react2.default.createElement("img", { src: this.props.post.image_url })
-          ),
-          _react2.default.createElement(
-            "section",
-            null,
+            "div",
+            { className: "overlay" },
             _react2.default.createElement(
-              "h5",
+              "section",
+              { onClick: this.openModal },
+              _react2.default.createElement("img", { src: this.props.post.image_url })
+            ),
+            _react2.default.createElement(
+              "section",
               null,
-              "Random caption"
+              _react2.default.createElement(
+                "h5",
+                null,
+                "Random caption"
+              )
             )
           )
         ),
