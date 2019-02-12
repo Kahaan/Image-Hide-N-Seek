@@ -9,13 +9,14 @@ class PostIndex extends React.Component {
     this.state = {
       modalOpen: false,
       user_id: "",
-      title: "",
+      image: "",
       body: ""
     };
     this.closeModal = this.closeModal.bind(this);
     this.openModal = this.openModal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleUpload = this.handleUpload.bind(this);
+    this.updateImage = this.updateImage.bind(this);
+    this.updateBody = this.updateBody.bind(this);
   }
 
   closeModal() {
@@ -26,13 +27,24 @@ class PostIndex extends React.Component {
     this.setState({ modalOpen: true });
   }
 
-  handleSubmit() {
-    // Do something
+  handleSubmit(event) {
+    event.preventDefault();
+    const post = this.state;
+    delete post["modalOpen"];
+    post.user_id = this.props.currentUser.id;
+    console.log("handleSubmit---", post);
+    this.props.createPost(post);
+    this.setState({ body: "", image: "", modalOpen: false });
   }
 
-  handleUpload(event) {
-    // Do something
-    console.log(event.target.files[0]);
+  updateImage(event) {
+    event.preventDefault();
+    this.setState({ image: event.target.files[0] });
+  }
+
+  updateBody(event) {
+    event.preventDefault();
+    this.setState({ body: event.currentTarget.value });
   }
 
   componentDidMount() {
@@ -64,7 +76,11 @@ class PostIndex extends React.Component {
           onRequestClose={this.closeModal}
           style={style}
         >
-          <input type="file" onChange={this.handleUpload} />
+          <form onSubmit={this.handleSubmit}>
+            <input type="file" onChange={this.updateImage} />
+            <input type="text" onChange={this.updateBody} />
+            <input type="submit" value="Upload Post" />
+          </form>
         </Modal>
       </div>
     );

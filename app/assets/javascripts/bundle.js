@@ -30189,7 +30189,7 @@ var fetchComments = exports.fetchComments = function fetchComments(postId) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.decodePost = exports.encodePost = exports.fetchPosts = exports.fetchPost = exports.decryptPost = exports.encryptPost = exports.receivePosts = exports.receivePost = exports.DECRYPT_POST = exports.ENCRYPT_POST = exports.RECEIVE_POST = exports.RECEIVE_POSTS = undefined;
+exports.decodePost = exports.encodePost = exports.createPost = exports.fetchPosts = exports.fetchPost = exports.decryptPost = exports.encryptPost = exports.receivePosts = exports.receivePost = exports.DECRYPT_POST = exports.ENCRYPT_POST = exports.CREATE_POST = exports.RECEIVE_POST = exports.RECEIVE_POSTS = undefined;
 
 var _posts_util = __webpack_require__(297);
 
@@ -30199,6 +30199,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 var RECEIVE_POSTS = exports.RECEIVE_POSTS = "RECEIVE_POSTS";
 var RECEIVE_POST = exports.RECEIVE_POST = "RECEIVE_POST";
+var CREATE_POST = exports.CREATE_POST = "CREATE_POST";
 var ENCRYPT_POST = exports.ENCRYPT_POST = "ENCRYPT_POST";
 var DECRYPT_POST = exports.DECRYPT_POST = "DECRYPT_POST";
 
@@ -30243,6 +30244,14 @@ var fetchPosts = exports.fetchPosts = function fetchPosts() {
   return function (dispatch) {
     return APIUtil.fetchPosts().then(function (posts) {
       return dispatch(receivePosts(posts));
+    });
+  };
+};
+
+var createPost = exports.createPost = function createPost(post) {
+  return function (dispatch) {
+    return APIUtil.createPost(post).then(function (post) {
+      return dispatch(receivePost(post));
     });
   };
 };
@@ -46027,7 +46036,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var mapStateToProps = function mapStateToProps(state) {
   return {
     posts: state.posts,
-    message: state.posts.message
+    message: state.posts.message,
+    currentUser: state.session.currentUser
   };
 };
 
@@ -46038,6 +46048,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     decodePost: function decodePost(id) {
       return dispatch((0, _post_actions.decodePost)(id));
+    },
+    createPost: function createPost(post) {
+      return dispatch((0, _post_actions.createPost)(post));
     }
   };
 };
@@ -46092,13 +46105,14 @@ var PostIndex = function (_React$Component) {
     _this.state = {
       modalOpen: false,
       user_id: "",
-      title: "",
+      image: "",
       body: ""
     };
     _this.closeModal = _this.closeModal.bind(_this);
     _this.openModal = _this.openModal.bind(_this);
     _this.handleSubmit = _this.handleSubmit.bind(_this);
-    _this.handleUpload = _this.handleUpload.bind(_this);
+    _this.updateImage = _this.updateImage.bind(_this);
+    _this.updateBody = _this.updateBody.bind(_this);
     return _this;
   }
 
@@ -46114,14 +46128,26 @@ var PostIndex = function (_React$Component) {
     }
   }, {
     key: "handleSubmit",
-    value: function handleSubmit() {
-      // Do something
+    value: function handleSubmit(event) {
+      event.preventDefault();
+      var post = this.state;
+      delete post["modalOpen"];
+      post.user_id = this.props.currentUser.id;
+      console.log("handleSubmit---", post);
+      this.props.createPost(post);
+      this.setState({ body: "", image: "", modalOpen: false });
     }
   }, {
-    key: "handleUpload",
-    value: function handleUpload(event) {
-      // Do something
-      console.log(event.target.files[0]);
+    key: "updateImage",
+    value: function updateImage(event) {
+      event.preventDefault();
+      this.setState({ image: event.target.files[0] });
+    }
+  }, {
+    key: "updateBody",
+    value: function updateBody(event) {
+      event.preventDefault();
+      this.setState({ body: event.currentTarget.value });
     }
   }, {
     key: "componentDidMount",
@@ -46163,7 +46189,13 @@ var PostIndex = function (_React$Component) {
             onRequestClose: this.closeModal,
             style: _modal_style2.default
           },
-          _react2.default.createElement("input", { type: "file", onChange: this.handleUpload })
+          _react2.default.createElement(
+            "form",
+            { onSubmit: this.handleSubmit },
+            _react2.default.createElement("input", { type: "file", onChange: this.updateImage }),
+            _react2.default.createElement("input", { type: "text", onChange: this.updateBody }),
+            _react2.default.createElement("input", { type: "submit", value: "Upload Post" })
+          )
         )
       );
     }
@@ -47461,6 +47493,14 @@ var fetchPost = exports.fetchPost = function fetchPost(id) {
   return $.ajax({
     method: "GET",
     url: "/posts/" + id
+  });
+};
+
+var createPost = exports.createPost = function createPost(post) {
+  return $.ajax({
+    method: "POST",
+    url: "/posts",
+    data: post
   });
 };
 

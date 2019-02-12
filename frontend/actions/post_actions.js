@@ -2,6 +2,7 @@ import * as APIUtil from "../util/posts_util";
 
 export const RECEIVE_POSTS = "RECEIVE_POSTS";
 export const RECEIVE_POST = "RECEIVE_POST";
+export const CREATE_POST = "CREATE_POST";
 export const ENCRYPT_POST = "ENCRYPT_POST";
 export const DECRYPT_POST = "DECRYPT_POST";
 
@@ -31,6 +32,9 @@ export const fetchPost = id => dispatch =>
 
 export const fetchPosts = () => dispatch =>
   APIUtil.fetchPosts().then(posts => dispatch(receivePosts(posts)));
+
+export const createPost = post => dispatch =>
+  APIUtil.createPost(post).then(post => dispatch(receivePost(post)));
 
 export const encodePost = (message, id) => dispatch =>
   APIUtil.encryptPost(message, id).then(post => dispatch(receivePosts(posts)));
