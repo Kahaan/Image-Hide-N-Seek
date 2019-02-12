@@ -1,7 +1,6 @@
 import {
   RECEIVE_POST,
   RECEIVE_POSTS,
-  ENCRYPT_POST,
   DECRYPT_POST
 } from "../actions/post_actions";
 

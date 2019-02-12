@@ -13,7 +13,7 @@ class PagesController < ApplicationController
     @post = Post.find(params[:id])
     image = ImageManipulator.new(@post.image.path)
     image.encode(params[:secret], @post.image.path)
-    redirect_to @post
+    # TODO: Return some text to display while encrypting
   end
 
   def decrypt

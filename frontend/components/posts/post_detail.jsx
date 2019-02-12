@@ -14,7 +14,6 @@ class PostDetail extends React.Component {
     this.closeModal = this.closeModal.bind(this);
     this.openModal = this.openModal.bind(this);
     this.handleDecode = this.handleDecode.bind(this);
-    this.handleEncode = this.handleEncode.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
   }
@@ -36,7 +35,8 @@ class PostDetail extends React.Component {
     event.preventDefault();
     const secret = this.state.secret;
     const id = this.props.post.id;
-    // Do something
+    this.props.encodePost(secret, id);
+    this.setState({ secret: "" });
   }
 
   componentDidUpdate(prevProps, prevState) {

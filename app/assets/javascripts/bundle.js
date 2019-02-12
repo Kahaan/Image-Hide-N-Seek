@@ -46041,6 +46041,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     decodePost: function decodePost(id) {
       return dispatch((0, _post_actions.decodePost)(id));
     },
+    encodePost: function encodePost(secret, id) {
+      return dispatch((0, _post_actions.encodePost)(secret, id));
+    },
     createPost: function createPost(post) {
       return dispatch((0, _post_actions.createPost)(post));
     }
@@ -46169,6 +46172,7 @@ var PostIndex = function (_React$Component) {
               key: key,
               post: posts[key],
               decodePost: _this2.props.decodePost,
+              encodePost: _this2.props.encodePost,
               message: _this2.props.message
             });
           })
@@ -46251,7 +46255,6 @@ var PostDetail = function (_React$Component) {
     _this.closeModal = _this.closeModal.bind(_this);
     _this.openModal = _this.openModal.bind(_this);
     _this.handleDecode = _this.handleDecode.bind(_this);
-    _this.handleEncode = _this.handleEncode.bind(_this);
     _this.handleSubmit = _this.handleSubmit.bind(_this);
     _this.update = _this.update.bind(_this);
     return _this;
@@ -46278,7 +46281,8 @@ var PostDetail = function (_React$Component) {
       event.preventDefault();
       var secret = this.state.secret;
       var id = this.props.post.id;
-      // Do something
+      this.props.encodePost(secret, id);
+      this.setState({ secret: "" });
     }
   }, {
     key: "componentDidUpdate",

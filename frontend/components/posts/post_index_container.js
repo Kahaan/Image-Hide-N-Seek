@@ -5,6 +5,7 @@ import {
   fetchPosts,
   fetchPost,
   decodePost,
+  encodePost,
   createPost
 } from "../../actions/post_actions";
 
@@ -17,6 +18,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   fetchPosts: () => dispatch(fetchPosts()),
   decodePost: id => dispatch(decodePost(id)),
+  encodePost: (secret, id) => dispatch(encodePost(secret, id)),
   createPost: post => dispatch(createPost(post))
 });
 
