@@ -61,7 +61,7 @@ class PostDetail extends React.Component {
               <img src={this.props.post.image_url} />
             </section>
             <section>
-              <h5>Random caption</h5>
+              <h5>{this.props.post.body}</h5>
             </section>
           </div>
         </div>
