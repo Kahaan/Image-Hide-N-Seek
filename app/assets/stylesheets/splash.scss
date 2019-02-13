@@ -47,7 +47,8 @@
   border-radius: 2px;
 }
 
-.element {
+.element > h1 {
+  margin-top: 0px;
   font-size: 40px;
   font-family: "Futura";
   color: #fff;
