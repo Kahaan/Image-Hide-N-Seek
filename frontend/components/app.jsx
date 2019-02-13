@@ -7,6 +7,7 @@ import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import SplashContainer from "./splash/splash_container";
 import PostIndexContainer from "./posts/post_index_container";
 import SessionFormContainer from "./session_form/session_form_container";
+import Footer from "./footer/footer";
 
 // import { fetchPosts, fetchPost } from "../actions/post_actions";
 
@@ -24,6 +25,8 @@ const App = () => (
       <Route exact path="/home" component={SplashContainer} />
       <ProtectedRoute path="/home" component={PostIndexContainer} />
     </main>
+
+    <Route path="/" render={Footer} />
   </div>
 );
 

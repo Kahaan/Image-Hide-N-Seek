@@ -45909,6 +45909,10 @@ var _session_form_container = __webpack_require__(298);
 
 var _session_form_container2 = _interopRequireDefault(_session_form_container);
 
+var _footer = __webpack_require__(318);
+
+var _footer2 = _interopRequireDefault(_footer);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // import { fetchPosts, fetchPost } from "../actions/post_actions";
@@ -45937,7 +45941,8 @@ var App = function App() {
       _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/", component: _splash_container2.default }),
       _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/home", component: _splash_container2.default }),
       _react2.default.createElement(_route_util.ProtectedRoute, { path: "/home", component: _post_index_container2.default })
-    )
+    ),
+    _react2.default.createElement(_reactRouterDom.Route, { path: "/", render: _footer2.default })
   );
 };
 
@@ -46346,15 +46351,22 @@ var PostDetail = function (_React$Component) {
             "Message:"
           ),
           _react2.default.createElement(
-            "button",
-            { onClick: this.handleDecode },
-            " Decode "
+            "span",
+            null,
+            _react2.default.createElement(
+              "button",
+              { className: "modal-btn decode", onClick: this.handleDecode },
+              "Decode"
+            )
           ),
-          _react2.default.createElement("br", null),
           _react2.default.createElement(
-            "button",
-            { onClick: this.handleEncode },
-            " Encode "
+            "span",
+            null,
+            _react2.default.createElement(
+              "button",
+              { className: "modal-btn encode", onClick: this.handleEncode },
+              "Encode"
+            )
           ),
           _react2.default.createElement(
             "form",
@@ -49624,6 +49636,70 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ ])
 });
 ;
+
+/***/ }),
+/* 318 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(4);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Footer = function Footer() {
+  return _react2.default.createElement(
+    "footer",
+    { className: "footer" },
+    _react2.default.createElement(
+      "section",
+      { className: "foot-left", id: "foot-left" },
+      _react2.default.createElement(
+        "p",
+        null,
+        _react2.default.createElement(
+          "i",
+          null,
+          "\u201CMan is not what he thinks he is, he is what he hides.\u201D"
+        ),
+        _react2.default.createElement(
+          "b",
+          null,
+          "\u2015 Andr\xE9 Malraux"
+        ),
+        " "
+      )
+    ),
+    _react2.default.createElement(
+      "section",
+      { className: "foot-right" },
+      _react2.default.createElement(
+        "a",
+        { href: "https://github.com/Kahaan" },
+        _react2.default.createElement("i", { className: "fab fa-github fa-2x", "aria-hidden": "true" })
+      ),
+      _react2.default.createElement(
+        "a",
+        { href: "https://www.linkedin.com/in/kahaan-patel-a89952a3/" },
+        _react2.default.createElement("i", { className: "fab fa-linkedin fa-2x", "aria-hidden": "true" })
+      ),
+      _react2.default.createElement(
+        "a",
+        { href: "mailto:kahaan.r.patel@gmail.com" },
+        _react2.default.createElement("i", { className: "fas fa-envelope fa-2x", "aria-hidden": "true" })
+      )
+    )
+  );
+};
+
+exports.default = Footer;
 
 /***/ })
 /******/ ]);

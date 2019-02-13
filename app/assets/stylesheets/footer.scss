@@ -1,0 +1,16 @@
+.footer {
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 50px;
+  border-radius: 20px;
+}
+
+.foot-right a {
+  margin-right: 15px;
+}
+
+.foot-left p {
+  justify-content: flex-start;
+}

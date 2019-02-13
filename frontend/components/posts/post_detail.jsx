@@ -76,9 +76,16 @@ class PostDetail extends React.Component {
             <img src={this.props.post.image_url} />
           </div>
           <h4>Message:</h4>
-          <button onClick={this.handleDecode}> Decode </button>
-          <br />
-          <button onClick={this.handleEncode}> Encode </button>
+          <span>
+            <button className="modal-btn decode" onClick={this.handleDecode}>
+              Decode
+            </button>
+          </span>
+          <span>
+            <button className="modal-btn encode" onClick={this.handleEncode}>
+              Encode
+            </button>
+          </span>
           <form onSubmit={this.handleSubmit}>
             <span id="encode-input">
               <input
