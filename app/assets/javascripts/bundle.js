@@ -49795,7 +49795,7 @@ var Greeting = function (_React$Component) {
             { to: "/home" },
             _react2.default.createElement(
               "button",
-              { className: "header-button" },
+              { className: "header-button explore" },
               _react2.default.createElement(
                 "p",
                 null,
@@ -49808,7 +49808,10 @@ var Greeting = function (_React$Component) {
             { to: "/" },
             _react2.default.createElement(
               "button",
-              { onClick: this.handleSubmit, className: "header-button" },
+              {
+                onClick: this.handleSubmit,
+                className: "header-button logout"
+              },
               _react2.default.createElement(
                 "p",
                 null,
@@ -49821,7 +49824,7 @@ var Greeting = function (_React$Component) {
             { to: "/users/" + this.props.currentUser.id },
             _react2.default.createElement(
               "button",
-              { className: "header-button" },
+              { className: "header-button profile" },
               _react2.default.createElement(
                 "p",
                 null,
