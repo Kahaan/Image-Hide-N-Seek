@@ -5,6 +5,7 @@ import { Route, HashRouter, Link, Switch, Redirect } from "react-router-dom";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
 
 import SplashContainer from "./splash/splash_container";
+import GreetingContainer from "./greeting/greeting_container";
 import PostIndexContainer from "./posts/post_index_container";
 import SessionFormContainer from "./session_form/session_form_container";
 import Footer from "./footer/footer";
@@ -20,6 +21,8 @@ const App = () => (
         <h1>Home</h1>
       </Link>
       <AuthRoute path="/" component={SessionFormContainer} />
+      <ProtectedRoute path="/home" component={GreetingContainer} />
+      <ProtectedRoute path={`/users/:id`} component={GreetingContainer} />
     </header>
     <main className="main">
       <Route exact path="/" component={SplashContainer} />
