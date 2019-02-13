@@ -29,7 +29,8 @@ class Splash extends React.Component {
   componentDidMount() {
     var options = {
       strings: [
-        "<h1>Would you believe me if I told you that the background image you're looking at has 15,000 words encryted into it?</h1>"
+        "<h1>The background image you're looking at has 15,000 words encryted into it.</h1>",
+        "<h1>Try encoding your own pictures!</h1>"
       ],
       typeSpeed: 30
     };
@@ -41,13 +42,15 @@ class Splash extends React.Component {
     return (
       <div>
         <section className="parallax">
+          <div className="element" />
           <section className="splash-text">
-            <div className="element" />
+            {/*
             <h1>Steganography</h1>
             <h4>
               Would you believe me if I told you that the background image
               you're looking at has 15,000 words encryted into it?
             </h4>
+            */}
             {this.demoButton()}
           </section>
         </section>

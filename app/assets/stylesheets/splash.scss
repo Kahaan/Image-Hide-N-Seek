@@ -1,5 +1,5 @@
 .parallax {
-  background-image: url("https://cdn-images-1.medium.com/max/1600/1*ieFE-OttOL_h7F_R4GgOAg.jpeg");
+  background-image: url("cover.png");
   // background-image: url("https://oddviser.com/photo/place/1600/846.jpg?1496220904");
   background-position: center;
   background-repeat: no-repeat;
@@ -48,9 +48,10 @@
 }
 
 .element {
-  // font-size: 40px;
-  // width: 250%;
-  // text-align: left;
-  // background-color: black;
-  // color: white;
+  font-size: 40px;
+  font-family: "Futura";
+  color: #fff;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0080, 0 0 30px #ff0080,
+    0 0 40px #ff0080, 0 0 55px #ff0080, 0 0 75px #ff0080;
+  text-align: center;
 }

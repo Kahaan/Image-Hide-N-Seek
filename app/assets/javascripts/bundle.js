@@ -45951,6 +45951,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // import { fetchPosts, fetchPost } from "../actions/post_actions";
 
+// TODO: fontawesome cdn is slow, store locally
+
 var App = function App() {
   return _react2.default.createElement(
     "div",
@@ -46181,7 +46183,7 @@ var Splash = function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       var options = {
-        strings: ["<h1>Would you believe me if I told you that the background image you're looking at has 15,000 words encryted into it?</h1>"],
+        strings: ["<h1>The background image you're looking at has 15,000 words encryted into it.</h1>", "<h1>Try encoding your own pictures!</h1>"],
         typeSpeed: 30
       };
 
@@ -46196,20 +46198,10 @@ var Splash = function (_React$Component) {
         _react2.default.createElement(
           "section",
           { className: "parallax" },
+          _react2.default.createElement("div", { className: "element" }),
           _react2.default.createElement(
             "section",
             { className: "splash-text" },
-            _react2.default.createElement("div", { className: "element" }),
-            _react2.default.createElement(
-              "h1",
-              null,
-              "Steganography"
-            ),
-            _react2.default.createElement(
-              "h4",
-              null,
-              "Would you believe me if I told you that the background image you're looking at has 15,000 words encryted into it?"
-            ),
             this.demoButton()
           )
         )

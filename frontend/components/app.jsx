@@ -11,6 +11,8 @@ import Footer from "./footer/footer";
 
 // import { fetchPosts, fetchPost } from "../actions/post_actions";
 
+// TODO: fontawesome cdn is slow, store locally
+
 const App = () => (
   <div>
     <header>
@@ -19,7 +21,6 @@ const App = () => (
       </Link>
       <AuthRoute path="/" component={SessionFormContainer} />
     </header>
-
     <main className="main">
       <Route exact path="/" component={SplashContainer} />
       <Route exact path="/home" component={SplashContainer} />
