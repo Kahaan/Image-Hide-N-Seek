@@ -16,7 +16,7 @@ export const createPost = post =>
     contentType: false,
     processData: false,
     method: "POST",
-    data: { post }
+    data: post
   });
 
 export const encryptPost = (secret, id) =>

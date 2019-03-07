@@ -47541,7 +47541,7 @@ var PostIndex = function (_React$Component) {
       delete post["modalOpen"];
       post.user_id = this.props.currentUser.id;
       console.log("handleSubmit---", post);
-      this.props.createPost(post);
+      this.props.createPost({ post: post });
       this.setState({ body: "", image: "", modalOpen: false });
     }
   }, {
@@ -49000,7 +49000,7 @@ var createPost = exports.createPost = function createPost(post) {
     contentType: false,
     processData: false,
     method: "POST",
-    data: { post: post }
+    data: post
   });
 };
 
