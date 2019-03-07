@@ -2,7 +2,6 @@ import * as APIUtil from "../util/posts_util";
 
 export const RECEIVE_POSTS = "RECEIVE_POSTS";
 export const RECEIVE_POST = "RECEIVE_POST";
-export const CREATE_POST = "CREATE_POST";
 export const ENCRYPT_POST = "ENCRYPT_POST";
 export const DECRYPT_POST = "DECRYPT_POST";
 
