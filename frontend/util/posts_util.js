@@ -12,9 +12,11 @@ export const fetchPost = id =>
 
 export const createPost = post =>
   $.ajax({
-    method: "POST",
     url: "/posts",
-    data: post
+    contentType: false,
+    processData: false,
+    method: "POST",
+    data: { post }
   });
 
 export const encryptPost = (secret, id) =>
