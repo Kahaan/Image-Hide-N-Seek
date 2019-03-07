@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2019_01_12_010951) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "comments", force: :cascade do |t|
     t.string "body", null: false
     t.integer "post_id", null: false

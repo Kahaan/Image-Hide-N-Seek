@@ -32,6 +32,8 @@ gem 'rspec'
 gem 'bcrypt'
 gem 'jquery-rails'
 gem 'rails_12factor'
+gem 'pg'
+gem 'taps'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
