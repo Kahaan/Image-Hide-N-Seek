@@ -47,19 +47,20 @@ class CommentList extends React.Component {
         {Object.keys(comments).map(key => (
           <li className="comment-container" key={key}>
             <div className="comment">
-              <Link to={`users/${comments[key].user_id}`}>
-                {comments[key].username}
-              </Link>
-              <br />
-              <span>{comments[key].body}</span>
-              {this.deleteCommentButton(comments[key])}
+              <div className="comment-right">
+                <Link
+                  className="comment-user"
+                  to={`users/${comments[key].user_id}`}
+                >
+                  {comments[key].username}
+                </Link>
+                <span className="comment-body">{comments[key].body}</span>
+                {this.deleteCommentButton(comments[key])}
+              </div>
             </div>
           </li>
         ))}
-        <CommentContainer
-          className="new-comment-container"
-          postId={this.props.post.id}
-        />
+        <CommentContainer postId={this.props.post.id} />
       </ul>
     );
   }

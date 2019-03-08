@@ -29,16 +29,21 @@ class Comment extends React.Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            placeholder="Add new comment"
-            value={this.state.body}
-            onChange={this.update("body")}
-          />
-        </form>
-      </div>
+      <li className="new-comment-container">
+        <div className="comment">
+          <Link to={`users/${this.props.userId}`} className="comment-user">
+            {this.props.currentUser.username}
+          </Link>
+          <form className="comment-body" onSubmit={this.handleSubmit}>
+            <input
+              type="text"
+              placeholder="Add new comment"
+              value={this.state.body}
+              onChange={this.update("body")}
+            />
+          </form>
+        </div>
+      </li>
     );
   }
 }

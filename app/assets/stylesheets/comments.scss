@@ -20,5 +20,27 @@
   padding: 5px;
   display: flex;
   flex-direction: row;
-  background-color: white;
+  background-color: #f9f9f9;
+}
+
+.comment-user {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.comment-body {
+  font-size: 14px;
+}
+
+.comment-right {
+  // display: flex;
+  // flex-direction: row;
+  // justify-content: space-between;
+  width: 40px;
+  align-items: center;
+}
+
+.comment-input {
 }

@@ -48784,24 +48784,27 @@ var CommentList = function (_React$Component) {
               "div",
               { className: "comment" },
               _react2.default.createElement(
-                _reactRouterDom.Link,
-                { to: "users/" + comments[key].user_id },
-                comments[key].username
-              ),
-              _react2.default.createElement("br", null),
-              _react2.default.createElement(
-                "span",
-                null,
-                comments[key].body
-              ),
-              _this3.deleteCommentButton(comments[key])
+                "div",
+                { className: "comment-right" },
+                _react2.default.createElement(
+                  _reactRouterDom.Link,
+                  {
+                    className: "comment-user",
+                    to: "users/" + comments[key].user_id
+                  },
+                  comments[key].username
+                ),
+                _react2.default.createElement(
+                  "span",
+                  { className: "comment-body" },
+                  comments[key].body
+                ),
+                _this3.deleteCommentButton(comments[key])
+              )
             )
           );
         }),
-        _react2.default.createElement(_comment_container2.default, {
-          className: "new-comment-container",
-          postId: this.props.post.id
-        })
+        _react2.default.createElement(_comment_container2.default, { postId: this.props.post.id })
       );
     }
   }]);
@@ -48952,17 +48955,26 @@ var Comment = function (_React$Component) {
     key: "render",
     value: function render() {
       return _react2.default.createElement(
-        "div",
-        null,
+        "li",
+        { className: "new-comment-container" },
         _react2.default.createElement(
-          "form",
-          { onSubmit: this.handleSubmit },
-          _react2.default.createElement("input", {
-            type: "text",
-            placeholder: "Add new comment",
-            value: this.state.body,
-            onChange: this.update("body")
-          })
+          "div",
+          { className: "comment" },
+          _react2.default.createElement(
+            _reactRouterDom.Link,
+            { to: "users/" + this.props.userId, className: "comment-user" },
+            this.props.currentUser.username
+          ),
+          _react2.default.createElement(
+            "form",
+            { className: "comment-body", onSubmit: this.handleSubmit },
+            _react2.default.createElement("input", {
+              type: "text",
+              placeholder: "Add new comment",
+              value: this.state.body,
+              onChange: this.update("body")
+            })
+          )
         )
       );
     }
