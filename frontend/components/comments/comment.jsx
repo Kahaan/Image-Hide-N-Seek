@@ -23,6 +23,7 @@ class Comment extends React.Component {
     const comment = this.state;
     comment.user_id = this.props.userId;
     comment.post_id = this.props.postId;
+    comment.username = this.props.currentUser.username;
     this.props.createComment({ comment });
     this.setState({ body: "" });
   }

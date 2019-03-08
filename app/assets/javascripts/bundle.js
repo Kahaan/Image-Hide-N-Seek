@@ -45956,6 +45956,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // TODO: fontawesome cdn is slow, store locally
 
+var style = { color: "black" };
 var App = function App() {
   return _react2.default.createElement(
     "div",
@@ -45965,7 +45966,7 @@ var App = function App() {
       null,
       _react2.default.createElement(
         _reactRouterDom.Link,
-        { to: "/home", className: "header-link" },
+        { style: style, to: "/home", className: "header-link" },
         _react2.default.createElement(
           "h1",
           null,
@@ -45980,7 +45981,6 @@ var App = function App() {
       "main",
       { className: "main" },
       _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/", component: _splash_container2.default }),
-      _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/home", component: _splash_container2.default }),
       _react2.default.createElement(_route_util.ProtectedRoute, { path: "/home", component: _post_index_container2.default })
     ),
     _react2.default.createElement(_reactRouterDom.Route, { path: "/", render: _footer2.default })
@@ -48948,6 +48948,7 @@ var Comment = function (_React$Component) {
       var comment = this.state;
       comment.user_id = this.props.userId;
       comment.post_id = this.props.postId;
+      comment.username = this.props.currentUser.username;
       this.props.createComment({ comment: comment });
       this.setState({ body: "" });
     }

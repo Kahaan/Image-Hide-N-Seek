@@ -14,10 +14,11 @@ import Footer from "./footer/footer";
 
 // TODO: fontawesome cdn is slow, store locally
 
+const style = { color: "black" };
 const App = () => (
   <div>
     <header>
-      <Link to="/home" className="header-link">
+      <Link style={style} to="/home" className="header-link">
         <h1>Home</h1>
       </Link>
       <AuthRoute path="/" component={SessionFormContainer} />
@@ -26,7 +27,6 @@ const App = () => (
     </header>
     <main className="main">
       <Route exact path="/" component={SplashContainer} />
-      <Route exact path="/home" component={SplashContainer} />
       <ProtectedRoute path="/home" component={PostIndexContainer} />
     </main>
 
