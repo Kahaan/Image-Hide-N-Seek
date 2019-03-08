@@ -42,11 +42,11 @@ class CommentList extends React.Component {
     const comments = this.props.comments;
     console.log(comments);
     return (
-      <ul>
+      <ul className="comment-list">
         <h4>Comments</h4>
         {Object.keys(comments).map(key => (
-          <li key={key}>
-            <div>
+          <li className="comment-container" key={key}>
+            <div className="comment">
               <Link to={`users/${comments[key].user_id}`}>
                 {comments[key].username}
               </Link>
@@ -56,7 +56,10 @@ class CommentList extends React.Component {
             </div>
           </li>
         ))}
-        <CommentContainer postId={this.props.post.id} />
+        <CommentContainer
+          className="new-comment-container"
+          postId={this.props.post.id}
+        />
       </ul>
     );
   }

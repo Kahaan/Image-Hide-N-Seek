@@ -48770,7 +48770,7 @@ var CommentList = function (_React$Component) {
       console.log(comments);
       return _react2.default.createElement(
         "ul",
-        null,
+        { className: "comment-list" },
         _react2.default.createElement(
           "h4",
           null,
@@ -48779,10 +48779,10 @@ var CommentList = function (_React$Component) {
         Object.keys(comments).map(function (key) {
           return _react2.default.createElement(
             "li",
-            { key: key },
+            { className: "comment-container", key: key },
             _react2.default.createElement(
               "div",
-              null,
+              { className: "comment" },
               _react2.default.createElement(
                 _reactRouterDom.Link,
                 { to: "users/" + comments[key].user_id },
@@ -48798,7 +48798,10 @@ var CommentList = function (_React$Component) {
             )
           );
         }),
-        _react2.default.createElement(_comment_container2.default, { postId: this.props.post.id })
+        _react2.default.createElement(_comment_container2.default, {
+          className: "new-comment-container",
+          postId: this.props.post.id
+        })
       );
     }
   }]);
