@@ -51,7 +51,7 @@ header {
   border: none;
 }
 
-.header-button.explore {
+.header-button.home {
   font-family: "Futura";
   color: #fff;
   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ffff00, 0 0 30px #ffff00,
@@ -60,9 +60,18 @@ header {
   border: none;
 }
 
+.header-button.explore {
+  font-family: "Futura";
+  color: black;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ffff00, 0 0 30px #ffff00,
+    0 0 40px #ffff00, 0 0 55px #ffff00, 0 0 75px #ffff00;
+  text-align: center;
+  border: none;
+}
+
 .header-button.logout {
   font-family: "Futura";
-  color: #fff;
+  color: black;
   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #00ff00, 0 0 30px #00ff00,
     0 0 40px #00ff00, 0 0 55px #00ff00, 0 0 75px #00ff00;
   text-align: center;
@@ -71,12 +80,39 @@ header {
 
 .header-button.profile {
   font-family: "Futura";
-  color: #fff;
+  color: black;
   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #00ffff, 0 0 30px #00ffff,
     0 0 40px #00ffff, 0 0 55px #00ffff, 0 0 75px #00ffff;
   text-align: center;
   border: none;
 }
+//
+// .header-button.explore {
+//   font-family: "Futura";
+//   color: black;
+//   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ffff00, 0 0 30px #ffff00,
+//     0 0 40px #ffff00, 0 0 55px #ffff00, 0 0 75px #ffff00;
+//   text-align: center;
+//   border: none;
+// }
+//
+// .header-button.logout {
+//   font-family: "Futura";
+//   color: #fff;
+//   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #00ff00, 0 0 30px #00ff00,
+//     0 0 40px #00ff00, 0 0 55px #00ff00, 0 0 75px #00ff00;
+//   text-align: center;
+//   border: none;
+// }
+//
+// .header-button.profile {
+//   font-family: "Futura";
+//   color: #fff;
+//   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #00ffff, 0 0 30px #00ffff,
+//     0 0 40px #00ffff, 0 0 55px #00ffff, 0 0 75px #00ffff;
+//   text-align: center;
+//   border: none;
+// }
 
 .header-button:hover {
   text-decoration: underline;

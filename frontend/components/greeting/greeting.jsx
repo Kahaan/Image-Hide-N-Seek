@@ -18,7 +18,7 @@ class Greeting extends React.Component {
         <div>
           <Link to="/home">
             <button className="header-button explore">
-              <p>Explore</p>
+              <h1>Explore</h1>
             </button>
           </Link>
 
@@ -27,13 +27,13 @@ class Greeting extends React.Component {
               onClick={this.handleSubmit}
               className="header-button logout"
             >
-              <p>Log Out</p>
+              <h1>Log Out</h1>
             </button>
           </Link>
 
           <Link to={`/users/${this.props.currentUser.id}`}>
             <button className="header-button profile">
-              <p>My Profile</p>
+              <h1>My Profile</h1>
             </button>
           </Link>
         </div>

@@ -14,7 +14,7 @@ import Footer from "./footer/footer";
 
 // TODO: fontawesome cdn is slow, store locally
 
-const style = { color: "black" };
+const style = { color: "black", fontFamily: "Futura" };
 const App = () => (
   <div>
     <header>

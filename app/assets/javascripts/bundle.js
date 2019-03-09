@@ -45956,7 +45956,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // TODO: fontawesome cdn is slow, store locally
 
-var style = { color: "black" };
+var style = { color: "black", fontFamily: "Futura" };
 var App = function App() {
   return _react2.default.createElement(
     "div",
@@ -47367,7 +47367,7 @@ var Greeting = function (_React$Component) {
               "button",
               { className: "header-button explore" },
               _react2.default.createElement(
-                "p",
+                "h1",
                 null,
                 "Explore"
               )
@@ -47383,7 +47383,7 @@ var Greeting = function (_React$Component) {
                 className: "header-button logout"
               },
               _react2.default.createElement(
-                "p",
+                "h1",
                 null,
                 "Log Out"
               )
@@ -47396,7 +47396,7 @@ var Greeting = function (_React$Component) {
               "button",
               { className: "header-button profile" },
               _react2.default.createElement(
-                "p",
+                "h1",
                 null,
                 "My Profile"
               )
