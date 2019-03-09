@@ -47541,7 +47541,7 @@ var PostIndex = function (_React$Component) {
       delete post["modalOpen"];
       post.user_id = this.props.currentUser.id;
       console.log("handleSubmit---", post);
-      this.props.createPost({ post: post });
+      this.props.createPost(post);
       this.setState({ body: "", image: "", modalOpen: false });
     }
   }, {
@@ -48949,6 +48949,7 @@ var Comment = function (_React$Component) {
       comment.user_id = this.props.userId;
       comment.post_id = this.props.postId;
       comment.username = this.props.currentUser.username;
+      console.log("from comment form submit---", comment);
       this.props.createComment({ comment: comment });
       this.setState({ body: "" });
     }
@@ -49011,12 +49012,16 @@ var fetchPost = exports.fetchPost = function fetchPost(id) {
 };
 
 var createPost = exports.createPost = function createPost(post) {
+  var fd = new FormData();
+  fd.append("image", post.image);
+  fd.append("user_id", post.user_id);
+  fd.append("body", post.body);
   return $.ajax({
     url: "/posts",
-    contentType: false,
+    contentType: "multipart/form-data",
     processData: false,
     method: "POST",
-    data: post
+    data: fd
   });
 };
 

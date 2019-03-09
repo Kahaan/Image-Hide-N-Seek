@@ -24,6 +24,7 @@ class Comment extends React.Component {
     comment.user_id = this.props.userId;
     comment.post_id = this.props.postId;
     comment.username = this.props.currentUser.username;
+    console.log("from comment form submit---", comment);
     this.props.createComment({ comment });
     this.setState({ body: "" });
   }

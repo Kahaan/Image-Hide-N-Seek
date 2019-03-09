@@ -10,6 +10,9 @@ class PostsController < ApplicationController
   end
 
   def create
+    # user_id = params[:user_id]
+    # body = params[:body]
+    # image = params[:image]
     @post = Post.new(post_params)
     @post.user_id = current_user.id
 
@@ -42,7 +45,7 @@ class PostsController < ApplicationController
 
 
   def post_params
-    params.require(:post).permit(:user_id, :image, :body)
+    params.require(:user_id, :body, :image).permit!
   end
 
 end

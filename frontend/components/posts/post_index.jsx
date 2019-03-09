@@ -33,7 +33,7 @@ class PostIndex extends React.Component {
     delete post["modalOpen"];
     post.user_id = this.props.currentUser.id;
     console.log("handleSubmit---", post);
-    this.props.createPost({ post });
+    this.props.createPost(post);
     this.setState({ body: "", image: "", modalOpen: false });
   }
 

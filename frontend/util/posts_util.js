@@ -10,14 +10,19 @@ export const fetchPost = id =>
     url: `/posts/${id}`
   });
 
-export const createPost = post =>
-  $.ajax({
+export const createPost = post => {
+  const fd = new FormData();
+  fd.append("image", post.image);
+  fd.append("user_id", post.user_id);
+  fd.append("body", post.body);
+  return $.ajax({
     url: "/posts",
-    contentType: false,
+    contentType: "multipart/form-data",
     processData: false,
     method: "POST",
-    data: post
+    data: fd
   });
+};
 
 export const encryptPost = (secret, id) =>
   $.ajax({
