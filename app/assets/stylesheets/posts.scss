@@ -15,17 +15,27 @@
   height: 4500px;
   background-color: #f9f9f9;
   padding-top: 20px;
+  margin-top: 0px;
 }
 
 .Post {
   // display: flex;
-  margin: 10px;
+  margin: 15px;
   flex-grow: 1;
   order: 0;
   border-radius: 5px;
   padding: 1px 1px 5px 1px;
   background-color: white;
 }
+
+.Post h5 {
+  text-align: center;
+  font-weight: 900;
+  font-family: monospace;
+  font-size: 12px;
+  // display: none;
+}
+
 // TODO: Image creeps out of padding when hover
 
 .Post:hover {
@@ -62,6 +72,11 @@
 .fa-plus-circle {
   color: purple;
   margin-left: 40px;
+}
+
+.plusIcon {
+  background-color: #f9f9f9;
+  padding-top: 10px;
 }
 
 .fa-plus-circle:hover {

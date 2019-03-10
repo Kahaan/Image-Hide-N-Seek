@@ -60,7 +60,7 @@ class PostDetail extends React.Component {
             <section onClick={this.openModal}>
               <img src={this.props.post.image_url} />
             </section>
-            <section>
+            <section className="caption">
               <h5>{this.props.post.body}</h5>
             </section>
           </div>

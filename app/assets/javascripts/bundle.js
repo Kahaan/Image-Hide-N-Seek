@@ -47575,7 +47575,11 @@ var PostIndex = function (_React$Component) {
       return _react2.default.createElement(
         "div",
         null,
-        _react2.default.createElement("i", { onClick: this.openModal, className: "fas fa-plus-circle fa-4x" }),
+        _react2.default.createElement(
+          "div",
+          { className: "plusIcon" },
+          _react2.default.createElement("i", { onClick: this.openModal, className: "fas fa-plus-circle fa-4x" })
+        ),
         _react2.default.createElement(
           "ul",
           { className: "post-list" },
@@ -48556,7 +48560,7 @@ var PostDetail = function (_React$Component) {
             ),
             _react2.default.createElement(
               "section",
-              null,
+              { className: "caption" },
               _react2.default.createElement(
                 "h5",
                 null,

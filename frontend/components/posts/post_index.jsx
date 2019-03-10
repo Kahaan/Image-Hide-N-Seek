@@ -57,7 +57,9 @@ class PostIndex extends React.Component {
     const imageKeys = Object.keys(posts).filter(key => key != "message");
     return (
       <div>
-        <i onClick={this.openModal} className="fas fa-plus-circle fa-4x" />
+        <div className="plusIcon">
+          <i onClick={this.openModal} className="fas fa-plus-circle fa-4x" />
+        </div>
 
         <ul className="post-list">
           {imageKeys.map(key => (
