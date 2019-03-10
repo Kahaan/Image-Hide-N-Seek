@@ -1,10 +1,16 @@
+// TODO: make text break so the post items max width depends on image
+// TODO: image corners should not creep out of div
+// TODO: Icons at bottom should be black
+// TODO: Align quote at bottom
+// TODO: Test different font for caption, and header links
+
 header {
   display: flex;
   justify-content: space-between;
   // align-content: center;
   align-items: center;
   width: 100%;
-  height: 50px;
+  height: 45px;
   color: #ffe066;
   border-bottom: 1px solid #ffcc00;
   background-color: #ffcc00;
@@ -14,7 +20,7 @@ header {
 }
 
 .header-link {
-  font-size: 14px;
+  font-size: 12px;
   font-family: "Merriweather", serif;
   margin-left: 25px;
   margin-top: 1px;
@@ -87,6 +93,7 @@ header {
   //   0 0 40px #00ffff, 0 0 55px #00ffff, 0 0 75px #00ffff;
   text-align: center;
   border: none;
+  padding-right: 30px;
 }
 //
 // .header-button.explore {
