@@ -1,3 +1,18 @@
 // Place all the styles related to the Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.header-button {
+  font-family: "Futura";
+  color: black;
+  text-align: center;
+  border: none;
+  font-size: 12px;
+}
+
+.header-button:hover {
+  background: rgba(0, 0, 0, 0.06);
+  background-clip: padding-box;
+  border-radius: 25px;
+  text-decoration: none;
+}

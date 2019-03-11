@@ -169,13 +169,13 @@ class SessionForm extends React.Component {
             className="header-button"
             onClick={this.openModal.bind(this, true)}
           >
-            Login
+            <h1>Login</h1>
           </button>
           <button
             className="header-button"
             onClick={this.openModal.bind(this, false)}
           >
-            Sign up
+            <h1>Sign up</h1>
           </button>
         </div>
 

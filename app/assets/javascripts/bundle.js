@@ -49358,7 +49358,11 @@ var SessionForm = function (_React$Component) {
               className: "header-button",
               onClick: this.openModal.bind(this, true)
             },
-            "Login"
+            _react2.default.createElement(
+              "h1",
+              null,
+              "Login"
+            )
           ),
           _react2.default.createElement(
             "button",
@@ -49366,7 +49370,11 @@ var SessionForm = function (_React$Component) {
               className: "header-button",
               onClick: this.openModal.bind(this, false)
             },
-            "Sign up"
+            _react2.default.createElement(
+              "h1",
+              null,
+              "Sign up"
+            )
           )
         ),
         _react2.default.createElement(

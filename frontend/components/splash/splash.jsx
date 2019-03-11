@@ -43,16 +43,7 @@ class Splash extends React.Component {
       <div>
         <section className="parallax">
           <div className="element" />
-          <section className="splash-text">
-            {/*
-            <h1>Steganography</h1>
-            <h4>
-              Would you believe me if I told you that the background image
-              you're looking at has 15,000 words encryted into it?
-            </h4>
-            */}
-            {this.demoButton()}
-          </section>
+          <section className="splash-text">{this.demoButton()}</section>
         </section>
       </div>
     );
