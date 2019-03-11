@@ -48776,7 +48776,7 @@ var CommentList = function (_React$Component) {
       console.log(comments);
       return _react2.default.createElement(
         "ul",
-        { className: "comment-list" },
+        { id: "comment-list" },
         _react2.default.createElement(
           "h4",
           null,

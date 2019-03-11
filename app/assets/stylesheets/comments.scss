@@ -2,10 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.comments-list {
+#comments-list {
   display: flex;
   flex-direction: column;
   padding: 30px;
+  width: 200px;
 }
 
 .comment-container {

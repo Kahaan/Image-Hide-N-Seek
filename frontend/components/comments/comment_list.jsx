@@ -42,7 +42,7 @@ class CommentList extends React.Component {
     const comments = this.props.comments;
     console.log(comments);
     return (
-      <ul className="comment-list">
+      <ul id="comment-list">
         <h4>Comments</h4>
         {Object.keys(comments).map(key => (
           <li className="comment-container" key={key}>
