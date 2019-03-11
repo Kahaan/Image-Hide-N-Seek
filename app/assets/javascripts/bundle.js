@@ -49498,7 +49498,7 @@ var Footer = function Footer() {
     { className: "footer" },
     _react2.default.createElement(
       "section",
-      { className: "foot-left", id: "foot-left" },
+      { className: "foot-left" },
       _react2.default.createElement(
         "p",
         null,
