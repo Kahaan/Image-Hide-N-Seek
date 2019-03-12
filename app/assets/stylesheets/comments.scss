@@ -25,6 +25,7 @@
   display: flex;
   flex-direction: row;
   background-color: #fff;
+  border: 2px solid black;
   // background-color: #f9f9f9;
   border-radius: 15px;
 }
@@ -38,10 +39,13 @@
 }
 
 .comment-user {
-  font-size: 14px;
-  font-weight: bold;
+  font-size: 15px;
+  font-family: "Merriweather";
+  font-weight: 900;
+  color: black;
   margin-bottom: 5px;
   display: block;
+  text-decoration: none;
 }
 
 .comment-body {
