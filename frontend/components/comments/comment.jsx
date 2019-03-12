@@ -38,6 +38,7 @@ class Comment extends React.Component {
           </Link>
           <form className="comment-body" onSubmit={this.handleSubmit}>
             <input
+              className="comment-input-box"
               type="text"
               placeholder="Add new comment"
               value={this.state.body}

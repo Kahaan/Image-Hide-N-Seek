@@ -48986,6 +48986,7 @@ var Comment = function (_React$Component) {
             "form",
             { className: "comment-body", onSubmit: this.handleSubmit },
             _react2.default.createElement("input", {
+              className: "comment-input-box",
               type: "text",
               placeholder: "Add new comment",
               value: this.state.body,

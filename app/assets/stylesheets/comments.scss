@@ -29,6 +29,14 @@
   border-radius: 15px;
 }
 
+.comment-input-box {
+  border: 0px solid;
+}
+
+.comment-input-box:focus {
+  outline: none;
+}
+
 .comment-user {
   font-size: 14px;
   font-weight: bold;
