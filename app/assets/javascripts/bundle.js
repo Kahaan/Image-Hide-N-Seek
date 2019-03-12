@@ -48635,8 +48635,7 @@ var PostDetail = function (_React$Component) {
             null,
             this.state.message
           ),
-          _react2.default.createElement(_comment_list_container2.default, { post: this.props.post }),
-          "// TODO: When creating a comment for the first time the username // // // doesn't render!"
+          _react2.default.createElement(_comment_list_container2.default, { post: this.props.post })
         )
       );
     }
@@ -48782,10 +48781,9 @@ var CommentList = function (_React$Component) {
 
       var comments = this.props.comments;
       console.log(comments);
-      var style = { width: "50%" };
       return _react2.default.createElement(
         "ul",
-        { id: "comment-list", style: style },
+        { id: "comment-list" },
         _react2.default.createElement(
           "h4",
           null,
@@ -48814,7 +48812,11 @@ var CommentList = function (_React$Component) {
                   { className: "comment-body" },
                   comments[key].body
                 ),
-                _this3.deleteCommentButton(comments[key])
+                _react2.default.createElement(
+                  "span",
+                  { className: "trash-can" },
+                  _this3.deleteCommentButton(comments[key])
+                )
               )
             )
           );

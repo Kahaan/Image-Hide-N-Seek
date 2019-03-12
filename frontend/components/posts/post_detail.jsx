@@ -101,8 +101,6 @@ class PostDetail extends React.Component {
           </form>
           <p>{this.state.message}</p>
           <CommentListContainer post={this.props.post} />
-          // TODO: When creating a comment for the first time the username // //
-          // doesn't render!
         </Modal>
       </div>
     );

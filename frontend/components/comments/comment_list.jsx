@@ -41,9 +41,8 @@ class CommentList extends React.Component {
   render() {
     const comments = this.props.comments;
     console.log(comments);
-    const style = { width: "50%" };
     return (
-      <ul id="comment-list" style={style}>
+      <ul id="comment-list">
         <h4>Comments</h4>
         {Object.keys(comments).map(key => (
           <li className="comment-container" key={key}>
@@ -56,7 +55,9 @@ class CommentList extends React.Component {
                   {comments[key].username}
                 </Link>
                 <span className="comment-body">{comments[key].body}</span>
-                {this.deleteCommentButton(comments[key])}
+                <span className="trash-can">
+                  {this.deleteCommentButton(comments[key])}
+                </span>
               </div>
             </div>
           </li>
