@@ -13,8 +13,6 @@
 .comment-container {
   margin-bottom: 15px;
   padding: 10px;
-  display: flex;
-  flex-direction: row;
   background-color: #fff;
   border-radius: 15px;
 }
@@ -22,8 +20,6 @@
 .new-comment-container {
   margin-bottom: 15px;
   padding: 10px;
-  display: flex;
-  flex-direction: row;
   background-color: #fff;
   border: 2px solid black;
   // background-color: #f9f9f9;
@@ -49,7 +45,10 @@
 }
 
 .comment-body {
-  font-size: 14px;
+  font-size: 12px;
+  font-family: "Merriweather";
+  font-weight: 900;
+  color: black;
 }
 
 .comment-right {
