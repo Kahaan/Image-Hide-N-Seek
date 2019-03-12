@@ -2,6 +2,7 @@ import React from "react";
 import Modal from "react-modal";
 import style from "./modal_style";
 import CommentListContainer from "../comments/comment_list_container";
+import ReactLoading from "react-loading";
 
 class PostDetail extends React.Component {
   constructor(props) {
@@ -76,6 +77,7 @@ class PostDetail extends React.Component {
             <img src={this.props.post.image_url} />
           </div>
           <h4>Message:</h4>
+          <ReactLoading type={"balls"} color="black" />
           <span>
             <button className="modal-btn decode" onClick={this.handleDecode}>
               Decode
