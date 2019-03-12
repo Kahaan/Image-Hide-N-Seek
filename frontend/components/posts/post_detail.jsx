@@ -10,7 +10,8 @@ class PostDetail extends React.Component {
     this.state = {
       modalOpen: false,
       message: "",
-      secret: ""
+      secret: "",
+      loading: false
     };
     this.closeModal = this.closeModal.bind(this);
     this.openModal = this.openModal.bind(this);
@@ -25,11 +26,10 @@ class PostDetail extends React.Component {
   }
 
   handleDecode() {
-    this.props.decodePost(this.props.post.id);
-    // .then(() => {
-    //   let message = this.props.message;
-    //   this.setState({ message });
-    // });
+    this.setState({ loading: true });
+    this.props.decodePost(this.props.post.id).then(() => {
+      this.loading = false;
+    });
   }
 
   handleSubmit(event) {

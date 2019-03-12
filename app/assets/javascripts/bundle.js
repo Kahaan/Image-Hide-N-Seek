@@ -48498,7 +48498,8 @@ var PostDetail = function (_React$Component) {
     _this.state = {
       modalOpen: false,
       message: "",
-      secret: ""
+      secret: "",
+      loading: false
     };
     _this.closeModal = _this.closeModal.bind(_this);
     _this.openModal = _this.openModal.bind(_this);
@@ -48517,11 +48518,12 @@ var PostDetail = function (_React$Component) {
   }, {
     key: "handleDecode",
     value: function handleDecode() {
-      this.props.decodePost(this.props.post.id);
-      // .then(() => {
-      //   let message = this.props.message;
-      //   this.setState({ message });
-      // });
+      var _this2 = this;
+
+      this.setState({ loading: true });
+      this.props.decodePost(this.props.post.id).then(function () {
+        _this2.loading = false;
+      });
     }
   }, {
     key: "handleSubmit",

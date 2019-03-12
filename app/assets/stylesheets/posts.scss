@@ -40,7 +40,18 @@ img {
   // display: none;
 }
 
-// TODO: Image creeps out of padding when hover
+.Post-load {
+  background: #000;
+  opacity: 0.6;
+  position: fixed;
+  z-index: 10;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+.Post-load {
+}
 
 .Post:hover {
   transform: scale(1.1);
