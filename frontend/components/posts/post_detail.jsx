@@ -76,7 +76,7 @@ class PostDetail extends React.Component {
           <div className="modal-image">
             <img src={this.props.post.image_url} />
           </div>
-          <h4>Message:</h4>
+          <h4>{this.props.post.body}</h4>
           <ReactLoading type={"balls"} color="black" />
           <span>
             <button className="modal-btn decode" onClick={this.handleDecode}>

@@ -30272,11 +30272,12 @@ var style = {
   content: {
     position: "fixed",
     margin: "auto",
-    width: "72vw",
+    width: "45vw",
     height: "90vh",
     border: "1px solid #000",
     zIndex: 11,
 
+    // backgroundColor: "#FFF7F8"
     backgroundColor: "#ffffff"
   }
 };
@@ -48593,7 +48594,7 @@ var PostDetail = function (_React$Component) {
           _react2.default.createElement(
             "h4",
             null,
-            "Message:"
+            this.props.post.body
           ),
           _react2.default.createElement(_reactLoading2.default, { type: "balls", color: "black" }),
           _react2.default.createElement(
@@ -48781,9 +48782,10 @@ var CommentList = function (_React$Component) {
 
       var comments = this.props.comments;
       console.log(comments);
+      var style = { width: "50%" };
       return _react2.default.createElement(
         "ul",
-        { id: "comment-list" },
+        { id: "comment-list", style: style },
         _react2.default.createElement(
           "h4",
           null,

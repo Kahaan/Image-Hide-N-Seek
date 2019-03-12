@@ -41,8 +41,9 @@ class CommentList extends React.Component {
   render() {
     const comments = this.props.comments;
     console.log(comments);
+    const style = { width: "50%" };
     return (
-      <ul id="comment-list">
+      <ul id="comment-list" style={style}>
         <h4>Comments</h4>
         {Object.keys(comments).map(key => (
           <li className="comment-container" key={key}>

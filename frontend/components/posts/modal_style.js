@@ -11,11 +11,12 @@ const style = {
   content: {
     position: "fixed",
     margin: "auto",
-    width: "72vw",
+    width: "45vw",
     height: "90vh",
     border: "1px solid #000",
     zIndex: 11,
 
+    // backgroundColor: "#FFF7F8"
     backgroundColor: "#ffffff"
   }
 };

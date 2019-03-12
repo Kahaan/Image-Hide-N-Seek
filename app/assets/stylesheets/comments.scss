@@ -2,26 +2,31 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#comments-list {
+#comment-list {
   display: flex;
   flex-direction: column;
   padding: 30px;
-  width: 200px;
+  width: 49%;
+  background-color: #fff0f2;
 }
 
 .comment-container {
   margin-bottom: 15px;
-  padding: 5px;
+  padding: 10px;
   display: flex;
   flex-direction: row;
+  background-color: #fff;
+  border-radius: 15px;
 }
 
 .new-comment-container {
   margin-bottom: 15px;
-  padding: 5px;
+  padding: 10px;
   display: flex;
   flex-direction: row;
-  background-color: #f9f9f9;
+  background-color: #fff;
+  // background-color: #f9f9f9;
+  border-radius: 15px;
 }
 
 .comment-user {
