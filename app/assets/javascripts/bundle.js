@@ -30272,7 +30272,7 @@ var style = {
   content: {
     position: "fixed",
     margin: "auto",
-    width: "45vw",
+    width: "35vw",
     height: "90vh",
     border: "1px solid #000",
     zIndex: 11,
