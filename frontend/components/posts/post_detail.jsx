@@ -28,7 +28,7 @@ class PostDetail extends React.Component {
   handleDecode() {
     this.setState({ loading: true });
     this.props.decodePost(this.props.post.id).then(() => {
-      this.loading = false;
+      this.state.loading = false;
     });
   }
 

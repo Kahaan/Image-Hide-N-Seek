@@ -48525,7 +48525,7 @@ var PostDetail = function (_React$Component) {
 
       this.setState({ loading: true });
       this.props.decodePost(this.props.post.id).then(function () {
-        _this2.loading = false;
+        _this2.state.loading = false;
       });
     }
   }, {
