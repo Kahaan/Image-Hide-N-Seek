@@ -25,9 +25,11 @@ export const clearComments = () => ({
 });
 
 export const createComment = comment => dispatch =>
-  APIUtil.createComment(comment).then(comment =>
-    dispatch(receiveComment(comment))
-  );
+  APIUtil.createComment(comment).then(commentResponse => {
+    commentResponse.username = comment.comment.username;
+    debugger;
+    dispatch(receiveComment(commentResponse));
+  });
 
 export const deleteComment = commentId => dispatch =>
   APIUtil.deleteComment(commentId).then(comment =>

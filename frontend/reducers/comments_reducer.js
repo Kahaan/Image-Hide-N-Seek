@@ -13,6 +13,7 @@ export const commentsReducer = (state = {}, action) => {
       return action.comments;
     case RECEIVE_COMMENT:
       const newComment = { [action.comment.id]: action.comment };
+      console.log(newComment);
       return merge({}, state, newComment);
     case REMOVE_COMMENT:
       const newState = merge({}, state);

@@ -24671,8 +24671,10 @@ var clearComments = exports.clearComments = function clearComments() {
 
 var createComment = exports.createComment = function createComment(comment) {
   return function (dispatch) {
-    return APIUtil.createComment(comment).then(function (comment) {
-      return dispatch(receiveComment(comment));
+    return APIUtil.createComment(comment).then(function (commentResponse) {
+      commentResponse.username = comment.comment.username;
+      debugger;
+      dispatch(receiveComment(commentResponse));
     });
   };
 };
@@ -49716,6 +49718,7 @@ var commentsReducer = exports.commentsReducer = function commentsReducer() {
       return action.comments;
     case _comment_actions.RECEIVE_COMMENT:
       var newComment = _defineProperty({}, action.comment.id, action.comment);
+      console.log(newComment);
       return (0, _lodash.merge)({}, state, newComment);
     case _comment_actions.REMOVE_COMMENT:
       var newState = (0, _lodash.merge)({}, state);
