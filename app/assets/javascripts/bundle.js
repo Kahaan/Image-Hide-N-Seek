@@ -46191,7 +46191,7 @@ var Splash = function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       var options = {
-        strings: ["<h1>The background image you're looking at has 15,000 words encryted into it.</h1><h1>Try encoding your own pictures!</h1>"
+        strings: ["<h1>The background image you're looking at has 15,000 words encryted into it.</h1><h1>Don't believe me?</h1><h1>Try encoding your own pictures!</h1>"
         // "<h1>Try encoding your own pictures!</h1>"
         ],
         typeSpeed: 30
