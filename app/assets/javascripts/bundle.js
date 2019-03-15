@@ -46204,17 +46204,17 @@ var Splash = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         "div",
-        null,
+        { className: "container" },
         _react2.default.createElement(
           "section",
           { className: "parallax" },
-          _react2.default.createElement("div", { className: "element" }),
           _react2.default.createElement(
             "section",
             { className: "splash-text" },
             this.demoButton()
           )
-        )
+        ),
+        _react2.default.createElement("div", { className: "element" })
       );
     }
   }]);

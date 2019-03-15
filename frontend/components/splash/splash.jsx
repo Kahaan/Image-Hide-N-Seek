@@ -40,11 +40,11 @@ class Splash extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <section className="parallax">
-          <div className="element" />
           <section className="splash-text">{this.demoButton()}</section>
         </section>
+        <div className="element" />
       </div>
     );
   }
