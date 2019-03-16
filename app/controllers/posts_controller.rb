@@ -14,8 +14,7 @@ class PostsController < ApplicationController
     # body = params[:body]
     # image = params[:image]
     @post = Post.new(post_params)
-    @post.user_id = current_user.id
-
+    # @post.user_id = current_user.id
     if @post.save
       image = ImageManipulator.new(@post.image.path)
       image.encode("no message yet", @post.image.path)

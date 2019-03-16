@@ -32,8 +32,14 @@ class PostIndex extends React.Component {
     const post = this.state;
     delete post["modalOpen"];
     post.user_id = this.props.currentUser.id;
+
+    const fd = new FormData();
+    fd.append("post[image]", post.image);
+    fd.append("post[user_id]", post.user_id);
+    fd.append("post[body]", post.body);
+
     console.log("handleSubmit---", post);
-    this.props.createPost(post);
+    this.props.createPost(fd);
     this.setState({ body: "", image: "", modalOpen: false });
   }
 
@@ -53,6 +59,7 @@ class PostIndex extends React.Component {
   // TODO: When signing in for the first time posts don't render
 
   render() {
+    console.log(this.state);
     const posts = this.props.posts;
     const imageKeys = Object.keys(posts).filter(key => key != "message");
     return (
