@@ -10,15 +10,10 @@ class PostsController < ApplicationController
   end
 
   def create
-    # user_id = params[:user_id]
-    # body = params[:body]
-    # image = params[:image]
     @post = Post.new(post_params)
-    # @post.user_id = current_user.id
     if @post.save
       image = ImageManipulator.new(@post.image.path)
       image.encode("no message yet", @post.image.path)
-      redirect_to @post
     else
       render @post.errors.full_messages
     end
