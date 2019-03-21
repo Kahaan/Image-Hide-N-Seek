@@ -79,10 +79,12 @@ class PostDetail extends React.Component {
                 <ReactLoading type={"bubbles"} color="black" />
               </div>
             ) : (
-              <img src={this.props.post.image_url} />
+              <div>
+                <img src={this.props.post.image_url} />
+                <h4 className="caption">{this.props.post.body}</h4>
+              </div>
             )}
           </div>
-          <h4>{this.props.post.body}</h4>
 
           <span>
             <button className="modal-btn decode" onClick={this.handleDecode}>

@@ -91,6 +91,12 @@ img {
   width: 200px;
 }
 
+.caption {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .encode-form {
   display: none;
 }
