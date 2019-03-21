@@ -48600,8 +48600,8 @@ var PostDetail = function (_React$Component) {
             { className: "modal-image" },
             this.state.loading ? _react2.default.createElement(
               "div",
-              null,
-              " Loading..."
+              { className: "modal-image loading" },
+              _react2.default.createElement(_reactLoading2.default, { type: "bubbles", color: "black" })
             ) : _react2.default.createElement("img", { src: this.props.post.image_url })
           ),
           _react2.default.createElement(
@@ -48609,7 +48609,6 @@ var PostDetail = function (_React$Component) {
             null,
             this.props.post.body
           ),
-          _react2.default.createElement(_reactLoading2.default, { type: "balls", color: "black" }),
           _react2.default.createElement(
             "span",
             null,
