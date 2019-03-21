@@ -86,16 +86,19 @@ class PostDetail extends React.Component {
             )}
           </div>
 
-          <span>
-            <button className="modal-btn decode" onClick={this.handleDecode}>
-              Decode
-            </button>
-          </span>
-          <span>
-            <button className="modal-btn encode" onClick={this.handleEncode}>
-              Encode
-            </button>
-          </span>
+          <div className="buttons">
+            <span>
+              <button className="modal-btn decode" onClick={this.handleDecode}>
+                Decode
+              </button>
+            </span>
+            <span>
+              <button className="modal-btn encode" onClick={this.handleEncode}>
+                Encode
+              </button>
+            </span>
+          </div>
+
           <form onSubmit={this.handleSubmit}>
             <span id="encode-input">
               <input

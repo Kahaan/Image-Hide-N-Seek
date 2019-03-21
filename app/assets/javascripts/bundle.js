@@ -48614,21 +48614,25 @@ var PostDetail = function (_React$Component) {
             )
           ),
           _react2.default.createElement(
-            "span",
-            null,
+            "div",
+            { className: "buttons" },
             _react2.default.createElement(
-              "button",
-              { className: "modal-btn decode", onClick: this.handleDecode },
-              "Decode"
-            )
-          ),
-          _react2.default.createElement(
-            "span",
-            null,
+              "span",
+              null,
+              _react2.default.createElement(
+                "button",
+                { className: "modal-btn decode", onClick: this.handleDecode },
+                "Decode"
+              )
+            ),
             _react2.default.createElement(
-              "button",
-              { className: "modal-btn encode", onClick: this.handleEncode },
-              "Encode"
+              "span",
+              null,
+              _react2.default.createElement(
+                "button",
+                { className: "modal-btn encode", onClick: this.handleEncode },
+                "Encode"
+              )
             )
           ),
           _react2.default.createElement(
