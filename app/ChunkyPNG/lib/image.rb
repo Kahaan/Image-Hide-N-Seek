@@ -10,6 +10,7 @@ class ImageManipulator
     # create error if no image is found at the path
     # create an error if the picutre being decoded doesn't have a message
     @image_path = image_path
+    # @image = ChunkyPNG::Image.from_data_url(@image_path)
     @image = ChunkyPNG::Image.from_file(@image_path)
     @copy = @image
     @bits = img_to_binary(@copy)

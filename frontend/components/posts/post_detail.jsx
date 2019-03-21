@@ -27,7 +27,9 @@ class PostDetail extends React.Component {
 
   handleDecode() {
     this.setState({ loading: true });
-    this.props.decodePost(this.props.post.id);
+    this.props
+      .decodePost(this.props.post.id)
+      .then(() => this.setState({ loading: false }));
   }
 
   handleSubmit(event) {
@@ -44,7 +46,7 @@ class PostDetail extends React.Component {
   }
 
   closeModal() {
-    this.setState({ modalOpen: false, message: "" });
+    this.setState({ modalOpen: false });
   }
 
   openModal() {
@@ -73,10 +75,7 @@ class PostDetail extends React.Component {
         >
           <div className="modal-image">
             {this.state.loading ? (
-              <div>
-                {" "}
-                Loading <img src={this.props.post.image_url} />
-              </div>
+              <div> Loading...</div>
             ) : (
               <img src={this.props.post.image_url} />
             )}

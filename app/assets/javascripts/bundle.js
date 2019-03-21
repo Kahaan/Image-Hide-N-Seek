@@ -48528,8 +48528,12 @@ var PostDetail = function (_React$Component) {
   }, {
     key: "handleDecode",
     value: function handleDecode() {
+      var _this2 = this;
+
       this.setState({ loading: true });
-      this.props.decodePost(this.props.post.id);
+      this.props.decodePost(this.props.post.id).then(function () {
+        return _this2.setState({ loading: false });
+      });
     }
   }, {
     key: "handleSubmit",
@@ -48548,7 +48552,7 @@ var PostDetail = function (_React$Component) {
   }, {
     key: "closeModal",
     value: function closeModal() {
-      this.setState({ modalOpen: false, message: "" });
+      this.setState({ modalOpen: false });
     }
   }, {
     key: "openModal",
@@ -48597,9 +48601,7 @@ var PostDetail = function (_React$Component) {
             this.state.loading ? _react2.default.createElement(
               "div",
               null,
-              " ",
-              "Loading ",
-              _react2.default.createElement("img", { src: this.props.post.image_url })
+              " Loading..."
             ) : _react2.default.createElement("img", { src: this.props.post.image_url })
           ),
           _react2.default.createElement(
@@ -51890,14 +51892,10 @@ var fetchPost = exports.fetchPost = function fetchPost(id) {
 };
 
 var createPost = exports.createPost = function createPost(post) {
-  // const fd = new FormData();
-  // fd.append("image", post.image);
-  // fd.append("user_id", post.user_id);
-  // fd.append("body", post.body);
+  console.log("createPost -", post);
   return $.ajax({
     url: "/posts",
     contentType: false,
-    // contentType: "multipart/form-data",
     processData: false,
     method: "POST",
     data: post

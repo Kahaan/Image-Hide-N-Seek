@@ -14,6 +14,7 @@ class PostsController < ApplicationController
     if @post.save
       image = ImageManipulator.new(@post.image.path)
       image.encode("no message yet", @post.image.path)
+      render json: @post
     else
       render @post.errors.full_messages
     end

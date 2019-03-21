@@ -11,14 +11,10 @@ export const fetchPost = id =>
   });
 
 export const createPost = post => {
-  // const fd = new FormData();
-  // fd.append("image", post.image);
-  // fd.append("user_id", post.user_id);
-  // fd.append("body", post.body);
+  console.log("createPost -", post);
   return $.ajax({
     url: "/posts",
     contentType: false,
-    // contentType: "multipart/form-data",
     processData: false,
     method: "POST",
     data: post
