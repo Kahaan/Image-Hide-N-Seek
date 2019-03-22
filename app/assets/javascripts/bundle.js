@@ -48532,7 +48532,7 @@ var PostDetail = function (_React$Component) {
     value: function handleDecode() {
       var _this2 = this;
 
-      this.setState({ loading: true });
+      this.setState({ loading: true, encode: "hidden" });
       this.props.decodePost(this.props.post.id).then(function () {
         return _this2.setState({ loading: false });
       });
@@ -48658,9 +48658,13 @@ var PostDetail = function (_React$Component) {
             )
           ),
           _react2.default.createElement(
-            "p",
-            null,
-            this.state.message
+            "div",
+            { className: "secret-text" },
+            _react2.default.createElement(
+              "p",
+              null,
+              this.state.message
+            )
           ),
           _react2.default.createElement(_comment_list_container2.default, { post: this.props.post })
         )

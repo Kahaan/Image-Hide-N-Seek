@@ -28,7 +28,7 @@ class PostDetail extends React.Component {
   }
 
   handleDecode() {
-    this.setState({ loading: true });
+    this.setState({ loading: true, encode: "hidden" });
     this.props
       .decodePost(this.props.post.id)
       .then(() => this.setState({ loading: false }));
@@ -117,7 +117,9 @@ class PostDetail extends React.Component {
               <input className="encode-submit" type="submit" value="Submit" />
             </span>
           </form>
-          <p>{this.state.message}</p>
+          <div className="secret-text">
+            <p>{this.state.message}</p>
+          </div>
           <CommentListContainer post={this.props.post} />
         </Modal>
       </div>

@@ -119,9 +119,22 @@ img {
 }
 
 .show textarea {
+  display: flex;
   border: 0px solid;
-  width: 200px;
+  font-family: "Merriweather";
+
+  width: 470px;
   height: 80px;
+}
+
+.secret-text {
+  text-align: center;
+  font-family: "Merriweather";
+  font-weight: bold;
+  // border: 2px solid #ff7b00;
+  // border-radius: 15px;
+  margin-top: 10px;
+  // background-color: #ff7b00;
 }
 
 .fa-plus-circle {
