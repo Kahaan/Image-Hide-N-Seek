@@ -48509,13 +48509,15 @@ var PostDetail = function (_React$Component) {
       modalOpen: false,
       message: "",
       secret: "",
-      loading: false
+      loading: false,
+      encode: "hidden"
     };
     _this.closeModal = _this.closeModal.bind(_this);
     _this.openModal = _this.openModal.bind(_this);
     _this.handleDecode = _this.handleDecode.bind(_this);
     _this.handleSubmit = _this.handleSubmit.bind(_this);
     _this.update = _this.update.bind(_this);
+    _this.toggleEncode = _this.toggleEncode.bind(_this);
     return _this;
   }
 
@@ -48534,6 +48536,12 @@ var PostDetail = function (_React$Component) {
       this.props.decodePost(this.props.post.id).then(function () {
         return _this2.setState({ loading: false });
       });
+    }
+  }, {
+    key: "toggleEncode",
+    value: function toggleEncode() {
+      var css = this.state.encode === "hidden" ? "show" : "hidden";
+      this.setState({ encode: css });
     }
   }, {
     key: "handleSubmit",
@@ -48601,7 +48609,7 @@ var PostDetail = function (_React$Component) {
             this.state.loading ? _react2.default.createElement(
               "div",
               { className: "modal-image loading" },
-              _react2.default.createElement(_reactLoading2.default, { type: "bubbles", color: "black" })
+              _react2.default.createElement(_reactLoading2.default, { type: "bubbles", color: "green" })
             ) : _react2.default.createElement(
               "div",
               null,
@@ -48630,25 +48638,24 @@ var PostDetail = function (_React$Component) {
               null,
               _react2.default.createElement(
                 "button",
-                { className: "modal-btn encode", onClick: this.handleEncode },
+                { className: "modal-btn encode", onClick: this.toggleEncode },
                 "Encode"
               )
             )
           ),
           _react2.default.createElement(
             "form",
-            { onSubmit: this.handleSubmit },
+            { className: this.state.encode, onSubmit: this.handleSubmit },
             _react2.default.createElement(
               "span",
-              { id: "encode-input" },
-              _react2.default.createElement("input", {
-                type: "textarea",
-                placeholder: "Add a secret message to encode",
+              null,
+              _react2.default.createElement("textarea", {
+                placeholder: " Add a secret message to encode...",
                 value: this.state.secret,
                 onChange: this.update
-              })
-            ),
-            _react2.default.createElement("input", { type: "submit", value: "Submit" })
+              }),
+              _react2.default.createElement("input", { className: "encode-submit", type: "submit", value: "Submit" })
+            )
           ),
           _react2.default.createElement(
             "p",

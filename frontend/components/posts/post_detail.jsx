@@ -11,13 +11,15 @@ class PostDetail extends React.Component {
       modalOpen: false,
       message: "",
       secret: "",
-      loading: false
+      loading: false,
+      encode: "hidden"
     };
     this.closeModal = this.closeModal.bind(this);
     this.openModal = this.openModal.bind(this);
     this.handleDecode = this.handleDecode.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
+    this.toggleEncode = this.toggleEncode.bind(this);
   }
 
   update(event) {
@@ -30,6 +32,11 @@ class PostDetail extends React.Component {
     this.props
       .decodePost(this.props.post.id)
       .then(() => this.setState({ loading: false }));
+  }
+
+  toggleEncode() {
+    let css = this.state.encode === "hidden" ? "show" : "hidden";
+    this.setState({ encode: css });
   }
 
   handleSubmit(event) {
@@ -76,7 +83,7 @@ class PostDetail extends React.Component {
           <div className="modal-image">
             {this.state.loading ? (
               <div className="modal-image loading">
-                <ReactLoading type={"bubbles"} color="black" />
+                <ReactLoading type={"bubbles"} color="green" />
               </div>
             ) : (
               <div>
@@ -93,22 +100,22 @@ class PostDetail extends React.Component {
               </button>
             </span>
             <span>
-              <button className="modal-btn encode" onClick={this.handleEncode}>
+              <button className="modal-btn encode" onClick={this.toggleEncode}>
                 Encode
               </button>
             </span>
           </div>
 
-          <form onSubmit={this.handleSubmit}>
-            <span id="encode-input">
-              <input
-                type="textarea"
-                placeholder="Add a secret message to encode"
+          <form className={this.state.encode} onSubmit={this.handleSubmit}>
+            <span>
+              <textarea
+                placeholder=" Add a secret message to encode..."
                 value={this.state.secret}
                 onChange={this.update}
               />
+
+              <input className="encode-submit" type="submit" value="Submit" />
             </span>
-            <input type="submit" value="Submit" />
           </form>
           <p>{this.state.message}</p>
           <CommentListContainer post={this.props.post} />

@@ -105,8 +105,23 @@ img {
   font-family: "Merriweather";
 }
 
-.encode-form {
+.hidden {
   display: none;
+}
+
+.show {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #fff;
+  border: 2px solid black;
+  // background-color: #f9f9f9;
+  border-radius: 15px;
+}
+
+.show textarea {
+  border: 0px solid;
+  width: 200px;
+  height: 80px;
 }
 
 .fa-plus-circle {
