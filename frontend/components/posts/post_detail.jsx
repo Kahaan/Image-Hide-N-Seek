@@ -83,7 +83,7 @@ class PostDetail extends React.Component {
           <div className="modal-image">
             {this.state.loading ? (
               <div className="modal-image loading">
-                <ReactLoading type={"bubbles"} color="green" />
+                <ReactLoading type={"bubbles"} color="#f40202" />
               </div>
             ) : (
               <div>

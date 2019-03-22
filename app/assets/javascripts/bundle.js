@@ -48609,7 +48609,7 @@ var PostDetail = function (_React$Component) {
             this.state.loading ? _react2.default.createElement(
               "div",
               { className: "modal-image loading" },
-              _react2.default.createElement(_reactLoading2.default, { type: "bubbles", color: "green" })
+              _react2.default.createElement(_reactLoading2.default, { type: "bubbles", color: "#f40202" })
             ) : _react2.default.createElement(
               "div",
               null,
