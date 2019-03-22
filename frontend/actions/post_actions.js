@@ -4,6 +4,7 @@ export const RECEIVE_POSTS = "RECEIVE_POSTS";
 export const RECEIVE_POST = "RECEIVE_POST";
 export const ENCRYPT_POST = "ENCRYPT_POST";
 export const DECRYPT_POST = "DECRYPT_POST";
+export const CLEAR_MESSAGE = "CLEAR_MESSAGE";
 
 export const receivePost = post => ({
   type: RECEIVE_POST,
@@ -18,6 +19,10 @@ export const receivePosts = posts => ({
 export const decryptPost = message => ({
   type: DECRYPT_POST,
   message
+});
+
+export const clearMessage = () => ({
+  type: CLEAR_MESSAGE
 });
 
 export const fetchPost = id => dispatch =>

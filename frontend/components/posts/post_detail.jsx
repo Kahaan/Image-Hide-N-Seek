@@ -53,7 +53,8 @@ class PostDetail extends React.Component {
   }
 
   closeModal() {
-    this.setState({ modalOpen: false });
+    this.setState({ modalOpen: false, message: "" });
+    this.props.clearMessage();
   }
 
   openModal() {

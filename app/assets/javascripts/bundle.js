@@ -30296,7 +30296,7 @@ exports.default = style;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.decodePost = exports.encodePost = exports.createPost = exports.fetchPosts = exports.fetchPost = exports.decryptPost = exports.receivePosts = exports.receivePost = exports.DECRYPT_POST = exports.ENCRYPT_POST = exports.RECEIVE_POST = exports.RECEIVE_POSTS = undefined;
+exports.decodePost = exports.encodePost = exports.createPost = exports.fetchPosts = exports.fetchPost = exports.clearMessage = exports.decryptPost = exports.receivePosts = exports.receivePost = exports.CLEAR_MESSAGE = exports.DECRYPT_POST = exports.ENCRYPT_POST = exports.RECEIVE_POST = exports.RECEIVE_POSTS = undefined;
 
 var _posts_util = __webpack_require__(306);
 
@@ -30308,6 +30308,7 @@ var RECEIVE_POSTS = exports.RECEIVE_POSTS = "RECEIVE_POSTS";
 var RECEIVE_POST = exports.RECEIVE_POST = "RECEIVE_POST";
 var ENCRYPT_POST = exports.ENCRYPT_POST = "ENCRYPT_POST";
 var DECRYPT_POST = exports.DECRYPT_POST = "DECRYPT_POST";
+var CLEAR_MESSAGE = exports.CLEAR_MESSAGE = "CLEAR_MESSAGE";
 
 var receivePost = exports.receivePost = function receivePost(post) {
   return {
@@ -30327,6 +30328,12 @@ var decryptPost = exports.decryptPost = function decryptPost(message) {
   return {
     type: DECRYPT_POST,
     message: message
+  };
+};
+
+var clearMessage = exports.clearMessage = function clearMessage() {
+  return {
+    type: CLEAR_MESSAGE
   };
 };
 
@@ -47463,6 +47470,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     createPost: function createPost(post) {
       return dispatch((0, _post_actions.createPost)(post));
+    },
+    clearMessage: function clearMessage() {
+      return dispatch((0, _post_actions.clearMessage)());
     }
   };
 };
@@ -47601,7 +47611,8 @@ var PostIndex = function (_React$Component) {
               post: posts[key],
               decodePost: _this2.props.decodePost,
               encodePost: _this2.props.encodePost,
-              message: _this2.props.message
+              message: _this2.props.message,
+              clearMessage: _this2.props.clearMessage
             });
           })
         ),
@@ -48560,7 +48571,8 @@ var PostDetail = function (_React$Component) {
   }, {
     key: "closeModal",
     value: function closeModal() {
-      this.setState({ modalOpen: false });
+      this.setState({ modalOpen: false, message: "" });
+      this.props.clearMessage();
     }
   }, {
     key: "openModal",
@@ -52535,6 +52547,9 @@ var postsReducer = exports.postsReducer = function postsReducer() {
       return (0, _lodash.merge)({}, state, _newState);
     case _post_actions.DECRYPT_POST:
       var message = action.message;
+      return (0, _lodash.merge)({}, state, message);
+    case _post_actions.CLEAR_MESSAGE:
+      message = "";
       return (0, _lodash.merge)({}, state, message);
     default:
       return state;

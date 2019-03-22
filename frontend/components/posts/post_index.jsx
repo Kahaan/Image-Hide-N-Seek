@@ -76,6 +76,7 @@ class PostIndex extends React.Component {
               decodePost={this.props.decodePost}
               encodePost={this.props.encodePost}
               message={this.props.message}
+              clearMessage={this.props.clearMessage}
             />
           ))}
         </ul>
