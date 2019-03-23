@@ -24673,7 +24673,6 @@ var createComment = exports.createComment = function createComment(comment) {
   return function (dispatch) {
     return APIUtil.createComment(comment).then(function (commentResponse) {
       commentResponse.username = comment.comment.username;
-      debugger;
       dispatch(receiveComment(commentResponse));
     });
   };

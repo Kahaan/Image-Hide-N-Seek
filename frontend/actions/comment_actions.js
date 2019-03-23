@@ -27,7 +27,6 @@ export const clearComments = () => ({
 export const createComment = comment => dispatch =>
   APIUtil.createComment(comment).then(commentResponse => {
     commentResponse.username = comment.comment.username;
-    debugger;
     dispatch(receiveComment(commentResponse));
   });
 
