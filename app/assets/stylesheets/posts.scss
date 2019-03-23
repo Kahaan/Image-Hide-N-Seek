@@ -121,10 +121,13 @@ img {
 .show textarea {
   display: flex;
   border: 0px solid;
-  font-family: "Merriweather";
+  font: "Merriweather";
+  font-size: 18px;
   font-weight: bold;
   width: 470px;
   height: 80px;
+  resize: none;
+  outline: none;
 }
 
 .secret-text {
