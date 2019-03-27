@@ -18,7 +18,6 @@ class PostsController < ApplicationController
     if @post.save
       s3 = Aws::S3::Resource.new(region: 'us-west-1', access_key_id: Rails.application.credentials.aws[:access_key_id], secret_access_key: Rails.application.credentials.aws[:secret_access_key])
       obj = s3.bucket('image-hide-n-seek').object(@post.image.path[1..-1])
-      puts @post.image.path, obj.exists?, @post.image.url, obj.public_url
       obj.get(response_target: file.path)
 
       image = ImageManipulator.new(file.path)
