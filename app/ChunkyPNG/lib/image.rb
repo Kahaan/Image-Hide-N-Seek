@@ -16,6 +16,7 @@ class ImageManipulator
     @bits = img_to_binary(@copy)
   end
 
+
   def img_to_binary(image)
     color_values = image.pixels
     rgba_values = color_values.map { |colorval| ChunkyPNG::Color.to_truecolor_alpha_bytes(colorval) }

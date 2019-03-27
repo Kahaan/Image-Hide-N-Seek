@@ -1,4 +1,5 @@
 require_relative '../ChunkyPNG/lib/image.rb'
+require 'tempfile'
 
 
 class PostsController < ApplicationController
@@ -9,11 +10,25 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+
   def create
     @post = Post.new(post_params)
+    file = Tempfile.new('temp')
+
     if @post.save
-      image = ImageManipulator.new(@post.image.path)
-      image.encode("no message yet", @post.image.path)
+      s3 = Aws::S3::Resource.new(region: 'us-west-1', access_key_id: Rails.application.credentials.aws[:access_key_id], secret_access_key: Rails.application.credentials.aws[:secret_access_key])
+      obj = s3.bucket('image-hide-n-seek').object(@post.image.path[1..-1])
+      puts @post.image.path, obj.exists?, @post.image.url, obj.public_url
+      obj.get(response_target: file.path)
+
+      image = ImageManipulator.new(file.path)
+      #
+      # image = ImageManipulator.new(@post.image.path)
+      image.encode("no message yet", file.path)
+      obj.upload_file(file.path)
+
+
+
       render json: @post
     else
       render @post.errors.full_messages
