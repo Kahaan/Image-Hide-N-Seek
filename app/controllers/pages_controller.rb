@@ -19,10 +19,8 @@ class PagesController < ApplicationController
 
     image = ImageManipulator.new(file.path)
     image.encode(params[:secret], file.path)
-    obj.upload_file(file.path)  
-    # image = ImageManipulator.new(@post.image.path)
-    # image.encode(params[:secret], @post.image.path)
-    # TODO: Return some text to display while encrypting
+    obj.upload_file(file.path)
+
   end
 
   def decrypt

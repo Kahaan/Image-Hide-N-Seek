@@ -20,9 +20,8 @@ class PostsController < ApplicationController
       obj = s3.bucket('image-hide-n-seek').object(@post.image.path[1..-1])
       obj.get(response_target: file.path)
 
-      image = ImageManipulator.new(file.path)
-      #
       # image = ImageManipulator.new(@post.image.path)
+      image = ImageManipulator.new(file.path)
       image.encode("no message yet", file.path)
       obj.upload_file(file.path)
 
