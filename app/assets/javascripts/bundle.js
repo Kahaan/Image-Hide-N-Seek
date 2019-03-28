@@ -52657,7 +52657,7 @@ var sessionReducer = exports.sessionReducer = function sessionReducer() {
   switch (action.type) {
     case _session_actions.RECEIVE_CURRENT_USER:
       var currentUser = action.currentUser;
-      return (0, _lodash2.default)({}, state, { currentUser: currentUser });
+      return _.merge({}, state, { currentUser: currentUser });
     case _session_actions.RECEIVE_ERRORS:
       var errors = action.errors;
       return (0, _lodash2.default)({}, state, { errors: errors });
