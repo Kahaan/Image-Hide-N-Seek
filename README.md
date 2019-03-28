@@ -20,3 +20,5 @@ The idea behind the app is to create a fun introduction for users to the world o
 <img src="https://user-images.githubusercontent.com/26920351/36052477-a6e7e416-0da2-11e8-813a-1ee556d4d8b0.png" height="50"> <img src="https://user-images.githubusercontent.com/26920351/36052488-b2fb00b2-0da2-11e8-995b-aeac3b9e68bb.png" height="50">
 
 # Features & Implementation
+
+<img src="./assets/images/splash.png">
