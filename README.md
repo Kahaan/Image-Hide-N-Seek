@@ -21,4 +21,9 @@ The idea behind the app is to create a fun introduction for users to the world o
 
 # Features & Implementation
 
+1. Users can Sign up, Login, and Log out
+2. Image uploads to s3
+3. Photos can be encoded with text messages that are hidden into the pixels
+4. Users can decode images to retrieve hidden messages
+
 <img src="http://g.recordit.co/XCwO16ccRD.gif">
