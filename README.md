@@ -21,4 +21,4 @@ The idea behind the app is to create a fun introduction for users to the world o
 
 # Features & Implementation
 
-<img src="./assets/images/splash.png">
+<img src="http://g.recordit.co/XCwO16ccRD.gif">
