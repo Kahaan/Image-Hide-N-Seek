@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :users, defaults: {format: :json}
   resource :session, only: [:create, :destroy, :show]
 
-  get 'posts/:id/encode', to: 'pages#encode_view', as: 'encode_image'
+  # get 'posts/:id/encode', to: 'pages#encode_view', as: 'encode_image'
   patch 'posts/:id/encrypt', to: 'pages#encrypt', as: 'encrypt_image'
   get 'posts/:id/decrypt', to: 'pages#decrypt', as: 'decrypt_image', :defaults => { format: :json }
 

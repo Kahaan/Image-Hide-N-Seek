@@ -77,4 +77,13 @@ The idea behind the app is to create a fun introduction for users to the world o
 
 ---
 
+### Custom Routes for encrypting Images
+
+---
+
+- `patch 'posts/:id/encrypt', to: 'pages#encrypt', as: 'encrypt_image'`
+- `get 'posts/:id/decrypt', to: 'pages#decrypt', as: 'decrypt_image', :defaults => { format: :json }`
+
+---
+
 ## Future Features
