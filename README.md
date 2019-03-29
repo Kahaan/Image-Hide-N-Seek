@@ -21,7 +21,7 @@ The idea behind the app is to create a fun introduction for users to the world o
 
 # Features & Implementation
 
-1. **Secure Auth:** Users can Sign up, Login (or demo login), and Log out
+1. **Secure Auth:** Using BCrypt for password-salting and hashing, Users can Sign up, Login/demo-login, or Log out
 
    <p align="left">
     <img src="http://g.recordit.co/eAup4HpFLh.gif" width="500" >
