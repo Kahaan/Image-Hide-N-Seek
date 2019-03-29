@@ -47624,6 +47624,11 @@ var PostIndex = function (_React$Component) {
             style: _modal_style2.default
           },
           _react2.default.createElement(
+            "p",
+            { className: "imageUploadText" },
+            "You can upload PNG format images and encrypt them with your own message!"
+          ),
+          _react2.default.createElement(
             "form",
             { onSubmit: this.handleSubmit },
             _react2.default.createElement("input", { type: "file", onChange: this.updateImage }),

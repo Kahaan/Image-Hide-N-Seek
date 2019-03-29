@@ -87,6 +87,10 @@ class PostIndex extends React.Component {
           onRequestClose={this.closeModal}
           style={style}
         >
+          <p className="imageUploadText">
+            You can upload PNG format images and encrypt them with your own
+            message!
+          </p>
           <form onSubmit={this.handleSubmit}>
             <input type="file" onChange={this.updateImage} />
             <input type="text" onChange={this.updateBody} />
