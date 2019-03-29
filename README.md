@@ -27,4 +27,6 @@ The idea behind the app is to create a fun introduction for users to the world o
 4. **Decrypting Images:** Users can decode images to retrieve hidden messages
 5. **Comments:** Users can comment on posts
 
-<img src="http://recordit.co/MTGqf6JcCm">
+<p align="center">
+<img src="http://recordit.co/MTGqf6JcCm" width='500'>
+</p>
