@@ -75,8 +75,6 @@ The idea behind the app is to create a fun introduction for users to the world o
 | post_id     | Integer   | not null, foreign key |
 | body        | String    |
 
----
-
 ### Custom Routes for encrypting Images
 
 ---
@@ -84,6 +82,10 @@ The idea behind the app is to create a fun introduction for users to the world o
 - `patch 'posts/:id/encrypt', to: 'pages#encrypt', as: 'encrypt_image'`
 - `get 'posts/:id/decrypt', to: 'pages#decrypt', as: 'decrypt_image', :defaults => { format: :json }`
 
+## Future Features
+
 ---
 
-## Future Features
+- **Searching Posts by caption:** Allow users to search for posts by keyword
+- **Encrypting Images with other Images:** Allow users to hide images within other images
+- **Encryption of JPEG files:** Refactor encryption logic to allow for jpeg files in addition to png
