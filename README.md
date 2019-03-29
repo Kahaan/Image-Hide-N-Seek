@@ -77,14 +77,10 @@ The idea behind the app is to create a fun introduction for users to the world o
 
 ### Custom Routes for encrypting Images
 
----
-
 - `patch 'posts/:id/encrypt', to: 'pages#encrypt', as: 'encrypt_image'`
 - `get 'posts/:id/decrypt', to: 'pages#decrypt', as: 'decrypt_image', :defaults => { format: :json }`
 
 ## Future Features
-
----
 
 - **Searching Posts by caption:** Allow users to search for posts by keyword
 - **Encrypting Images with other Images:** Allow users to hide images within other images
