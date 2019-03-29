@@ -28,5 +28,5 @@ The idea behind the app is to create a fun introduction for users to the world o
 5. **Comments:** Users can comment on posts
 
 <p align="center">
-<img src="http://recordit.co/MTGqf6JcCm" width='500'>
+<img src="http://recordit.co/MTGqf6JcCm.gif" width='500'>
 </p>
