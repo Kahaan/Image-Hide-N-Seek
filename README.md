@@ -2,7 +2,7 @@
 
 Image-hide-n-seek is a portfolio showcase web application. It's a full-stack app built using a `Ruby on Rails` backend, `PostgreSQL` database, and `React/Redux` front-end architecture.
 
-The idea behind the app is to create a fun introduction for users to the world of digital steganography (the encryption of files (images in this case) with hidden data)
+The idea behind the app is to create a fun introduction for users to the world of digital steganography (the encryption of files (images in this case) with hidden data). Simply put, users can hide large amounts of text in images without altering the appearance to the human eye.
 
 # Technologies Used
 
@@ -36,3 +36,45 @@ The idea behind the app is to create a fun introduction for users to the world o
    </p>
 
 5. **Comments:** Users can comment on posts
+6. Image hosting on AWS
+
+## Database Schema
+
+### Users
+
+---
+
+| Column Name     | Data Type | Details                   |
+| --------------- | --------- | ------------------------- |
+| id              | Integer   | primary key, not null     |
+| username        | String    | not null, indexed, unique |
+| password_digest | String    | not null ,indexed, unique |
+| session_token   | String    | not null, indexed, unique |
+
+### Posts
+
+---
+
+| Column Name        | Data Type | Details               |
+| ------------------ | --------- | --------------------- |
+| id                 | Integer   | primary key, not null |
+| user_id            | Integer   | not null, foreign key |
+| body               | String    |                       |
+| image_file_name    | String    | not null              |
+| image_content_type | String    | not null              |
+| image_file_size    | Integer   | not null              |
+
+### Comments
+
+---
+
+| Column Name | Data Type | Details               |
+| ----------- | --------- | --------------------- |
+| id          | Integer   | primary key, not null |
+| user_id     | Integer   | not null, foreign key |
+| post_id     | Integer   | not null, foreign key |
+| body        | String    |
+
+---
+
+## Future Features
