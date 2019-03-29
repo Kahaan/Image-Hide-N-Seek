@@ -62,6 +62,17 @@ class PostDetail extends React.Component {
   }
 
   render() {
+    const buttonStyle = {
+      padding: "10px",
+      fontsize: "14px",
+      fontWeight: "bold",
+      margin: "4px 2px",
+      borderRadius: "8px",
+      background: "#ffb361",
+      color: "black",
+      border: "1px solid #ffb361"
+    };
+
     return (
       <div>
         <div className="Post">
@@ -115,7 +126,14 @@ class PostDetail extends React.Component {
                 onChange={this.update}
               />
 
-              <input className="encode-submit" type="submit" value="Submit" />
+              <input
+                className="EncodeSubmit"
+                onClick={this.toggleEncode}
+                className="encode-submit"
+                type="submit"
+                style={buttonStyle}
+                value="Submit"
+              />
             </span>
           </form>
           <div className="secret-text">

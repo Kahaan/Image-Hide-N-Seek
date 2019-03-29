@@ -48501,6 +48501,8 @@ var _reactLoading2 = _interopRequireDefault(_reactLoading);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -48581,6 +48583,19 @@ var PostDetail = function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _React$createElement;
+
+      var buttonStyle = {
+        padding: "10px",
+        fontsize: "14px",
+        fontWeight: "bold",
+        margin: "4px 2px",
+        borderRadius: "8px",
+        background: "#ffb361",
+        color: "black",
+        border: "1px solid #ffb361"
+      };
+
       return _react2.default.createElement(
         "div",
         null,
@@ -48665,7 +48680,10 @@ var PostDetail = function (_React$Component) {
                 value: this.state.secret,
                 onChange: this.update
               }),
-              _react2.default.createElement("input", { className: "encode-submit", type: "submit", value: "Submit" })
+              _react2.default.createElement("input", (_React$createElement = {
+                className: "EncodeSubmit",
+                onClick: this.toggleEncode
+              }, _defineProperty(_React$createElement, "className", "encode-submit"), _defineProperty(_React$createElement, "type", "submit"), _defineProperty(_React$createElement, "style", buttonStyle), _defineProperty(_React$createElement, "value", "Submit"), _React$createElement))
             )
           ),
           _react2.default.createElement(
