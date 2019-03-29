@@ -21,10 +21,9 @@ The idea behind the app is to create a fun introduction for users to the world o
 
 # Features & Implementation
 
-1. **Secure Auth:** Users can Sign up, Login, and Log out
+1. **Secure Auth:** Users can Sign up, Login (or demo login), and Log out
 2. **Image uploads:** Users can upload images to s3
 3. **Image encryption:** Photos can be encoded with text messages that are hidden into the pixels
+   <img src="http://recordit.co/MTGqf6JcCm">
 4. **Decrypting Images:** Users can decode images to retrieve hidden messages
 5. **Comments:** Users can comment on posts
-
-<img src="http://g.recordit.co/XCwO16ccRD.gif">
