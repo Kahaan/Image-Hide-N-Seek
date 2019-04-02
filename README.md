@@ -36,7 +36,6 @@ The idea behind the app is to create a fun introduction for users to the world o
    </p>
 
 5. **Comments:** Users can comment on posts
-6. Image hosting on AWS
 
 ## Database Schema
 
