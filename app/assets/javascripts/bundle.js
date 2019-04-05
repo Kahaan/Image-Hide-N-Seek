@@ -47399,19 +47399,6 @@ var Greeting = function (_React$Component) {
                 "Log Out"
               )
             )
-          ),
-          _react2.default.createElement(
-            _reactRouterDom.Link,
-            { to: "/users/" + this.props.currentUser.id },
-            _react2.default.createElement(
-              "button",
-              { className: "header-button profile" },
-              _react2.default.createElement(
-                "h1",
-                null,
-                "My Profile"
-              )
-            )
           )
         )
       );

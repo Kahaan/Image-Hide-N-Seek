@@ -29,13 +29,13 @@ class Greeting extends React.Component {
               <h1>Log Out</h1>
             </button>
           </Link>
-          /**
+          {/*
           <Link to={`/users/${this.props.currentUser.id}`}>
             <button className="header-button profile">
               <h1>My Profile</h1>
             </button>
           </Link>
-          **/
+          */}
         </div>
       </nav>
     );
