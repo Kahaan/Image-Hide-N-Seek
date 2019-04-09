@@ -1,3 +1,5 @@
+{
+  /*
 import { connect } from "react-redux";
 import { fetchPosts } from "../../actions/post_actions";
 import UserProfile from "./user_profile";
@@ -17,3 +19,5 @@ export default withRouter(
     mapDispatchToProps
   )(UserProfile)
 );
+  */
+}

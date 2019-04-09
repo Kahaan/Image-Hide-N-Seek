@@ -8,11 +8,10 @@ import SplashContainer from "./splash/splash_container";
 import GreetingContainer from "./greeting/greeting_container";
 import PostIndexContainer from "./posts/post_index_container";
 import SessionFormContainer from "./session_form/session_form_container";
+import UserProfileContainer from "./user_profile/user_profile_container";
 import Footer from "./footer/footer";
 
 // import { fetchPosts, fetchPost } from "../actions/post_actions";
-
-// TODO: fontawesome cdn is slow, store locally
 
 const style = { color: "black", fontFamily: "Futura" };
 const App = () => (
