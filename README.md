@@ -1,11 +1,10 @@
 # Table of Contents
 
-[Introduction ](#image-hide-n-seek) •
-[Technologies Used ](#technologies-used) •
-[Features and Implementation ]("#features-and-Implementation") •
-[Future ]("#future-features") •
-[How To Use ]("#how-to-use") •
-[Future Directions ]("#future-directions")
+- [Introduction ](#image-hide-n-seek)
+- [Technologies Used ](#technologies-used)
+- [Features and Implementation ]("#features-and-implementation")
+- [Future ]("#future-features")
+- [How To Use ]("#how-to-use")
 
 # Image-Hide-N-Seek
 
