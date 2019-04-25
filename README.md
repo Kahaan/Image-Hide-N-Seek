@@ -1,12 +1,16 @@
 # Table of Contents
 
-[Technologies Used](#technologies-used) •
-[Features and Implementation]("#features-and-Implementation") •
-[Technologies]("#Technologies") •
-[How To Use]("#how-to-use") •
-[Future Directions]("#future-directions") •
+[Introduction ](#image-hide-n-seek) •
+[Technologies Used ](#technologies-used) •
+[Features and Implementation ]("#features-and-Implementation") •
+[Future ]("#future-features") •
+[How To Use ]("#how-to-use") •
+[Future Directions ]("#future-directions")
 
 # Image-Hide-N-Seek
+
+What if I told you that you could encrypt a thumb size image of the Mona Lisa with upto 16,000 words, and
+the picture wouldn't look even slightly different to the human eye?
 
 Image-hide-n-seek is a portfolio showcase web application. It's a full-stack app built using a `Ruby on Rails` backend, `PostgreSQL` database, and `React/Redux` front-end architecture.
 
@@ -27,7 +31,7 @@ The idea behind the app is to create a fun introduction for users to the world o
 <img src="https://user-images.githubusercontent.com/26920351/36052718-a5709848-0da3-11e8-8a16-bf47966d3f63.png" height="45"> <img src="https://user-images.githubusercontent.com/26920351/36052733-b59ab8f2-0da3-11e8-941b-2afc80a4219e.png" height="40">
 <img src="https://user-images.githubusercontent.com/26920351/36052477-a6e7e416-0da2-11e8-813a-1ee556d4d8b0.png" height="50"> <img src="https://user-images.githubusercontent.com/26920351/36052488-b2fb00b2-0da2-11e8-995b-aeac3b9e68bb.png" height="50">
 
-# Features & Implementation
+# Features and Implementation
 
 1. **Secure Auth:** Using BCrypt for password-salting and hashing, Users can Sign up, Login/demo-login, or Log out
 
