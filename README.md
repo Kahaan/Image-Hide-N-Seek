@@ -1,3 +1,11 @@
+#Table of Contents
+
+[Technologies Used](#technologies-used)
+[Features and Implementation]("#features-and-Implementation")
+[Technologies]("#Technologies")
+[How To Use]("#how-to-use")
+[Future Directions]("#future-directions")
+
 # Image-Hide-N-Seek
 
 Image-hide-n-seek is a portfolio showcase web application. It's a full-stack app built using a `Ruby on Rails` backend, `PostgreSQL` database, and `React/Redux` front-end architecture.
