@@ -1,10 +1,10 @@
-#Table of Contents
+# Table of Contents
 
-[Technologies Used](#technologies-used)
-[Features and Implementation]("#features-and-Implementation")
-[Technologies]("#Technologies")
-[How To Use]("#how-to-use")
-[Future Directions]("#future-directions")
+[Technologies Used](#technologies-used) •
+[Features and Implementation]("#features-and-Implementation") •
+[Technologies]("#Technologies") •
+[How To Use]("#how-to-use") •
+[Future Directions]("#future-directions") •
 
 # Image-Hide-N-Seek
 
