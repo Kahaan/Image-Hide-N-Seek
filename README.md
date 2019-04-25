@@ -1,21 +1,28 @@
 # Table of Contents
 
 - [Introduction ](#image-hide-n-seek)
+- [How To Use ](#how-to-use)
 - [Technologies Used ](#technologies-used)
 - [Features and Implementation ](#features-and-implementation)
 - [Future ](#future-features)
-- [How To Use ](#how-to-use)
 
 # Image-Hide-N-Seek
 
-What if I told you that you could encrypt a thumb size image of the Mona Lisa with upto 16,000 words, and
-the picture wouldn't look even slightly different to the human eye?
+Would you believe me if I told you that you could encrypt a thumb size image of the Mona Lisa with up to 16,000 words, and that the picture wouldn't look any different to the human eye?
 
-Image-hide-n-seek is a portfolio showcase web application. It's a full-stack app built using a `Ruby on Rails` backend, `PostgreSQL` database, and `React/Redux` front-end architecture.
+This sort of image encryption (steganography) is commonly used amongst members of the intelligence community to mask communications in plain sight and can be notoriously tricky to implement correctly (but also quite fun). The goal of the app is to create a fun introduction for users to the world of digital steganography.
 
-The idea behind the app is to create a fun introduction for users to the world of digital steganography (the encryption of files (images in this case) with hidden data). Simply put, users can hide large amounts of text in images without altering the appearance to the human eye.
+# How To Use
+
+- Log in or Sign up for a new account
+- Uploads image of choice
+- Navigate to image and enter text to encode image with
+- Click the decode button and wait while the app reals the images secrets
+- Comment on other users uploaded images and
 
 # Technologies Used
+
+Image-hide-n-seek is a full-stack web application built using a `Ruby on Rails` backend, `PostgreSQL` database, and `React/Redux` front-end architecture.
 
 ## Backend
 
