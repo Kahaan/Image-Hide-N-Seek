@@ -10,7 +10,7 @@
 
 Would you believe me if I told you that you could encrypt a thumb size image of the Mona Lisa with up to 16,000 words, and that the picture wouldn't look any different to the human eye?
 
-This sort of image encryption (steganography) is commonly used amongst members of the intelligence community to mask communications in plain sight and can be notoriously tricky to implement correctly (but also quite fun). The goal of the app is to create a fun introduction for users to the world of digital steganography.
+This sort of image encryption (steganography) is commonly used amongst members of the intelligence community to mask communications in plain sight and can be notoriously tricky to implement correctly (but also quite fun). The custom software I have written here breaks an image down to its pixels and hides a piece of a given secret message in each of those pixels such that the appearance of the image when put together isn't altered. The goal of the app is to create a fun introduction for users to the world of digital steganography.
 
 # How To Use
 
